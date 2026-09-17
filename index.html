@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Weekly Assessment – Week 2 (Group A, B, C) by Mr Ahmed Abd El-Motaal. Interactive Mathematics Question Cards & Stylus Ruled Notebook.">
+  <meta name="description" content="Interactive Mathematics Platform: Similarity of Polygons by Mr Ahmed Abd El-Motaal. Concept, Resizable Stylus Workspaces, MCQ Bank & Timed Quizzes.">
   <meta name="author" content="Mr Ahmed Abd El-Motaal">
-  <title>Weekly Assessment – Week 2 • Mr Ahmed Abd El-Motaal</title>
+  <title>MathQuest Pro • Mr Ahmed Abd El-Motaal</title>
 
-  <!-- KaTeX for Mathematics -->
+  <!-- KaTeX for High-Resolution Mathematical Typography -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
@@ -15,17 +15,39 @@
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260912_8">
 </head>
 <body>
 
   <!-- =========================================================================
+       OFFICIAL PRINT EXAM HEADER BANNER (VISIBLE ONLY DURING PRINT / PDF EXPORT)
+       Educator: Mr Ahmed Abd El-Motaal
+       ========================================================================= -->
+  <div class="print-exam-header-banner" id="printExamHeaderBanner">
+    <div class="print-header-top-row">
+      <div class="print-teacher-brand">
+        <h2>Mr Ahmed Abd El-Motaal</h2>
+        <p><i class="fa-solid fa-graduation-cap"></i> Math Teacher & Content Creator • 📞 Phone: 01019775590 • 💬 WhatsApp: 01019775590</p>
+      </div>
+      <div class="print-lesson-meta">
+        <div class="print-lesson-title" id="printHeaderLessonTitle">Unit 3: Geometry • Lesson 3-1: Similarity of Polygons</div>
+        <span class="print-section-badge" id="printHeaderSectionBadge">Section 1: Concept & Practice</span>
+      </div>
+    </div>
+    <div class="print-student-info-grid">
+      <div class="print-info-field"><strong>Student Name:</strong> _____________________________</div>
+      <div class="print-info-field"><strong>Class / Group:</strong> _____________</div>
+      <div class="print-info-field"><strong>Date:</strong> ___ / ___ / 2026</div>
+      <div class="print-info-field"><strong>Evaluation Score:</strong> [ _____ / 10 ]</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
        SITE HEADER (LOCKED CREDENTIALS — MR AHMED ABD EL-MOTAAL)
        ========================================================================= -->
-  <header class="site-header" style="direction: ltr;">
+  <header class="site-header">
     <div class="header-container">
       <div class="brand-section">
         <div class="avatar-3d-box" title="Mr Ahmed Abd El-Motaal">
@@ -38,13 +60,13 @@
           </h1>
           <div class="brand-sub">
             <span>Math teacher and content creator</span>
-            <span class="pill-badge" id="headerStageBadge"><i class="fa-solid fa-graduation-cap"></i> Weekly Assessment – Week 2 (Proportion)</span>
+            <span class="pill-badge" id="headerStageBadge"><i class="fa-solid fa-graduation-cap"></i> Unit 3: Geometry • Lesson 3-1: Similarity of Polygons</span>
           </div>
         </div>
       </div>
 
       <div class="header-actions">
-        <!-- Direct Contact Buttons -->
+        <!-- Direct Contact Buttons (Inline SVGs guarantee 100% rendering on all mobile devices & Safari) -->
         <a href="tel:01019775590" class="btn-3d btn-phone-3d" title="Call Direct (01019775590)" id="headerPhoneBtn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block; vertical-align:middle;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           <span>01019775590</span>
@@ -58,14 +80,31 @@
           <span>mr Motaal</span>
         </a>
 
-        <!-- Return to Main Lessons Hub -->
-        <a href="../index.html" class="btn-3d" style="background: #2d3436; color: #ffffff; text-decoration: none;" title="العودة للمنصة والدروس الرئيسية">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span>الدروس الرئيسية</span>
-        </a>
+        <!-- Export Sections to Separate PDF Files Button -->
+        <button id="exportPdfBtn" class="btn-3d btn-pdf-export-3d" onclick="openPdfExportModal()" title="تصدير الأقسام إلى ملفات PDF منفصلة">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>تصدير PDF</span>
+        </button>
+
+        <!-- Share Lesson with Students Button -->
+        <button id="shareLessonBtn" class="btn-3d btn-share-3d" onclick="openShareModal()" title="Share This Lesson with Students">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>Share Lesson</span>
+        </button>
+
+
+        <!-- Import / Upload New Lesson Button -->
+        <button id="importLessonBtn" class="icon-btn-3d" title="Import Lesson from Image/PDF">
+          <i class="fa-solid fa-file-arrow-up"></i>
+        </button>
+
+        <!-- Export Active Lesson JSON Button -->
+        <button id="exportJsonBtn" class="icon-btn-3d" onclick="exportActiveLessonJson()" title="Export Active Lesson as JSON">
+          <i class="fa-solid fa-file-export"></i>
+        </button>
 
         <!-- Dark / Light Mode Toggle -->
-        <button id="themeToggleBtn" class="icon-btn-3d" title="تبديل الوضع الليلي / النهاري" onclick="toggleAppTheme()">
+        <button id="themeToggleBtn" class="icon-btn-3d" title="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
       </div>
@@ -73,206 +112,221 @@
   </header>
 
   <!-- =========================================================================
+       LESSON SWITCHER HUB (3D PIXAR DOCK FOR SELECTING ACTIVE LESSON — MR AHMED HUB)
+       ========================================================================= -->
+  <div class="lesson-switcher-bar" id="lessonSwitcherBar">
+    <div class="lesson-switcher-inner">
+      <span class="switcher-label"><i class="fa-solid fa-layer-group"></i> Active Lesson:</span>
+      <div class="lesson-pills-wrap">
+        <button class="lesson-pill-btn active" id="btnLessonPlaceValue" onclick="loadLesson('place_value')">
+          <span class="pill-num">Unit 1 • L1</span>
+          <span>Place Value & Powers of 10</span>
+          <span class="mini-tag">Active</span>
+        </button>
+        <button class="lesson-pill-btn" id="btnLessonProportion" onclick="loadLesson('proportion')">
+          <span class="pill-num">Unit 1 • L2</span>
+          <span>Proportion</span>
+        </button>
+        <button class="lesson-pill-btn" id="btnLessonQuadratic" onclick="loadLesson('quadratic')">
+          <span class="pill-num">Unit 2 • L1</span>
+          <span>Quadratic Function</span>
+        </button>
+        <button class="lesson-pill-btn" id="btnLessonSimilarity" onclick="loadLesson('similarity')">
+          <span class="pill-num">Unit 3 • L1</span>
+          <span>Similarity of Polygons</span>
+        </button>
+        <a href="assessment/index.html" class="lesson-pill-btn" id="btnWeeklyAssessment" style="text-decoration: none; background: linear-gradient(135deg, #6c5ce7, #0984e3); color: #fff;" title="Weekly Assessment - Week 2 (Group A, B, C)">
+          <span class="pill-num" style="background: rgba(255,255,255,0.25); color: #fff;">Week 2</span>
+          <span><i class="fa-solid fa-clipboard-check"></i> Weekly Assessment</span>
+        </a>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:0.5rem; align-items:center;">
+        <a href="lesson_place_value.json" download class="mini-json-link" title="Download Place Value JSON">
+          <i class="fa-solid fa-download"></i> PlaceValue.json
+        </a>
+        <a href="lesson_proportion.json" download class="mini-json-link" title="Download Proportion JSON">
+          <i class="fa-solid fa-download"></i> Proportion.json
+        </a>
+        <a href="lesson_quadratic.json" download class="mini-json-link" title="Download Quadratic JSON">
+          <i class="fa-solid fa-download"></i> Quadratic.json
+        </a>
+        <a href="lesson_similarity.json" download class="mini-json-link" title="Download Similarity JSON">
+          <i class="fa-solid fa-download"></i> Similarity.json
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION TABS (PIXAR 3D PILL DOCK)
+       ========================================================================= -->
+  <div class="tabs-dock-wrapper">
+    <nav class="tabs-dock" aria-label="Lesson Sections">
+      <button class="tab-btn active" data-tab="tab-concept" id="navTabConcept">
+        <i class="fa-solid fa-book-open"></i>
+        <span class="tab-label-full">1. Concept &amp; Practice</span>
+        <span class="tab-label-short">1. Concept</span>
+        <span class="tab-badge">Core</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-mcq" id="navTabMcq">
+        <i class="fa-solid fa-list-check"></i>
+        <span class="tab-label-full">2. MCQ Revision Bank</span>
+        <span class="tab-label-short">2. MCQ Bank</span>
+        <span class="tab-badge">10 Qs</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-quiz" id="navTabQuiz">
+        <i class="fa-solid fa-stopwatch"></i>
+        <span class="tab-label-full">3. Timed Quiz - 10 Marks</span>
+        <span class="tab-label-short">3. Timed Quiz</span>
+        <span class="tab-badge">10 Min</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- =========================================================================
        MAIN CONTENT CONTAINER
        ========================================================================= -->
-  <main class="main-container assessment-suite-wrapper">
+  <main class="main-container">
 
-    <!-- =========================================================================
-         WEEK ASSESSMENT SELECTOR (WEEK 2 • PROPORTION vs WEEK 3 • SETS)
-         ========================================================================= -->
-    <div class="week-selector-hub" id="weekSelectorHub">
-      <div class="week-selector-inner">
-        <span class="week-hub-label"><i class="fa-solid fa-calendar-check"></i> اختر التقييم الأسبوعي:</span>
-        <div class="week-pills-wrap">
-          <button class="week-pill-btn" id="btnWeek2" onclick="AssessmentApp.switchWeek('week2')">
-            <span class="week-badge">Week 2</span>
-            <span>التناسب وتطبيقاته (Proportion)</span>
-          </button>
-          <button class="week-pill-btn" id="btnWeek3" onclick="AssessmentApp.switchWeek('week3')">
-            <span class="week-badge">Week 3</span>
-            <span>المجموعات (Sets & Operations)</span>
-          </button>
-          <button class="week-pill-btn" id="btnWeek4" onclick="AssessmentApp.switchWeek('week4')">
-            <span class="week-badge">Week 4</span>
-            <span>الأعداد الصحيحة (Integers & |z|)</span>
-          </button>
-          <button class="week-pill-btn active" id="btnWeek5" onclick="AssessmentApp.switchWeek('week5')">
-            <span class="week-badge">Week 5</span>
-            <span>الأعداد النسبية (Rational Numbers Q)</span>
-            <span class="mini-tag">الجديد ✨</span>
-          </button>
+    <!-- DYNAMIC HERO LESSON BANNER -->
+    <section class="lesson-hero-banner" id="lessonHeroBanner">
+      <div class="hero-content">
+        <div class="hero-tag" id="heroUnitTag">
+          <i class="fa-solid fa-shapes"></i> Unit 3 • Geometry • Similarity of Polygons
         </div>
+        <h1 class="hero-title" id="heroLessonTitle">Lesson 3-1: Similarity of Polygons</h1>
+        <p class="hero-subtitle" id="heroLessonSubtitle">
+          Master the two essential conditions of polygon similarity, vertex correspondence order, similarity ratio (k), special quadrilateral criteria, perimeter ratio theorem, and algebraic unknown solutions ($x, y, z$).
+        </p>
+        <div class="hero-badges-row" id="heroBadgesRow">
+          <span class="hero-badge-pill"><i class="fa-solid fa-trophy"></i> 30 Assessment Quiz Questions</span>
+        </div>
+      </div>
+
+      <div class="hero-3d-visual">
+        <span class="floating-shape s1">📐</span>
+        <span class="floating-shape s2">🔷</span>
+        <span class="floating-shape s3">✨</span>
+      </div>
+    </section>
+
+    <!-- #####################################################################
+         TAB 1: CONCEPT & PRACTICE
+         ##################################################################### -->
+    <div id="tab-concept" class="tab-content active">
+      <!-- Injected Dynamically based on Active Lesson via app.js -->
+      <div id="lessonConceptDynamicContainer"></div>
+    </div>
+
+    <!-- #####################################################################
+         TAB 2: MCQ REVISION BANK (10 QUESTIONS WITH COMPLETE MATHEMATICAL PROOFS)
+         ##################################################################### -->
+    <div id="tab-mcq" class="tab-content">
+      <div class="mcq-bank-container">
+        <!-- Bank Summary Header -->
+        <div class="mcq-bank-header">
+          <div>
+            <span class="pill-badge" style="margin-bottom:0.4rem;">Comprehensive Bank</span>
+            <h2 style="font-family:var(--font-heading); font-size:1.6rem; font-weight:800;" id="mcqBankHeaderTitle">MCQ Revision Bank (10 Questions)</h2>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Instant evaluation with full mathematical step-by-step reasoning for every choice.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+            <button class="section-export-btn" onclick="exportSectionToPdf('mcq')" title="تصدير بنك أسئلة الاختيار من متعدد إلى PDF منفصل">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>تصدير بنك الأسئلة (PDF)</span>
+            </button>
+            <div class="mcq-progress-stat">
+              <div class="mcq-score-dial" id="mcqScoreDial">0/10</div>
+              <div>
+                <div style="font-weight:800; font-size:1rem;" id="mcqStatusText">Not Started</div>
+                <div style="color:var(--text-muted); font-size:0.82rem;">Answer all questions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 Questions Injected Dynamically via app.js -->
+        <div id="mcqQuestionsList"></div>
       </div>
     </div>
 
-    <!-- =========================================================================
-         ASSESSMENT TOP CONTROLS & GROUP SWITCHER
-         ========================================================================= -->
-    <header class="assessment-nav-bar">
-      <!-- Group Switcher (A, B, C) -->
-      <div class="group-switcher-tabs" role="tablist" aria-label="Assessment Groups">
-        <button class="group-tab-btn active" id="tabGroupA" onclick="AssessmentApp.switchGroup('groupA')">
-          <i class="fa-solid fa-shapes"></i> Group (A)
-        </button>
-        <button class="group-tab-btn" id="tabGroupB" onclick="AssessmentApp.switchGroup('groupB')">
-          <i class="fa-solid fa-calculator"></i> Group (B)
-        </button>
-        <button class="group-tab-btn" id="tabGroupC" onclick="AssessmentApp.switchGroup('groupC')">
-          <i class="fa-solid fa-compass-drafting"></i> Group (C)
-        </button>
-      </div>
-
-      <!-- Question Stepper (1 to 5) -->
-      <div class="question-stepper-row" id="questionStepperRow">
-        <button class="q-step-btn active" onclick="AssessmentApp.goToQuestion(0)" title="Question 1 (Choose)">1</button>
-        <button class="q-step-btn" onclick="AssessmentApp.goToQuestion(1)" title="Question 2 (Choose)">2</button>
-        <button class="q-step-btn" onclick="AssessmentApp.goToQuestion(2)" title="Question 3 (Problem)">3</button>
-        <button class="q-step-btn" onclick="AssessmentApp.goToQuestion(3)" title="Question 4 (Problem)">4</button>
-        <button class="q-step-btn" onclick="AssessmentApp.goToQuestion(4)" title="Question 5 (Problem)">5</button>
-      </div>
-
-      <!-- Navigation & Timer Actions -->
-      <div class="nav-actions-group">
-        <div class="timer-pill-badge" id="examTimerBadge" onclick="AssessmentApp.toggleTimer()" title="Click to start/reset 60s countdown timer">
-          <i class="fa-regular fa-clock"></i>
-          <span id="timerDisplay">01:00</span>
-        </div>
-        <button class="card-ctrl-btn" onclick="AssessmentApp.prevQuestion()" title="Previous Question (Left Arrow)">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <button class="card-ctrl-btn" onclick="AssessmentApp.nextQuestion()" title="Next Question (Right Arrow)">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-    </header>
-
-    <!-- =========================================================================
-         ACTIVE QUESTION CARD (MATCHING APPROVED REFERENCE DESIGN)
-         ========================================================================= -->
-    <section class="nb-question-card" id="activeQuestionCard">
-      <!-- Card Top Bar: Pill Tag & Control Icons -->
-      <div class="card-top-bar">
-        <div class="card-pill-tag" id="cardPillTag">
-          <i class="fa-solid fa-pencil"></i>
-          <span id="cardPillText">Question 1 • Proportion Solving</span>
-        </div>
-
-        <div class="card-controls-group">
-          <button class="card-ctrl-btn" onclick="AssessmentApp.prevQuestion()" title="Previous Question">
-            <i class="fa-solid fa-arrow-up"></i>
-          </button>
-          <button class="card-ctrl-btn" onclick="AssessmentApp.nextQuestion()" title="Next Question">
-            <i class="fa-solid fa-arrow-down"></i>
-          </button>
-          <button class="card-ctrl-btn" onclick="AssessmentApp.cycleGroup()" title="Switch Next Group (A -> B -> C)">
-            <i class="fa-solid fa-repeat"></i>
-          </button>
-          <button class="card-ctrl-btn" onclick="AssessmentApp.resetCurrentQuestion()" title="Reset Current Answer & Timer">
-            <i class="fa-solid fa-rotate-right"></i>
-          </button>
-          <button class="card-ctrl-btn" onclick="AssessmentApp.clearCurrentScratchpad()" title="Clear Scratchpad Drawing">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-          <button class="card-ctrl-btn" onclick="AssessmentApp.exportCurrentCardImage()" title="حفظ بطاقة المسألة كصورة (Camera)">
-            <i class="fa-solid fa-camera"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Question Prompt & LaTeX Formula Area -->
-      <div class="question-prompt-container">
-        <span class="question-category-label" id="questionCategoryLabel">First: Choose the correct answer:</span>
-        <h2 class="question-statement-text" id="questionStatementText">
-          جاري تحميل السؤال...
-        </h2>
-      </div>
-
-      <!-- MCQ Options Grid (Visible for Choose Questions) -->
-      <div class="mcq-options-wrapper" id="mcqOptionsWrapper">
-        <!-- Rendered dynamically via JavaScript -->
-      </div>
-
-      <!-- =======================================================================
-           RULED NOTEBOOK CANVAS (NOTEBOOK SCRATCHPAD & DERIVATION)
-           ======================================================================= -->
-      <div class="notebook-canvas-container" id="notebookCanvasBox">
-        <!-- Ruled Horizontal Paper Lines -->
-        <div class="ruled-notebook-paper" id="notebookPaperWrapper">
-          <canvas id="notebook-canvas"></canvas>
-        </div>
-
-        <!-- Inline Stylus Toolbar (Under Scratchpad) -->
-        <div class="nb-inline-toolbar" id="nbInlineToolbar">
-          <div class="nb-tools-left">
-            <!-- Palette Color Dots -->
-            <div class="color-dot-picker">
-              <div class="nb-color-dot active" style="background:#182038;" onclick="AssessmentApp.setPenColor('#182038', this)" title="Navy / Black"></div>
-              <div class="nb-color-dot" style="background:#6c5ce7;" onclick="AssessmentApp.setPenColor('#6c5ce7', this)" title="Purple"></div>
-              <div class="nb-color-dot" style="background:#eb4d4b;" onclick="AssessmentApp.setPenColor('#eb4d4b', this)" title="Red"></div>
-              <div class="nb-color-dot" style="background:#00b894;" onclick="AssessmentApp.setPenColor('#00b894', this)" title="Teal"></div>
-              <div class="nb-color-dot" style="background:#fdcb6e;" onclick="AssessmentApp.setPenColor('#fdcb6e', this)" title="Amber"></div>
-            </div>
-
-            <div class="nb-toolbar-divider"></div>
-
-            <!-- Stroke Width -->
-            <select class="nb-stroke-select" id="nbStrokeSelect" onchange="AssessmentApp.setPenWidth(this.value)">
-              <option value="2">2px</option>
-              <option value="4" selected>4px</option>
-              <option value="6">6px</option>
-              <option value="10">10px</option>
-            </select>
-
-            <div class="nb-toolbar-divider"></div>
-
-            <!-- Pen & Eraser Tools -->
-            <button class="nb-tool-btn active" id="nbToolPenBtn" onclick="AssessmentApp.setTool('pen', this)" title="Pen Tool">
-              <i class="fa-solid fa-pen"></i>
-            </button>
-            <button class="nb-tool-btn" id="nbToolEraserBtn" onclick="AssessmentApp.toggleEraser(this)" title="Eraser Tool">
-              <i class="fa-solid fa-eraser"></i>
-            </button>
-
-            <div class="nb-toolbar-divider"></div>
-
-            <!-- Undo / Redo / Clear -->
-            <button class="nb-tool-btn" onclick="AssessmentApp.undoCurrentCanvas()" title="Undo Last Stroke">
-              <i class="fa-solid fa-rotate-left"></i>
-            </button>
-            <button class="nb-tool-btn" onclick="AssessmentApp.redoCurrentCanvas()" title="Redo Stroke">
-              <i class="fa-solid fa-rotate-right"></i>
-            </button>
-            <button class="nb-tool-btn" onclick="AssessmentApp.clearCurrentScratchpad()" title="Clear Canvas">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+    <!-- #####################################################################
+         TAB 3: TIMED QUIZ - 10 MARKS (3 MODELS • 30 QUESTIONS TOTAL)
+         ##################################################################### -->
+    <div id="tab-quiz" class="tab-content">
+      <div class="quiz-wrapper">
+        <!-- Quiz Control Bar -->
+        <div class="quiz-top-bar">
+          <div>
+            <span class="pill-badge" style="margin-bottom:0.4rem;">Standardized Exam Simulation</span>
+            <h2 style="font-family:var(--font-heading); font-size:1.5rem; font-weight:800;" id="quizActiveModelTitle">Timed Quiz — Model #1</h2>
           </div>
 
-          <div class="nb-tools-right">
-            <!-- Expand & Shrink Canvas Height -->
-            <button class="canvas-resize-btn" onclick="AssessmentApp.adjustCanvasHeight(60)" title="Increase Canvas Height (+60px)">
-              <i class="fa-solid fa-plus"></i>
+          <!-- Model Switcher Tabs (Sequential progression: Quiz #2 and #3 remain hidden/locked until previous model is completed) -->
+          <div class="model-tabs-group" id="quizModelTabsGroup">
+            <button class="model-tab-btn active" id="modelTabBtn0" onclick="switchQuizModel(0)">Quiz #1</button>
+            <button class="model-tab-btn" id="modelTabBtn1" onclick="switchQuizModel(1)" style="display:none;">Quiz #2</button>
+            <button class="model-tab-btn" id="modelTabBtn2" onclick="switchQuizModel(2)" style="display:none;">Quiz #3</button>
+          </div>
+
+          <!-- 1-Click Export Quiz PDF Button -->
+          <button class="section-export-btn" onclick="exportSectionToPdf('quiz')" title="تصدير نماذج الاختبارات الموقوتة إلى PDF منفصل">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>تصدير الاختبارات (PDF)</span>
+          </button>
+
+          <!-- 10:00 Countdown Timer Pill -->
+          <div class="timer-pill-box" id="quizTimerBox">
+            <i class="fa-regular fa-clock"></i>
+            <span id="quizTimerText">10:00</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-fill" id="quizProgressFill"></div>
+          </div>
+        </div>
+
+        <!-- Quiz Questions Container -->
+        <div id="quizQuestionsContainer"></div>
+
+        <!-- Submit Quiz Button Bar -->
+        <div class="submit-quiz-bar" id="submitQuizBar">
+          <button class="submit-quiz-btn" onclick="submitQuizAssessment()">
+            <i class="fa-solid fa-paper-plane"></i> Submit Quiz & View Feedback
+          </button>
+        </div>
+
+        <!-- Detailed Assessment Feedback Report -->
+        <div class="quiz-feedback-report" id="quizFeedbackReport">
+          <div class="feedback-score-header">
+            <div class="score-trophy-3d" id="scoreTrophy">🏆</div>
+            <div class="score-display-text" id="scorePercentText">100%</div>
+            <div style="font-size:1.4rem; font-weight:800; color:var(--text-main); margin-top:0.4rem;" id="scoreFractionText">10 / 10 Marks</div>
+            <div class="score-rating-badge" id="scoreRatingBadge">Outstanding Mastery!</div>
+          </div>
+
+          <!-- Breakdown List -->
+          <div id="feedbackBreakdownList"></div>
+
+          <!-- Action Buttons -->
+          <div class="feedback-actions-row">
+            <button class="btn-3d btn-primary-3d" onclick="retakeCurrentQuiz()">
+              <i class="fa-solid fa-rotate-right"></i> Retake This Quiz
             </button>
-            <button class="canvas-resize-btn" onclick="AssessmentApp.adjustCanvasHeight(-60)" title="Decrease Canvas Height (-60px)">
-              <i class="fa-solid fa-minus"></i>
+            <button class="btn-3d btn-stylus-mode" id="btnNextQuizModel" onclick="advanceNextQuizModel()">
+              <i class="fa-solid fa-forward-step"></i> Next Model (Quiz #2)
+            </button>
+            <button class="btn-3d" style="background:var(--bg-main); color:var(--text-main);" onclick="switchTab('tab-concept')">
+              <i class="fa-solid fa-book"></i> Review Lesson Concepts
             </button>
           </div>
         </div>
-      </div>
 
-      <!-- =======================================================================
-           MODEL SOLUTION DRAWER (ACCORDION REVEAL)
-           ======================================================================= -->
-      <div class="card-bottom-actions">
-        <button class="btn-show-model-solution" id="btnToggleModelSolution" onclick="AssessmentApp.toggleModelSolution()">
-          <i class="fa-solid fa-eye"></i>
-          <span>Show Model Solution</span>
-        </button>
-
-        <div class="model-solution-content" id="modelSolutionContent">
-          <!-- Dynamically populated with step-by-step KaTeX math -->
-        </div>
       </div>
-    </section>
+    </div>
 
   </main>
 
@@ -345,12 +399,12 @@
   </div>
 
   <!-- =========================================================================
-       INFINITE CANVAS WHITEBOARD OVERLAY
+       INFINITE CANVAS WHITEBOARD OVERLAY (TOUCH ZOOM / ONE-FINGER PAN / STYLUS ONLY)
        ========================================================================= -->
   <div class="infinite-whiteboard-overlay" id="infiniteWhiteboardOverlay">
     <canvas id="infiniteWhiteboardCanvas" class="infinite-whiteboard-canvas"></canvas>
 
-    <!-- Floating Image Toolbar -->
+    <!-- Floating Image Toolbar (Controls moving, resizing, and deleting uploaded images) -->
     <div class="wb-image-toolbar" id="wbImageToolbar" style="display: none;">
       <span class="wb-img-tb-label"><i class="fa-solid fa-image"></i> Image</span>
       <button class="wb-img-tb-btn" onclick="InfiniteWhiteboard.scaleSelectedImage(1.15)" title="Enlarge (+15%)">
@@ -372,6 +426,7 @@
 
     <!-- Main Floating Bottom Control Dock -->
     <div class="wb-floating-dock" id="wbFloatingDock">
+      <!-- System & Board Control (Close, Theme, Pattern) -->
       <button class="wb-dock-btn wb-btn-danger-soft" onclick="InfiniteWhiteboard.close()" title="Exit Whiteboard (Esc)">
         <i class="fa-solid fa-xmark"></i>
       </button>
@@ -384,7 +439,7 @@
 
       <div class="wb-dock-divider"></div>
 
-      <!-- Color Palette -->
+      <!-- 4 Primary Adaptive Writing Colors (Liberated - Directly Visible) -->
       <div class="wb-color-group" id="wbColorGroup">
         <button class="wb-color-circle active" id="wbColor1" onclick="InfiniteWhiteboard.setColor(this.dataset.color, this)" title="Color 1"></button>
         <button class="wb-color-circle" id="wbColor2" onclick="InfiniteWhiteboard.setColor(this.dataset.color, this)" title="Color 2"></button>
@@ -394,7 +449,7 @@
 
       <div class="wb-dock-divider"></div>
 
-      <!-- Stroke Widths -->
+      <!-- Pen Sizes / Stroke Thicknesses (Liberated - Directly Visible) -->
       <div class="wb-stroke-group">
         <button class="wb-stroke-btn" onclick="InfiniteWhiteboard.stepWidth(-2)" title="Decrease Pen Size (-)">
           <i class="fa-solid fa-minus" style="font-size:0.65rem;"></i>
@@ -415,7 +470,7 @@
 
       <div class="wb-dock-divider"></div>
 
-      <!-- Tools -->
+      <!-- Tools Group (Pen, Eraser, Shapes flyout, Image) -->
       <button class="wb-dock-btn active" id="wbToolPen" onclick="InfiniteWhiteboard.setTool('pen', this)" title="Pen (P)">
         <i class="fa-solid fa-pen"></i>
       </button>
@@ -423,57 +478,57 @@
         <i class="fa-solid fa-eraser"></i>
       </button>
 
-      <!-- Shapes Dropdown -->
+      <!-- Shapes Dropdown Flyout -->
       <div class="wb-dropdown-wrap">
         <button class="wb-dock-btn wb-dropdown-trigger" id="wbShapesTrigger" onclick="InfiniteWhiteboard.toggleShapesPopover(event)" title="Geometric Tools & Shapes">
           <i class="fa-solid fa-shapes" id="wbActiveShapeIcon"></i>
           <i class="fa-solid fa-caret-down wb-dropdown-caret"></i>
         </button>
         <div class="wb-popover-menu wb-shapes-popover" id="wbShapesPopover">
-          <button class="wb-popover-btn" id="wbToolLine" onclick="InfiniteWhiteboard.setTool('line', this)" title="Straight Line (L)">
+          <button class="wb-popover-btn" id="wbToolLine" onclick="InfiniteWhiteboard.setTool('line', this)" title="Straight Ruler Line (L)">
             <i class="fa-solid fa-ruler"></i>
           </button>
           <button class="wb-popover-btn" id="wbToolRect" onclick="InfiniteWhiteboard.setTool('rect', this)" title="Rectangle / Box (R)">
             <i class="fa-regular fa-square"></i>
           </button>
-          <button class="wb-popover-btn" id="wbToolCircle" onclick="InfiniteWhiteboard.setTool('circle', this)" title="Circle (C)">
+          <button class="wb-popover-btn" id="wbToolCircle" onclick="InfiniteWhiteboard.setTool('circle', this)" title="Circle / Ellipse (C)">
             <i class="fa-regular fa-circle"></i>
           </button>
           <button class="wb-popover-btn" id="wbToolAxis" onclick="InfiniteWhiteboard.setTool('axis', this)" title="Coordinate Axes (A)">
             <i class="fa-solid fa-chart-line"></i>
           </button>
-          <button class="wb-popover-btn" id="wbToolSelect" onclick="InfiniteWhiteboard.setTool('select', this)" title="Select Image (V)">
+          <button class="wb-popover-btn" id="wbToolSelect" onclick="InfiniteWhiteboard.setTool('select', this)" title="Select / Move Image (V)">
             <i class="fa-solid fa-arrow-pointer"></i>
           </button>
         </div>
       </div>
 
       <!-- Image Import -->
-      <button class="wb-dock-btn" id="wbToolImageUpload" onclick="InfiniteWhiteboard.triggerImageUpload()" title="Insert Image onto Whiteboard">
+      <button class="wb-dock-btn" id="wbToolImageUpload" onclick="InfiniteWhiteboard.triggerImageUpload()" title="Insert Image / Diagram onto Whiteboard">
         <i class="fa-solid fa-image"></i>
       </button>
       <input type="file" id="wbImageFileInput" accept="image/*" style="display:none;" onchange="InfiniteWhiteboard.handleImageUpload(event)">
 
       <div class="wb-dock-divider"></div>
 
-      <!-- Undo / Redo / Clear -->
+      <!-- Undo / Redo / Clear Actions -->
       <button class="wb-dock-btn" onclick="InfiniteWhiteboard.undo()" title="Undo (Ctrl+Z)">
         <i class="fa-solid fa-rotate-left"></i>
       </button>
       <button class="wb-dock-btn" onclick="InfiniteWhiteboard.redo()" title="Redo (Ctrl+Y)">
         <i class="fa-solid fa-rotate-right"></i>
       </button>
-      <button class="wb-dock-btn wb-btn-danger" onclick="InfiniteWhiteboard.clear()" title="Clear Whiteboard">
+      <button class="wb-dock-btn wb-btn-danger" onclick="InfiniteWhiteboard.clear()" title="Clear Whiteboard (Manual only)">
         <i class="fa-solid fa-trash-can"></i>
       </button>
 
       <div class="wb-dock-divider"></div>
 
-      <!-- Zoom & Export -->
+      <!-- Zoom & Export (Moved from Top to Bottom) -->
       <button class="wb-dock-btn" onclick="InfiniteWhiteboard.zoomOut()" title="Zoom Out (Ctrl -)">
         <i class="fa-solid fa-magnifying-glass-minus"></i>
       </button>
-      <span class="wb-zoom-badge" id="wbZoomDisplay" onclick="InfiniteWhiteboard.resetView()" title="Reset View (100%)">100%</span>
+      <span class="wb-zoom-badge" id="wbZoomDisplay" onclick="InfiniteWhiteboard.resetView()" title="Click to Reset View (100%)">100%</span>
       <button class="wb-dock-btn" onclick="InfiniteWhiteboard.zoomIn()" title="Zoom In (Ctrl +)">
         <i class="fa-solid fa-magnifying-glass-plus"></i>
       </button>
@@ -483,30 +538,302 @@
     </div>
   </div>
 
-  <!-- FLOATING ACTION BUTTONS (STUDIO, WHITEBOARD, SCREEN PEN) -->
-  <!-- Floating Studio Mode Action Button (Top of vertical stack: bottom 120px) -->
-  <button id="floatingStudioModeFab" class="floating-studio-fab" onclick="toggleStudioMode()" title="Studio Mode (وضع الاستوديو للشرح والتسجيل)">
+  <!-- =========================================================================
+       LESSON IMPORTER / CONVERTER MODAL (PDF / IMAGE CONVERSION)
+       ========================================================================= -->
+  <div class="modal-overlay" id="importModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeImportModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span class="pill-badge" style="margin-bottom:0.5rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> Lesson Engine Hub</span>
+        <h3 style="font-family:var(--font-heading); font-size:1.5rem; font-weight:800;">Import & Transform New Math Lesson</h3>
+        <p style="color:var(--text-muted); font-size:0.9rem;">Upload a PDF file or photo of any lesson sheet to convert it into this interactive system.</p>
+      </div>
+
+      <div class="dropzone-box" id="dropzoneBox" onclick="document.getElementById('fileUploadInput').click()">
+        <i class="fa-solid fa-cloud-arrow-up" style="font-size:3rem; color:var(--primary); margin-bottom:0.75rem;"></i>
+        <h4 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:700;">Drag & Drop PDF or Image Here</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.3rem;">Supports .PDF, .PNG, .JPG lesson worksheets</p>
+        <input type="file" id="fileUploadInput" accept="application/pdf,image/*" style="display:none;" onchange="handleLessonFileUpload(event)">
+      </div>
+
+      <div style="background:var(--bg-main); border-radius:var(--radius-md); padding:1rem; border:1px solid var(--border-light); font-size:0.88rem; color:var(--text-muted);">
+        <strong>💡 Teacher Pro-Tip:</strong> Currently loaded: <em>Lesson One: Proportion</em> & <em>The Distance Between Two Points</em>. Any newly uploaded PDF or image will be processed into this interactive 3D Pixar platform!
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PDF EXPORT MODAL (SEPARATE SECTIONS WITH STRICT ZERO-SPLIT GUARANTEE)
+       Educator: Mr Ahmed Abd El-Motaal
+       ========================================================================= -->
+  <div class="modal-overlay" id="pdfExportModal">
+    <div class="modal-box" style="max-width: 860px; text-align: right; direction: rtl;">
+      <button class="modal-close-btn" onclick="closePdfExportModal()">&times;</button>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <span class="pill-badge" style="margin-bottom:0.5rem; background:rgba(214,48,49,0.12); color:#d63031;">
+          <i class="fa-solid fa-file-pdf"></i> تصدير ملفات PDF منفصلة
+        </span>
+        <h3 style="font-family:var(--font-heading); font-size:1.6rem; font-weight:800; direction:rtl;">
+          تصدير أقسام الدرس إلى ملفات PDF مستقلة
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; max-width:640px; margin:0.35rem auto 0; direction:rtl;">
+          مع الالتزام التام بشرط: <strong>عدم انقسام أي سؤال أو رسم هندسي أو خيارات على صفحتين</strong> لحفظ جودة الطباعة العالية.
+        </p>
+      </div>
+
+      <!-- Lesson Selection Pills -->
+      <div style="display:flex; justify-content:center; align-items:center; gap:0.6rem; margin-bottom:1.25rem; flex-wrap:wrap; direction:ltr;">
+        <span style="font-weight:800; font-size:0.95rem; margin-right:0.4rem; color:var(--text-main); font-family:var(--font-heading);">Active Lesson:</span>
+        <button class="lesson-pill-btn" id="modalBtnSim" onclick="selectExportLesson('similarity')">
+          <i class="fa-solid fa-draw-polygon"></i> <span>Similarity</span>
+        </button>
+        <button class="lesson-pill-btn" id="modalBtnQuad" onclick="selectExportLesson('quadratic')">
+          <i class="fa-solid fa-chart-line"></i> <span>Quadratic</span>
+        </button>
+        <button class="lesson-pill-btn" id="modalBtnProp" onclick="selectExportLesson('proportion')">
+          <i class="fa-solid fa-scale-balanced"></i> <span>Proportion</span>
+        </button>
+      </div>
+
+      <!-- Options Row -->
+      <div style="display:flex; justify-content:center; align-items:center; gap:1.5rem; margin-bottom:1.4rem; padding:0.75rem 1.25rem; background:var(--bg-main); border-radius:var(--radius-pill); border:1px solid var(--border-light); font-size:0.92rem;">
+        <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; font-weight:800; color:var(--text-main); font-family:var(--font-heading);">
+          <input type="checkbox" id="chkIncludeSolutions" style="width:18px; height:18px; accent-color:var(--primary);">
+          <span>تضمين خطوات الحل النموذجية مع الأسئلة (Teacher Solution Key)</span>
+        </label>
+      </div>
+
+      <!-- 3 Separate Sections Cards Grid -->
+      <div class="pdf-export-grid" style="direction:ltr;">
+        <!-- Section 1 Card -->
+        <div class="pdf-export-card">
+          <div class="pdf-export-card-head">
+            <div class="pdf-export-icon-box" style="background:linear-gradient(135deg, #6c5ce7, #a29bfe);">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div>
+              <h4>القسم 1: المفاهيم والتمارين</h4>
+              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">1. Concept & Practice</span>
+            </div>
+          </div>
+          <p>يشمل مراجعة المتطلبات الأساسية، الاختبار التشخيصي، التطبيقات الحياتية الهندسية، القواعد، وتمارين حاول بنفسك.</p>
+          <button class="pdf-export-btn-action" style="background:linear-gradient(135deg, #6c5ce7, #8075e5); color:#fff;" onclick="triggerSectionPdfExport('concept')">
+            <i class="fa-solid fa-file-pdf"></i> تصدير القسم 1 (PDF)
+          </button>
+        </div>
+
+        <!-- Section 2 Card -->
+        <div class="pdf-export-card">
+          <div class="pdf-export-card-head">
+            <div class="pdf-export-icon-box" style="background:linear-gradient(135deg, #00b894, #55efc4);">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div>
+              <h4>القسم 2: بنك أسئلة MCQ</h4>
+              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">2. MCQ Bank (10 Qs)</span>
+            </div>
+          </div>
+          <p>10 أسئلة اختيار من متعدد شاملة مع رسوماتها الهندسية المتقنة، مع منع تجزئة أي سؤال بين صفحتين نهائياً.</p>
+          <button class="pdf-export-btn-action" style="background:linear-gradient(135deg, #00b894, #00a885); color:#fff;" onclick="triggerSectionPdfExport('mcq')">
+            <i class="fa-solid fa-file-pdf"></i> تصدير القسم 2 (PDF)
+          </button>
+        </div>
+
+        <!-- Section 3 Card -->
+        <div class="pdf-export-card">
+          <div class="pdf-export-card-head">
+            <div class="pdf-export-icon-box" style="background:linear-gradient(135deg, #e17055, #d63031);">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <div>
+              <h4>القسم 3: الاختبارات الموقوتة</h4>
+              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">3. Timed Quiz (3 Models)</span>
+            </div>
+          </div>
+          <p>نماذج الامتحانات المعيارية الثلاثة (Quiz #1, Quiz #2, Quiz #3) المنسقة خصيصاً كأوراق امتحانات مدرسية للطباعة.</p>
+          <button class="pdf-export-btn-action" style="background:linear-gradient(135deg, #e17055, #d63031); color:#fff;" onclick="triggerSectionPdfExport('quiz')">
+            <i class="fa-solid fa-file-pdf"></i> تصدير القسم 3 (PDF)
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Actions Footer Bar -->
+      <div style="background:var(--bg-main); border-radius:var(--radius-md); padding:1rem; border:1px solid var(--border-light); font-size:0.88rem; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem; direction:rtl;">
+        <div>
+          <i class="fa-solid fa-circle-check" style="color:#00b894;"></i> <strong>ضمان عدم انقسام الأسئلة:</strong> تم تطبيق كود <code>break-inside: avoid</code> الصارم لضمان عدم تجزئة أي سؤال بين صفحتين.
+        </div>
+        <button class="btn-3d" style="padding:0.5rem 1rem; font-size:0.85rem;" onclick="triggerSectionPdfExport('all')">
+          <i class="fa-solid fa-layer-group"></i> تصدير جميع الأقسام (PDF)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SHARE LESSON MODAL (DIRECT STUDENT LINK & QR CODE GENERATOR)
+       ========================================================================= -->
+  <div class="modal-overlay" id="shareLessonModal">
+    <div class="modal-box" style="max-width: 600px; text-align: center;">
+      <button class="modal-close-btn" onclick="closeShareModal()">&times;</button>
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem;">مشاركة رابط الدرس للطلاب</h3>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.15rem; line-height: 1.5;">
+        هذا الرابط يعرض <strong>هذا الدرس فقط</strong> للطالب، ويخفي شريط التنقل وأدوات المعلم وأي دروس أخرى تماماً للتركيز التام.
+      </p>
+
+      <!-- Lesson Quick Selector Inside Modal -->
+      <div style="display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem;">
+        <button class="lesson-pill-btn share-lesson-pill active" data-lesson="place_value" onclick="updateShareModalForLesson('place_value')">
+          <span class="pill-num">U1•L1</span> <span>Place Value</span>
+        </button>
+        <button class="lesson-pill-btn share-lesson-pill" data-lesson="proportion" onclick="updateShareModalForLesson('proportion')">
+          <span class="pill-num">U1•L2</span> <span>Proportion</span>
+        </button>
+        <button class="lesson-pill-btn share-lesson-pill" data-lesson="quadratic" onclick="updateShareModalForLesson('quadratic')">
+          <span class="pill-num">U2•L1</span> <span>Quadratic</span>
+        </button>
+        <button class="lesson-pill-btn share-lesson-pill" data-lesson="similarity" onclick="updateShareModalForLesson('similarity')">
+          <span class="pill-num">U3•L1</span> <span>Similarity</span>
+        </button>
+      </div>
+
+      <!-- Direct Share Link Box -->
+      <div style="background: var(--bg-surface); padding: 1.15rem; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 1.25rem; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <label style="font-weight: 700; font-size: 0.82rem; color: var(--text-main); margin: 0;">
+            <i class="fa-solid fa-link" style="color: var(--primary);"></i> رابط الطالب المباشر (Direct Student Link):
+          </label>
+          <span id="shareLessonNameBadge" class="pill-badge" style="background: rgba(108, 92, 231, 0.12); color: var(--primary); font-size: 0.75rem; font-weight: 700;">
+            Place Value
+          </span>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" id="shareDirectLinkInput" readonly style="flex: 1; padding: 0.6rem 0.85rem; border-radius: var(--radius-pill); border: 1px solid var(--border-light); background: var(--bg-card-3d); color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;" value="">
+          <button class="btn-3d btn-primary-3d" onclick="copyShareLink()" id="btnCopyShareLink" style="padding: 0.6rem 1.15rem; white-space: nowrap;">
+            <i class="fa-solid fa-copy"></i> نسخ الرابط
+          </button>
+          <a id="btnTestShareLink" href="javascript:void(0)" onclick="window.open(document.getElementById('shareDirectLinkInput').value, '_blank')" class="icon-btn-3d" title="فتح الرابط في نافذة جديدة للتجربة" style="flex-shrink: 0; text-decoration: none;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live QR Code Section -->
+      <div style="background: var(--bg-surface); padding: 1.15rem; border-radius: var(--radius-md); border: 1px dashed var(--border-light); display: inline-flex; flex-direction: column; align-items: center; gap: 0.65rem; margin-bottom: 1.15rem;">
+        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-main);">
+          <i class="fa-solid fa-qrcode" style="color: var(--primary);"></i> رمز QR لمسحه بكاميرا الهاتف أو الآيباد:
+        </span>
+        <div style="background: #ffffff; padding: 8px; border-radius: 12px; box-shadow: var(--shadow-sm); min-width: 150px; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+          <img id="shareQrImg" src="" alt="Lesson QR Code" style="width: 150px; height: 150px; display: block; border-radius: 8px;">
+        </div>
+      </div>
+
+      <!-- Quick Tips for Online Sharing -->
+      <div style="text-align: right; direction: rtl; background: rgba(0, 184, 148, 0.08); border-radius: var(--radius-md); padding: 0.85rem 1.1rem; border: 1px solid rgba(0, 184, 148, 0.25); font-size: 0.82rem; line-height: 1.6; color: var(--text-main);">
+        <strong style="color: #00b894; display: block; margin-bottom: 0.2rem;"><i class="fa-solid fa-shield-halved"></i> وضع الطالب الآمن:</strong>
+        • الرابط يعمل مباشرة على GitHub Pages بدون أي خطأ 404.<br>
+        • يتم عزل الدرس المختار فقط ولا تظهر أي دروس أخرى للطالب على الإطلاق.
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SITE FOOTER (LOCKED CREDENTIALS — MR AHMED ABD EL-MOTAAL)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <div class="avatar-3d-box" style="width:46px; height:46px; font-size:1.4rem;">📐</div>
+          <div>
+            <h3 style="margin-bottom:0.1rem;">Mr Ahmed Abd El-Motaal</h3>
+            <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">Math teacher and content creator</span>
+          </div>
+        </div>
+        <p style="font-size:0.9rem; line-height:1.6; color:var(--text-muted);">
+          Empowering middle and high school students with engaging, interactive, visual mathematics. Dedicated to precision proofs, step-by-step clarity, and top exam preparation.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Direct Communication</h3>
+        <ul class="footer-links-list">
+          <li>
+            <a href="tel:01019775590">
+              <i class="fa-solid fa-phone" style="color:var(--accent-cyan);"></i>
+              <span>Phone: 01019775590</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/201019775590" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
+              <span>WhatsApp Direct Chat</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com/@mrmotaal?si=My_9Int5Z28bAVcB" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube" style="color:#FF0000;"></i>
+              <span>Official Channel: mr Motaal</span>
+            </a>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-graduation-cap" style="color:var(--primary);"></i> Math Teacher & Content Creator</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Interactive Lesson Hub</h3>
+        <ul class="footer-links-list">
+          <li><a href="#tab-concept" onclick="switchTab('tab-concept')"><i class="fa-solid fa-angle-right"></i> 1. Concept & Practice</a></li>
+          <li><a href="#tab-mcq" onclick="switchTab('tab-mcq')"><i class="fa-solid fa-angle-right"></i> 2. MCQ Revision Bank (10 Qs)</a></li>
+          <li><a href="#tab-quiz" onclick="switchTab('tab-quiz')"><i class="fa-solid fa-angle-right"></i> 3. Timed Quiz - 10 Marks (3 Models)</a></li>
+          <li class="teacher-only-link"><a href="javascript:void(0)" onclick="openImportModal()"><i class="fa-solid fa-cloud-arrow-up"></i> Import New PDF / Image Lesson</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        &copy; 2026 MathQuest Pro • Created for <strong>Mr Ahmed Abd El-Motaal</strong>. All rights reserved.
+      </div>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span>Built with High-Performance Vanilla HTML5, CSS3 & Stylus Canvas Engine.</span>
+        <button class="teacher-hub-toggle-btn teacher-only-link" onclick="exitStudentMode()" title="Return to Teacher Master Platform">
+          <i class="fa-solid fa-chalkboard-user"></i> Teacher Hub Mode
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mathematics Lessons Data Modules (All Units for Mr Ahmed Master Platform) -->
+  <script src="place_value_data.js?v=20260912_7"></script>
+  <script src="proportion_data.js?v=20260912_7"></script>
+  <script src="quadratic_data.js?v=20260912_7"></script>
+  <script src="similarity_data.js?v=20260912_7"></script>
+
+  <!-- App Core JavaScript Logic -->
+  <script src="app.js?v=20260912_8"></script>
+
+  <!-- Floating Studio Mode Action Button (Positioned at top of vertical stack: bottom 120px) -->
+  <button id="floatingStudioModeFab" class="floating-studio-fab" onclick="toggleStudioMode()" title="Studio Mode (Distraction-Free Video Recording)">
     <i class="fa-solid fa-video"></i>
   </button>
 
-  <!-- Floating Whiteboard Action Button (Middle of vertical stack: bottom 70px) -->
-  <button id="floatingWhiteboardFab" class="floating-whiteboard-fab" onclick="InfiniteWhiteboard.open()" title="السبورة اللانهائية (Infinite Whiteboard)">
+  <!-- Floating Whiteboard Action Button (Positioned in middle of vertical stack: bottom 70px) -->
+  <button id="floatingWhiteboardFab" class="floating-whiteboard-fab" onclick="InfiniteWhiteboard.open()" title="Open Infinite Whiteboard">
     <i class="fa-solid fa-infinity"></i>
   </button>
 
-  <!-- Floating Screen Pen Action Button (Bottom of vertical stack: bottom 20px) -->
-  <button id="floatingScreenPenFab" class="floating-screen-pen-fab" onclick="FullScreenPen.toggle()" title="الكتابة على الشاشة (Screen Pen)">
+  <!-- Floating Screen Pen Action Button (Positioned at bottom of vertical stack: bottom 20px) -->
+  <button id="floatingScreenPenFab" class="floating-screen-pen-fab" onclick="FullScreenPen.toggle()" title="Write on Screen (iPad Screen Pen)">
     <i class="fa-solid fa-pen-nib"></i>
   </button>
 
-  <!-- Floating Studio Mode Exit Button (Visible only in studio mode) -->
-  <button class="exit-studio-btn" id="exitStudioBtn" onclick="toggleStudioMode()" title="خروج من وضع الاستوديو (Exit Studio)" style="display: none;">
-    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  <!-- Floating Studio Mode Exit Button (Same position as Studio FAB: bottom 120px) -->
+  <button class="exit-studio-btn" id="exitStudioBtn" onclick="toggleStudioMode()" title="Exit Studio Video Mode">
+    <i class="fa-solid fa-compress"></i>
   </button>
-
-  <!-- Core Scripts -->
-  <script src="assessment_data.js"></script>
-  <script src="drawing_engine.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

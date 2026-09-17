@@ -1,0 +1,1711 @@
+﻿// ==========================================================================
+// UNIT 3: GEOMETRY • LESSON 3-1: SIMILARITY OF POLYGONS
+// Official Egyptian Prep 3 / Grade 9 Mathematics Curriculum (Pages 48-54)
+// Prepared for: Mr Ahmed Abd El-Motaal (Math Teacher & Content Creator)
+// ==========================================================================
+const LESSON_SIMILARITY = {
+  key: 'similarity',
+  unitTag: '<i class="fa-solid fa-shapes"></i> Unit 3 • Geometry • Similarity of Polygons',
+  title: 'Lesson 3-1: Similarity of Polygons',
+  subtitle: 'Master the two essential conditions of polygon similarity, vertex correspondence order, similarity ratio (k), special quadrilateral criteria, perimeter ratio theorem, and algebraic unknown solutions ($x, y, z$).',
+  stageBadge: '<i class="fa-solid fa-graduation-cap"></i> Unit 3: Geometry • Lesson 3-1: Similarity of Polygons',
+
+  // 1. Diagnostic Pre-Study & Readiness Review
+  preStudy: {
+    title: 'Prerequisites & Diagnostic Review',
+    subtitle: 'Review foundational concepts required before studying polygon similarity: ratios, sum of quadrilateral angles, and quadrilateral properties.',
+    cards: [
+      {
+        icon: 'fa-solid fa-scale-balanced',
+        iconBg: 'rgba(108, 92, 231, 0.15)',
+        title: 'Ratio & Proportionality',
+        desc: 'A ratio compares two quantities $\\frac{a}{b}$. Two ratios are equal $\\frac{a}{b} = \\frac{c}{d} = k$ if they simplify to the same constant factor $k$. Cross-multiplication yields $a \\times d = b \\times c$.'
+      },
+      {
+        icon: 'fa-solid fa-draw-polygon',
+        iconBg: 'rgba(0, 184, 148, 0.15)',
+        title: 'Quadrilateral Angle Sum',
+        desc: 'The sum of the measures of the interior angles of any convex quadrilateral is always $360^\\circ$. If 3 angles are known, the 4th is: $m(\\angle 4) = 360^\\circ - (\\angle_1 + \\angle_2 + \\angle_3)$.'
+      },
+      {
+        icon: 'fa-solid fa-vector-square',
+        iconBg: 'rgba(241, 196, 15, 0.15)',
+        title: 'Special Quadrilateral Properties',
+        desc: 'In a parallelogram/rhombus: opposite angles are equal ($m(\\angle A) = m(\\angle C)$), and consecutive angles are supplementary ($m(\\angle A) + m(\\angle B) = 180^\\circ$). In rectangles and squares, all 4 angles are $90^\\circ$.'
+      }
+    ],
+    diagnosticQuestions: [
+      {
+        id: 'readiness-sim-1',
+        text: '1. In any quadrilateral $ABCD$, if $m(\\angle A) = 90^\\circ$, $m(\\angle B) = 120^\\circ$, and $m(\\angle C) = 45^\\circ$, what is $m(\\angle D)$?',
+        options: ['95°', '105°', '125°', '115°'],
+        correct: 1,
+        explanation: 'The sum of interior angles of a quadrilateral is $360^\\circ$. Thus: $m(\\angle D) = 360^\\circ - (90^\\circ + 120^\\circ + 45^\\circ) = 360^\\circ - 255^\\circ = 105^\\circ$.'
+      },
+      {
+        id: 'readiness-sim-2',
+        text: '2. In rhombus $ABCD$, if $m(\\angle A) = 110^\\circ$, then the consecutive angle $m(\\angle B) = $',
+        options: ['110°', '90°', '70°', '80°'],
+        correct: 2,
+        explanation: 'Consecutive angles in any rhombus or parallelogram are supplementary: $m(\\angle B) = 180^\\circ - 110^\\circ = 70^\\circ$.'
+      },
+      {
+        id: 'readiness-sim-3',
+        text: '3. If $\\frac{12}{8} = \\frac{x}{6}$, then $x = $',
+        options: ['8', '10', '12', '9'],
+        correct: 3,
+        explanation: 'Cross multiply: $8x = 12 \\times 6 = 72 \\implies x = \\frac{72}{8} = 9$. Or simplify $\\frac{12}{8} = \\frac{3}{2} \\implies x = \\frac{3 \\times 6}{2} = 9$.'
+      }
+    ]
+  },
+
+  // 2. Real-World Applications (Textbook Pages 48 & 54)
+  realWorldApps: [
+    {
+      accent: '#d63031',
+      accentBg: 'rgba(214, 48, 49, 0.12)',
+      icon: 'fa-solid fa-monument',
+      tag: 'Egyptian Heritage & Archaeological Modeling',
+      title: 'Statue of King Thutmose III',
+      desc: 'The ancient Egyptians carved monumental statues for grand temples. Modern museum curators and 3D preservation labs rely on geometric similarity to produce exact miniature replicas with authentic proportions.',
+      svg: `
+        <svg width="100%" height="200" viewBox="0 0 540 200">
+          <defs>
+            <linearGradient id="gradOriginal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#b2bec3"/>
+              <stop offset="100%" stop-color="#636e72"/>
+            </linearGradient>
+            <linearGradient id="gradMini" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fdcb6e"/>
+              <stop offset="100%" stop-color="#e17055"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="180" width="500" height="8" rx="4" fill="#dfe6e9"/>
+          
+          <!-- Original Statue Graphic -->
+          <g transform="translate(60, 15)">
+            <rect x="20" y="135" width="80" height="28" rx="6" fill="#747d8c"/>
+            <path d="M 35 135 L 42 45 L 60 12 L 78 45 L 85 135 Z" fill="url(#gradOriginal)" stroke="#2f3542" stroke-width="2.5"/>
+            <circle cx="60" cy="38" r="15" fill="#ffeaa7" stroke="#d63031" stroke-width="2"/>
+            <line x1="8" y1="12" x2="8" y2="163" stroke="#d63031" stroke-width="2" stroke-dasharray="4,4"/>
+            <!-- Dimension Badges -->
+            <rect x="0" y="75" width="62" height="24" rx="6" fill="#ffffff" stroke="#d63031" stroke-width="1.5"/>
+            <text x="31" y="91" fill="#d63031" font-size="11" font-weight="900" text-anchor="middle">195 cm</text>
+            <rect x="30" y="168" width="60" height="22" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.5"/>
+            <text x="60" y="183" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle">58 cm</text>
+            <text x="60" y="2" fill="#2d3436" font-size="12" font-weight="900" text-anchor="middle">Original Statue</text>
+          </g>
+
+          <!-- Scaling Arrow & Explanation -->
+          <g transform="translate(225, 75)">
+            <line x1="0" y1="20" x2="65" y2="20" stroke="#d63031" stroke-width="3" stroke-dasharray="5,5"/>
+            <polygon points="70,20 58,13 58,27" fill="#d63031"/>
+            <rect x="-5" y="32" width="85" height="26" rx="6" fill="#fff" stroke="#d63031" stroke-width="1"/>
+            <text x="37" y="49" fill="#d63031" font-size="10" font-weight="800" text-anchor="middle">Scale: 5 / 58</text>
+          </g>
+
+          <!-- Miniature Replica Graphic -->
+          <g transform="translate(340, 75)">
+            <rect x="35" y="75" width="40" height="16" rx="4" fill="#747d8c"/>
+            <path d="M 42 75 L 46 30 L 55 12 L 64 30 L 68 75 Z" fill="url(#gradMini)" stroke="#2f3542" stroke-width="2"/>
+            <circle cx="55" cy="26" r="8" fill="#ffeaa7" stroke="#e17055" stroke-width="1.5"/>
+            <line x1="20" y1="12" x2="20" y2="91" stroke="#00b894" stroke-width="2" stroke-dasharray="3,3"/>
+            <rect x="5" y="42" width="52" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+            <text x="31" y="58" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle">h = 16.81 cm</text>
+            <rect x="30" y="96" width="50" height="22" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.5"/>
+            <text x="55" y="111" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle">5 cm</text>
+            <text x="55" y="0" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle">Miniature Replica</text>
+          </g>
+        </svg>
+      `,
+      commentaryHtml: `
+        <strong>Mathematical Proportional Modeling:</strong><br>
+        Because the miniature replica is geometrically similar to the original statue (height $195\\text{ cm}$, width $58\\text{ cm}$), corresponding linear dimensions are directly proportional:
+        $$\\frac{\\text{Height of Replica}}{\\text{Height of Original}} = \\frac{\\text{Width of Replica}}{\\text{Width of Original}} \\implies \\frac{h}{195} = \\frac{5}{58}$$
+        Applying cross-multiplication yields $58h = 975 \\implies h = \\frac{975}{58} \\approx 16.81\\text{ cm}$. This uniform scale factor preserves the authentic pharaonic proportions with zero distortion.
+      `
+    },
+    {
+      accent: '#6c5ce7',
+      accentBg: 'rgba(108, 92, 231, 0.12)',
+      icon: 'fa-solid fa-film',
+      tag: 'Digital Media & Optics',
+      title: 'Cinema Screen vs TV Aspect Ratios',
+      desc: 'Modern entertainment screens rely strictly on geometric similarity (aspect ratios) to display high-definition films without image distortion or black letterbox cropping.',
+      svg: `
+        <svg width="100%" height="200" viewBox="0 0 540 200">
+          <!-- Cinema Screen (45 x 25 -> 9:5 ratio = 1.8) -->
+          <g transform="translate(20, 30)">
+            <rect x="0" y="0" width="162" height="90" rx="6" fill="#1e272e" stroke="#6c5ce7" stroke-width="3"/>
+            <rect x="6" y="6" width="150" height="78" rx="4" fill="#2d3436"/>
+            <text x="81" y="42" fill="#ffeaa7" font-size="12" font-weight="900" text-anchor="middle">Cinema: 45 × 25 ft</text>
+            <text x="81" y="62" fill="#a29bfe" font-size="11" font-weight="800" text-anchor="middle">Ratio = 9 : 5 (1.80)</text>
+            <text x="81" y="112" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle">Original Cinema Screen</text>
+          </g>
+
+          <!-- TV 1 (36 x 27 -> 4:3 ratio = 1.33) -->
+          <g transform="translate(220, 25)">
+            <rect x="0" y="0" width="128" height="96" rx="6" fill="#dfe6e9" stroke="#d63031" stroke-width="2.5"/>
+            <!-- Letterbox distortion bars -->
+            <rect x="4" y="4" width="120" height="14" fill="#d63031" opacity="0.8"/>
+            <rect x="4" y="78" width="120" height="14" fill="#d63031" opacity="0.8"/>
+            <text x="64" y="45" fill="#2d3436" font-size="11" font-weight="900" text-anchor="middle">TV 1: 36" × 27"</text>
+            <text x="64" y="62" fill="#d63031" font-size="10" font-weight="800" text-anchor="middle">4 : 3 (1.33)</text>
+            <text x="64" y="118" fill="#d63031" font-size="11" font-weight="900" text-anchor="middle">Not Similar (Letterbox)</text>
+          </g>
+
+          <!-- TV 2 (36 x 20 -> 9:5 ratio = 1.8) -->
+          <g transform="translate(380, 35)">
+            <rect x="0" y="0" width="144" height="80" rx="6" fill="#00b894" stroke="#00b894" stroke-width="3"/>
+            <rect x="5" y="5" width="134" height="70" rx="4" fill="#05c46b"/>
+            <text x="72" y="38" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">TV 2: 36" × 20"</text>
+            <text x="72" y="56" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">9 : 5 (1.80)</text>
+            <text x="72" y="106" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle">Similar (Full Display)</text>
+          </g>
+        </svg>
+      `,
+      commentaryHtml: `
+        <strong>Geometric Aspect Ratio Proof:</strong><br>
+        A cinema screen measuring $45\\text{ ft} \\times 25\\text{ ft}$ has an aspect ratio of $\\frac{45}{25} = \\frac{9}{5} = 1.80$. A TV screen measuring $36\\text{ in} \\times 20\\text{ in}$ possesses the identical ratio $\\frac{36}{20} = 1.80$, making it geometrically similar to the cinema screen. Consequently, TV 2 displays the cinema film with complete fidelity, while older $4:3$ monitors ($\\\\frac{36}{27} \\approx 1.33$) force image compression or letterbox bars.
+      `
+    },
+    {
+      accent: '#00b894',
+      accentBg: 'rgba(0, 184, 148, 0.12)',
+      icon: 'fa-solid fa-laptop',
+      tag: 'Classroom & Office Technology',
+      title: 'Laptop to Classroom Projector Wall',
+      desc: 'Digital optical projectors magnify compact computer screens onto wide presentation walls using geometric dilation.',
+      svg: `
+        <svg width="100%" height="200" viewBox="0 0 540 200">
+          <!-- Laptop Screen -->
+          <g transform="translate(30, 45)">
+            <rect x="0" y="0" width="90" height="72" rx="6" fill="#2d3436" stroke="#0984e3" stroke-width="2.5"/>
+            <rect x="6" y="6" width="78" height="60" rx="3" fill="#74b9ff"/>
+            <polygon points="-10,80 100,80 90,72 0,72" fill="#b2bec3"/>
+            <text x="45" y="36" fill="#2d3436" font-size="10" font-weight="900" text-anchor="middle">13.25" × 10.6"</text>
+            <text x="45" y="52" fill="#0984e3" font-size="9" font-weight="800" text-anchor="middle">Laptop Screen</text>
+            <text x="45" y="105" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle">Laptop Screen</text>
+          </g>
+
+          <!-- Optical Beam Projection -->
+          <polygon points="125,75 250,20 250,165 125,95" fill="rgba(0, 184, 148, 0.12)" stroke="#00b894" stroke-dasharray="4,4" stroke-width="2"/>
+          <text x="185" y="85" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle">Light Projection (4x)</text>
+
+          <!-- Wall Projection -->
+          <g transform="translate(260, 15)">
+            <rect x="0" y="0" width="240" height="150" rx="8" fill="#ffffff" stroke="#00b894" stroke-width="3"/>
+            <rect x="8" y="8" width="224" height="134" rx="4" fill="rgba(0, 184, 148, 0.05)"/>
+            <text x="120" y="60" fill="#2d3436" font-size="14" font-weight="900" text-anchor="middle">Wall Display</text>
+            <rect x="45" y="75" width="150" height="30" rx="6" fill="#00b894"/>
+            <text x="120" y="95" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">53" × 42.4"</text>
+            <text x="120" y="125" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle">Similarity Ratio k = 1/4</text>
+          </g>
+        </svg>
+      `,
+      commentaryHtml: `
+        <strong>Step-by-Step Similarity Verification:</strong><br>
+        Both screens are rectangles, ensuring all corresponding interior angles are $90^\\circ$. Comparing dimensions yields:
+        $$\\text{Width Ratio} = \\frac{13.25}{53} = \\frac{1}{4} = 0.25, \\quad \\text{Height Ratio} = \\frac{10.6}{42.4} = \\frac{1}{4} = 0.25$$
+        Because all angles are congruent and side lengths share the uniform scale factor $k = \\frac{1}{4}$, the laptop and projected wall display are geometrically similar, providing crisp $4\\times$ magnification.
+      `
+    }
+  ],
+
+  // 3. Core Mathematical Foundation Card (Textbook Page 48)
+  foundation: {
+    badge: 'Core Geometric Foundation',
+    subBadge: 'Two Mandatory Conditions of Similarity',
+    formulaText: '$$\\text{Polygon } ABCD \\sim \\text{Polygon } EFGH \\iff \\begin{cases} m(\\angle A)=m(\\angle E), \\; m(\\angle B)=m(\\angle F), \\; m(\\angle C)=m(\\angle G), \\; m(\\angle D)=m(\\angle H) \\\\[8pt] \\dfrac{AB}{EF} = \\dfrac{BC}{FG} = \\dfrac{CD}{GH} = \\dfrac{DA}{HE} = k \\end{cases}$$',
+    formulaSubtext: 'Two polygons having the same number of sides are similar if and only if BOTH conditions are satisfied together: (1) Corresponding angles are equal in measure, AND (2) Corresponding side lengths are proportional.',
+    rules: [
+      {
+        num: 1,
+        title: 'Two Simultaneous Conditions',
+        desc: 'Equality of angles alone is NOT sufficient (e.g. rectangle vs square), nor is proportionality of sides alone sufficient (e.g. rhombus vs square). Both must hold true!'
+      },
+      {
+        num: 2,
+        title: 'Vertex Correspondence Order',
+        desc: 'Vertices must be written in exact corresponding order: $ABCD \\sim EFGH \\implies A \\leftrightarrow E, B \\leftrightarrow F, C \\leftrightarrow G, D \\leftrightarrow H$. Side ratios follow immediately: $\\frac{AB}{EF} = \\frac{BC}{FG} = \\dots$'
+      },
+      {
+        num: 3,
+        title: 'Similarity Ratio / Scale Factor $k$',
+        desc: 'If $k > 1$, polygon 1 is an Enlargement of polygon 2. If $0 < k < 1$, it is a Reduction. If $k = 1$, the polygons are Congruent.'
+      },
+      {
+        num: 4,
+        title: 'Transitivity Principle',
+        desc: 'Two polygons similar to a third polygon are similar to each other. In addition, all congruent polygons are similar ($k = 1$), but similar polygons are NOT necessarily congruent.'
+      }
+    ]
+  },
+
+  // 4. Special Cases Encyclopedic Section (Textbook Pages 50 & 53)
+  specialCases: [
+    {
+      icon: 'fa-solid fa-square',
+      title: '1. All Squares Are Similar',
+      diagramSvg: `
+        <svg width="100%" height="130" viewBox="0 0 320 130">
+          <g transform="translate(30, 20)">
+            <rect x="0" y="0" width="70" height="70" rx="4" fill="rgba(108, 92, 231, 0.15)" stroke="#6c5ce7" stroke-width="2.5"/>
+            <!-- 4 right angle markers -->
+            <rect x="0" y="0" width="10" height="10" fill="none" stroke="#6c5ce7" stroke-width="1.5"/>
+            <rect x="60" y="0" width="10" height="10" fill="none" stroke="#6c5ce7" stroke-width="1.5"/>
+            <rect x="60" y="60" width="10" height="10" fill="none" stroke="#6c5ce7" stroke-width="1.5"/>
+            <rect x="0" y="60" width="10" height="10" fill="none" stroke="#6c5ce7" stroke-width="1.5"/>
+            <text x="35" y="40" font-size="11" font-weight="900" fill="#6c5ce7" text-anchor="middle">ABCD (a)</text>
+            <text x="35" y="90" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Square 1</text>
+          </g>
+          <g transform="translate(170, 10)">
+            <rect x="0" y="0" width="90" height="90" rx="4" fill="rgba(0, 184, 148, 0.15)" stroke="#00b894" stroke-width="2.5"/>
+            <rect x="0" y="0" width="12" height="12" fill="none" stroke="#00b894" stroke-width="1.5"/>
+            <rect x="78" y="0" width="12" height="12" fill="none" stroke="#00b894" stroke-width="1.5"/>
+            <rect x="78" y="78" width="12" height="12" fill="none" stroke="#00b894" stroke-width="1.5"/>
+            <rect x="0" y="78" width="12" height="12" fill="none" stroke="#00b894" stroke-width="1.5"/>
+            <text x="45" y="50" font-size="12" font-weight="900" fill="#00b894" text-anchor="middle">EFGH (b)</text>
+            <text x="45" y="108" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Square 2 (k = a/b)</text>
+          </g>
+        </svg>
+      `,
+      items: [
+        'All 4 angles are right angles ($90^\\circ = 90^\\circ$).',
+        'All 4 sides are equal, so side ratios are always constant: $\\frac{a}{b} = \\frac{a}{b} = \\dots = k$.'
+      ]
+    },
+    {
+      icon: 'fa-solid fa-diamond',
+      title: '2. Rhombuses: One Angle Suffices',
+      diagramSvg: `
+        <svg width="100%" height="130" viewBox="0 0 320 130">
+          <g transform="translate(30, 15)">
+            <polygon points="45,5 80,45 45,85 10,45" fill="rgba(225, 112, 85, 0.15)" stroke="#e17055" stroke-width="2.5"/>
+            <circle cx="45" cy="5" r="3" fill="#e17055"/>
+            <circle cx="80" cy="45" r="3" fill="#e17055"/>
+            <circle cx="45" cy="85" r="3" fill="#e17055"/>
+            <circle cx="10" cy="45" r="3" fill="#e17055"/>
+            <text x="45" y="48" font-size="10" font-weight="900" fill="#e17055" text-anchor="middle">110° | 70°</text>
+            <text x="45" y="102" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Rhombus 1</text>
+          </g>
+          <g transform="translate(160, 10)">
+            <polygon points="60,5 110,50 60,95 10,50" fill="rgba(9, 132, 227, 0.15)" stroke="#0984e3" stroke-width="2.5"/>
+            <circle cx="60" cy="5" r="3" fill="#0984e3"/>
+            <circle cx="110" cy="50" r="3" fill="#0984e3"/>
+            <circle cx="60" cy="95" r="3" fill="#0984e3"/>
+            <circle cx="10" cy="50" r="3" fill="#0984e3"/>
+            <text x="60" y="53" font-size="11" font-weight="900" fill="#0984e3" text-anchor="middle">110° | 70°</text>
+            <text x="60" y="112" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Rhombus 2 (Same Angles)</text>
+          </g>
+        </svg>
+      `,
+      items: [
+        'Two rhombuses are similar if <strong>one pair of corresponding angles is equal</strong> ($m(\\angle A) = m(\\angle E)$).',
+        'Because all 4 sides of each rhombus are equal, side proportionality is guaranteed automatically!'
+      ]
+    },
+    {
+      icon: 'fa-solid fa-shapes',
+      title: '3. Rectangles: Proportional Dimensions',
+      diagramSvg: `
+        <svg width="100%" height="130" viewBox="0 0 320 130">
+          <g transform="translate(20, 20)">
+            <rect x="0" y="0" width="110" height="70" rx="4" fill="rgba(241, 196, 15, 0.15)" stroke="#f1c40f" stroke-width="2.5"/>
+            <text x="55" y="38" font-size="11" font-weight="900" fill="#f39c12" text-anchor="middle">6 cm × 4 cm</text>
+            <text x="55" y="92" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Rectangle 1</text>
+          </g>
+          <g transform="translate(170, 30)">
+            <rect x="0" y="0" width="75" height="50" rx="4" fill="rgba(46, 204, 113, 0.15)" stroke="#2ecc71" stroke-width="2.5"/>
+            <text x="37" y="28" font-size="10" font-weight="900" fill="#27ae60" text-anchor="middle">3 × 2</text>
+            <text x="37" y="74" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">Rectangle 2 (k = 2)</text>
+          </g>
+        </svg>
+      `,
+      items: [
+        'All interior angles are $90^\\circ$ automatically.',
+        'Two rectangles are similar if and only if their <strong>two adjacent dimensions are proportional</strong>: $\\frac{\\text{Length}_1}{\\text{Length}_2} = \\frac{\\text{Width}_1}{\\text{Width}_2}$.'
+      ]
+    },
+    {
+      icon: 'fa-solid fa-cubes',
+      title: '4. Regular Polygons: Same Side Count',
+      diagramSvg: `
+        <svg width="100%" height="130" viewBox="0 0 320 130">
+          <g transform="translate(40, 15)">
+            <polygon points="40,5 75,30 62,70 18,70 5,30" fill="rgba(108, 92, 231, 0.15)" stroke="#6c5ce7" stroke-width="2.5"/>
+            <text x="40" y="42" font-size="10" font-weight="900" fill="#6c5ce7" text-anchor="middle">Pentagon 1</text>
+            <text x="40" y="90" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">5-gon (s = 4)</text>
+          </g>
+          <g transform="translate(170, 10)">
+            <polygon points="55,5 105,40 85,95 25,95 5,40" fill="rgba(235, 77, 75, 0.15)" stroke="#eb4d4b" stroke-width="2.5"/>
+            <text x="55" y="55" font-size="11" font-weight="900" fill="#eb4d4b" text-anchor="middle">Pentagon 2</text>
+            <text x="55" y="112" font-size="10" font-weight="800" fill="#2d3436" text-anchor="middle">5-gon (s = 8) ✔ Similar</text>
+          </g>
+        </svg>
+      `,
+      items: [
+        'Regular polygons having the <strong>same number of sides are always similar</strong> (e.g. all equilateral triangles, all regular hexagons).',
+        '<strong>Spot the Error:</strong> Regular polygons with different numbers of sides (e.g. regular triangle and regular pentagon) are <strong>NEVER similar</strong>!'
+      ]
+    }
+  ],
+
+  // 5. Pedagogical Ideas — Every single problem has its OWN dedicated card!
+  ideas: [
+    // ========================================================================
+    // IDEA 1: Proving Similarity & Finding Scale Factor (k)
+    // ========================================================================
+    {
+      id: 1,
+      badge: '💡',
+      flashcardTitle: 'Idea 1: Proving Similarity & Calculating the Scale Factor (k)',
+      flashcardText: '<strong>Mastery Strategy:</strong> To prove two polygons are similar, verify that every pair of corresponding angles is congruent, and calculate the ratio $\\frac{\\text{Side}_1}{\\text{Side}_2}$ for all pairs of corresponding sides. If all ratios simplify to the exact same number $k$, state the similarity with vertices in matching sequence!',
+      cards: [
+        {
+          id: 'ex1_1',
+          type: 'solved',
+          tag: 'Solved Example 1.1 • Textbook Page 49 (Example 1)',
+          accent: '#6c5ce7',
+          q: 'In the figure: Polygon $ABCD$ has sides $AB = 12\\text{ cm}$, $BC = 9\\text{ cm}$, $CD = 6\\text{ cm}$, $DA = 15\\text{ cm}$. Polygon $EFGH$ has sides $EF = 8\\text{ cm}$, $FG = 6\\text{ cm}$, $GH = 4\\text{ cm}$, $HE = 10\\text{ cm}$. Given that corresponding angles are equal: $m(\\angle A) = m(\\angle E)$, $m(\\angle B) = m(\\angle F)$, $m(\\angle C) = m(\\angle G)$, $m(\\angle D) = m(\\angle H)$.<br>Prove that $ABCD \\sim EFGH$ and write the similarity ratio of $ABCD$ to $EFGH$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Polygon ABCD -->
+      <g transform="translate(30, 15)">
+        <polygon points="60,185 240,200 285,65 125,35" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+        
+        <circle cx="60" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="240" cy="200" r="4.5" fill="#182038"/>
+        <circle cx="285" cy="65" r="4.5" fill="#182038"/>
+        <circle cx="125" cy="35" r="4.5" fill="#182038"/>
+        <text x="40" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="248" y="215" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="295" y="65" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="115" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Side AB = 12 cm -->
+        <rect x="125" y="200" width="60" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="155" y="216" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">12 cm</text>
+
+        <!-- Side BC = 9 cm -->
+        <rect x="270" y="125" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="297" y="141" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">9 cm</text>
+
+        <!-- Side CD = 6 cm -->
+        <rect x="185" y="35" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="212" y="51" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <!-- Side DA = 15 cm -->
+        <rect x="55" y="95" width="60" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="85" y="111" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">15 cm</text>
+
+        <text x="175" y="242" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+      </g>
+
+      <!-- Polygon EFGH -->
+      <g transform="translate(390, 20)">
+        <polygon points="40,180 160,190 190,100 85,80" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <circle cx="40" cy="180" r="4.5" fill="#182038"/>
+        <circle cx="160" cy="190" r="4.5" fill="#182038"/>
+        <circle cx="190" cy="100" r="4.5" fill="#182038"/>
+        <circle cx="85" cy="80" r="4.5" fill="#182038"/>
+        <text x="22" y="190" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="165" y="205" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+        <text x="200" y="100" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="75" y="70" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+
+        <!-- Side EF = 8 cm -->
+        <rect x="80" y="195" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="107" y="211" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">8 cm</text>
+
+        <!-- Side FG = 6 cm -->
+        <rect x="180" y="135" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="207" y="151" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <!-- Side GH = 4 cm -->
+        <rect x="120" y="75" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="147" y="91" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4 cm</text>
+
+        <!-- Side HE = 10 cm -->
+        <rect x="30" y="115" width="60" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="60" y="131" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">10 cm</text>
+
+        <text x="120" y="235" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EFGH</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Condition 1: Angle Congruence', text: 'Given: Corresponding angles are equal: $m(\\angle A) = m(\\angle E)$, $m(\\angle B) = m(\\angle F)$, $m(\\angle C) = m(\\angle G)$, and $m(\\angle D) = m(\\angle H)$.' },
+            { num: 'Condition 2: Side Proportionality', text: 'Calculate the ratio of corresponding side lengths:<br>$$\\frac{AB}{EF} = \\frac{12}{8} = \\frac{3}{2}, \\quad \\frac{BC}{FG} = \\frac{9}{6} = \\frac{3}{2}, \\quad \\frac{CD}{GH} = \\frac{6}{4} = \\frac{3}{2}, \\quad \\frac{DA}{HE} = \\frac{15}{10} = \\frac{3}{2}$$' },
+            { num: 'Conclusion', text: 'Since corresponding angles are equal and corresponding sides are in the same ratio $\\frac{AB}{EF} = \\frac{BC}{FG} = \\frac{CD}{GH} = \\frac{DA}{HE} = \\frac{3}{2}$, the two polygons are similar.' }
+          ],
+          ans: 'Polygon $ABCD \\sim$ Polygon $EFGH$, and the similarity ratio is $k = \\frac{3}{2}$ (or $1.5$).'
+        },
+
+        {
+          id: 'ex1_2',
+          type: 'solved',
+          tag: 'Solved Example 1.2 • Textbook Page 54 (Problem 13)',
+          accent: '#0984e3',
+          q: 'In the figure: Isosceles Trapezoid $ABCD$ has $AB = 3\\text{ cm}, BC = 5\\text{ cm}, CD = 8\\text{ cm}, DA = 5\\text{ cm}$, and base angles $m(\\angle C) = 60^\\circ, m(\\angle D) = 60^\\circ$. Isosceles Trapezoid $SPQR$ has $SP = 4.5\\text{ cm}, PQ = 7.5\\text{ cm}, QR = 12\\text{ cm}, RS = 7.5\\text{ cm}$, and upper base angles $m(\\angle P) = 120^\\circ, m(\\angle S) = 120^\\circ$.<br>Prove that: Polygon $ABCD \\sim$ Polygon $SPQR$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 700 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Trapezoid ABCD (Left) -->
+      <g transform="translate(40, 15)">
+        <polygon points="90,55 250,55 210,185 130,185" fill="rgba(235, 77, 75, 0.08)" stroke="#eb4d4b" stroke-width="2.8"/>
+
+        <!-- Tick marks on legs AD and BC -->
+        <line x1="108" y1="116" x2="114" y2="124" stroke="#eb4d4b" stroke-width="2"/>
+        <line x1="226" y1="116" x2="232" y2="124" stroke="#eb4d4b" stroke-width="2"/>
+
+        <circle cx="130" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="210" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="250" cy="55" r="4.5" fill="#182038"/>
+        <circle cx="90" cy="55" r="4.5" fill="#182038"/>
+        <text x="115" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="220" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="260" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="75" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Base angles at D and C: 60° -->
+        <path d="M 115 55 A 25 25 0 0 1 103 78" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="110" y="60" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="129" y="74" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">60°</text>
+
+        <path d="M 225 55 A 25 25 0 0 0 237 78" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="195" y="60" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="214" y="74" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">60°</text>
+
+        <!-- CD = 8 cm (top) -->
+        <rect x="145" y="28" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="172" y="44" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">8 cm</text>
+
+        <!-- AB = 3 cm (bottom) -->
+        <rect x="145" y="195" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="172" y="211" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">3 cm</text>
+
+        <!-- Leg AD = 5 cm (left) -->
+        <rect x="75" y="115" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="102" y="131" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <!-- Leg BC = 5 cm (right) -->
+        <rect x="235" y="115" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="262" y="131" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <text x="170" y="238" fill="#eb4d4b" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Trapezoid ABCD</text>
+      </g>
+
+      <!-- Trapezoid SPQR (Right) -->
+      <g transform="translate(380, 15)">
+        <polygon points="60,55 300,55 240,185 120,185" fill="rgba(9, 132, 227, 0.08)" stroke="#0984e3" stroke-width="2.8"/>
+
+        <!-- Tick marks on legs RS and PQ -->
+        <line x1="87" y1="116" x2="93" y2="124" stroke="#0984e3" stroke-width="2"/>
+        <line x1="267" y1="116" x2="273" y2="124" stroke="#0984e3" stroke-width="2"/>
+
+        <circle cx="120" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="240" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="300" cy="55" r="4.5" fill="#182038"/>
+        <circle cx="60" cy="55" r="4.5" fill="#182038"/>
+        <text x="100" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">S</text>
+        <text x="250" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">P</text>
+        <text x="310" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">Q</text>
+        <text x="45" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">R</text>
+
+        <!-- Angle at P = 120° -->
+        <path d="M 220 185 A 25 25 0 0 1 250 162" fill="none" stroke="#0984e3" stroke-width="2"/>
+        <rect x="210" y="145" width="45" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1"/>
+        <text x="232" y="159" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">120°</text>
+
+        <!-- Angle at S = 120° -->
+        <path d="M 140 185 A 25 25 0 0 0 110 162" fill="none" stroke="#0984e3" stroke-width="2"/>
+        <rect x="105" y="145" width="45" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1"/>
+        <text x="127" y="159" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">120°</text>
+
+        <!-- Top Base QR = 12 cm -->
+        <rect x="155" y="28" width="60" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="185" y="44" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">12 cm</text>
+
+        <!-- Bottom Base SP = 4.5 cm -->
+        <rect x="150" y="195" width="65" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="182" y="211" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4.5 cm</text>
+
+        <!-- Left Leg RS = 7.5 cm -->
+        <rect x="35" y="115" width="65" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="67" y="131" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">7.5 cm</text>
+
+        <!-- Right Leg PQ = 7.5 cm -->
+        <rect x="270" y="115" width="65" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="302" y="131" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">7.5 cm</text>
+
+        <text x="180" y="238" fill="#0984e3" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Trapezoid SPQR</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Step 1: Angle Verification', text: 'In trapezoid $ABCD$: Consecutive angles between parallel bases are supplementary: $m(\\angle A) = 180^\\circ - 60^\\circ = 120^\\circ$, and $m(\\angle B) = 180^\\circ - 60^\\circ = 120^\\circ$. In trapezoid $SPQR$: $m(\\angle Q) = 180^\\circ - 120^\\circ = 60^\\circ$, and $m(\\angle R) = 180^\\circ - 120^\\circ = 60^\\circ$. Thus: $m(\\angle A) = m(\\angle S) = 120^\\circ$, $m(\\angle B) = m(\\angle P) = 120^\\circ$, $m(\\angle C) = m(\\angle Q) = 60^\\circ$, $m(\\angle D) = m(\\angle R) = 60^\\circ$.' },
+            { num: 'Step 2: Side Proportionality', text: 'Calculate the ratios of corresponding sides:<br>$$\\frac{AB}{SP} = \\frac{3}{4.5} = \\frac{30}{45} = \\frac{2}{3}, \\quad \\frac{BC}{PQ} = \\frac{5}{7.5} = \\frac{50}{75} = \\frac{2}{3}$$<br>$$\\frac{CD}{QR} = \\frac{8}{12} = \\frac{2}{3}, \\quad \\frac{DA}{RS} = \\frac{5}{7.5} = \\frac{2}{3}$$' },
+            { num: 'Step 3: Synthesis', text: 'Both conditions are satisfied simultaneously with constant ratio $k = \\frac{2}{3}$.' }
+          ],
+          ans: 'Polygon $ABCD \\sim$ Polygon $SPQR$ with similarity ratio $k = \\frac{2}{3}$.'
+        },
+
+        {
+          id: 'try1',
+          type: 'try',
+          tag: 'Self-Assessment 1 • Textbook Page 49 (Try It Yourself)',
+          accent: '#00b894',
+          canvasId: 'can-try-1',
+          wrapId: 'can-wrap-try-1',
+          solId: 'sol-try-1',
+          q: 'In the figure: Kite $ABCD$ has $DA = 5\\text{ cm}, AB = 5\\text{ cm}, BC = 2.5\\text{ cm}, CD = 2.5\\text{ cm}$, with angles $m(\\angle D) = 92^\\circ$ and $m(\\angle B) = 92^\\circ$. Kite $HLKJ$ has $JH = 10\\text{ cm}, HL = 10\\text{ cm}, LK = 5\\text{ cm}, KJ = 5\\text{ cm}$, with angles $m(\\angle L) = 92^\\circ$ and $m(\\angle J) = 92^\\circ$.<br>Prove that $ABCD \\sim HLKJ$ and find the similarity ratio of $ABCD$ to $HLKJ$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Kite ABCD -->
+      <g transform="translate(60, 15)">
+        <polygon points="120,30 190,115 120,200 50,115" fill="rgba(235, 77, 75, 0.08)" stroke="#eb4d4b" stroke-width="2.8"/>
+
+        <circle cx="120" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="190" cy="115" r="4.5" fill="#182038"/>
+        <circle cx="120" cy="200" r="4.5" fill="#182038"/>
+        <circle cx="50" cy="115" r="4.5" fill="#182038"/>
+        <text x="115" y="20" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="200" y="120" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="115" y="220" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="30" y="120" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Angle Arcs at D and B: 92° -->
+        <path d="M 60 103 A 18 18 0 0 1 60 127" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="62" y="105" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="81" y="119" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">92°</text>
+
+        <path d="M 180 103 A 18 18 0 0 0 180 127" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="140" y="105" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="159" y="119" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">92°</text>
+
+        <!-- Side AD = 5 cm -->
+        <rect x="40" y="55" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="67" y="71" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <!-- Side CD = 2.5 cm -->
+        <rect x="35" y="165" width="65" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="67" y="181" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2.5 cm</text>
+
+        <text x="120" y="240" fill="#eb4d4b" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Kite ABCD</text>
+      </g>
+
+      <!-- Kite HLKJ (Right) -->
+      <g transform="translate(390, 10)">
+        <polygon points="140,25 240,125 140,225 40,125" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <circle cx="140" cy="25" r="4.5" fill="#182038"/>
+        <circle cx="240" cy="125" r="4.5" fill="#182038"/>
+        <circle cx="140" cy="225" r="4.5" fill="#182038"/>
+        <circle cx="40" cy="125" r="4.5" fill="#182038"/>
+        <text x="135" y="15" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">J</text>
+        <text x="250" y="130" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">K</text>
+        <text x="135" y="245" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">L</text>
+        <text x="20" y="130" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+
+        <!-- Angle Arcs at H and K: 92° -->
+        <path d="M 52 110 A 20 20 0 0 1 52 140" fill="none" stroke="#00b894" stroke-width="2"/>
+        <rect x="54" y="115" width="38" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/>
+        <text x="73" y="129" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">92°</text>
+
+        <path d="M 228 110 A 20 20 0 0 0 228 140" fill="none" stroke="#00b894" stroke-width="2"/>
+        <rect x="188" y="115" width="38" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/>
+        <text x="207" y="129" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">92°</text>
+
+        <!-- Side HJ = 10 cm -->
+        <rect x="35" y="55" width="60" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="65" y="71" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">10 cm</text>
+
+        <!-- Side HL = 5 cm -->
+        <rect x="35" y="185" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="62" y="201" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <text x="140" y="252" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Kite HLKJ</text>
+      </g>
+    </svg>
+  `,
+          solutionHtml: `
+            <strong>1. Angle Equality:</strong><br>
+            $m(\\angle B) = m(\\angle L) = 92^\\circ$, $m(\\angle D) = m(\\angle J) = 92^\\circ$, and by symmetry of the kite/quadrilateral, $m(\\angle A) = m(\\angle H)$ and $m(\\angle C) = m(\\angle K)$.<br>
+            <strong>2. Proportionality of Corresponding Sides:</strong><br>
+            $$\\frac{AB}{HL} = \\frac{5}{10} = \\frac{1}{2}, \\quad \\frac{BC}{LK} = \\frac{2.5}{5} = \\frac{1}{2}$$
+            $$\\frac{CD}{KJ} = \\frac{2.5}{5} = \\frac{1}{2}, \\quad \\frac{DA}{JH} = \\frac{5}{10} = \\frac{1}{2}$$
+            <strong>Conclusion:</strong> Since $\\frac{AB}{HL} = \\frac{BC}{LK} = \\frac{CD}{KJ} = \\frac{DA}{JH} = \\frac{1}{2}$, Polygon $ABCD \\sim$ Polygon $HLKJ$, and the similarity ratio is <strong>$k = \\frac{1}{2}$</strong>.
+          `
+        }
+      ]
+    },
+
+    // ========================================================================
+    // IDEA 2: Finding Unknown Sides & Angles with Radical Expressions
+    // ========================================================================
+    {
+      id: 2,
+      badge: '🎯',
+      flashcardTitle: 'Idea 2: Calculating Unknown Sides & Angles with Radical Expressions',
+      flashcardText: '<strong>Mastery Strategy:</strong> When polygons are stated as similar ($P_1 \\sim P_2$), set up the similarity equality $\\frac{\\text{Side}_1}{\\text{Side}_2} = \\frac{\\text{Side}_3}{\\text{Side}_4}$. Use cross-multiplication to isolate radicals like $\\sqrt{3}$ or $\\sqrt{2}$. For missing angles, use the matching corresponding angle or the $360^\\circ$ quadrilateral sum rule!',
+      cards: [
+        {
+          id: 'ex2_1',
+          type: 'solved',
+          tag: 'Solved Example 2.1 • Textbook Page 49 (Example 2)',
+          accent: '#eb4d4b',
+          q: 'Given: Polygon $ABCD \\sim$ Polygon $EFGH$. In $ABCD$: $AB = 15\\sqrt{3}\\text{ cm}$, $BC = 30\\text{ cm}$, $m(\\angle B) = 120^\\circ$. In $EFGH$: $EF = 5\\sqrt{3}\\text{ cm}$, $HG = 10\\sqrt{2}\\text{ cm}$, $m(\\angle E) = 90^\\circ$, $m(\\angle F) = 120^\\circ$, $m(\\angle G) = 45^\\circ$.<br>1) Find $m(\\angle H)$ and $m(\\angle C)$.<br>2) Find the lengths of $FG$ and $DC$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Quadrilateral ABCD -->
+      <g transform="translate(30, 15)">
+        <polygon points="90,65 140,195 310,195 210,30" fill="rgba(235, 77, 75, 0.08)" stroke="#eb4d4b" stroke-width="2.8"/>
+        
+        <!-- Right angle at A = 90° -->
+        <polyline points="97,80 110,75 103,60" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+
+        <circle cx="90" cy="65" r="4.5" fill="#182038"/>
+        <circle cx="140" cy="195" r="4.5" fill="#182038"/>
+        <circle cx="310" cy="195" r="4.5" fill="#182038"/>
+        <circle cx="210" cy="30" r="4.5" fill="#182038"/>
+        <text x="70" y="65" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="145" y="215" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="320" y="205" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="215" y="22" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Angle at B = 120° -->
+        <path d="M 125 175 A 25 25 0 0 1 165 195" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="145" y="160" width="42" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="166" y="174" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">120°</text>
+
+        <!-- Side AB = 15√3 cm -->
+        <rect x="70" y="120" width="75" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="107" y="136" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">15√3 cm</text>
+
+        <!-- Side BC = 30 cm -->
+        <rect x="205" y="202" width="60" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="235" y="218" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">30 cm</text>
+
+        <!-- Side CD = ? -->
+        <rect x="255" y="100" width="55" height="24" rx="6" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="282" y="116" fill="#eb4d4b" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">CD = ?</text>
+
+        <text x="190" y="244" fill="#eb4d4b" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+      </g>
+
+      <!-- Quadrilateral EFGH -->
+      <g transform="translate(420, 50)">
+        <polygon points="50,100 70,155 140,155 95,85" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <!-- Right angle at E = 90° -->
+        <polyline points="53,107 60,104 57,95" fill="none" stroke="#00b894" stroke-width="1.8"/>
+
+        <circle cx="50" cy="100" r="4.5" fill="#182038"/>
+        <circle cx="70" cy="155" r="4.5" fill="#182038"/>
+        <circle cx="140" cy="155" r="4.5" fill="#182038"/>
+        <circle cx="95" cy="85" r="4.5" fill="#182038"/>
+        <text x="32" y="100" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="65" y="175" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+        <text x="150" y="165" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="95" y="75" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+
+        <!-- Angle at G = 45° -->
+        <path d="M 125 155 A 15 15 0 0 1 130 140" fill="none" stroke="#00b894" stroke-width="2"/>
+        <rect x="120" y="120" width="38" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/>
+        <text x="139" y="134" fill="#00b894" font-size="10" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">45°</text>
+
+        <!-- Side EF = 5√3 cm -->
+        <rect x="-5" y="120" width="70" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="30" y="136" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5√3 cm</text>
+
+        <!-- Side GH = 10√2 cm -->
+        <rect x="105" y="90" width="75" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="142" y="106" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">10√2 cm</text>
+
+        <!-- Side FG = ? -->
+        <rect x="85" y="162" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="112" y="178" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">FG = ?</text>
+
+        <text x="95" y="205" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EFGH</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Step 1: Finding Angles', text: 'Since $ABCD \\sim EFGH$:<br>• $m(\\angle A) = m(\\angle E) = 90^\\circ$<br>• $m(\\angle B) = m(\\angle F) = 120^\\circ$<br>• $m(\\angle C) = m(\\angle G) = 45^\\circ$<br>In quadrilateral $EFGH$, interior angles sum to $360^\\circ$:<br>$$m(\\angle H) = 360^\\circ - (90^\\circ + 120^\\circ + 45^\\circ) = 360^\\circ - 255^\\circ = 105^\\circ$$' },
+            { num: 'Step 2: Calculating Scale Factor k', text: '$$k = \\frac{AB}{EF} = \\frac{15\\sqrt{3}}{5\\sqrt{3}} = 3$$' },
+            { num: 'Step 3: Calculating FG', text: '$$\\frac{AB}{EF} = \\frac{BC}{FG} \\implies 3 = \\frac{30}{FG} \\implies FG = \\frac{30}{3} = 10\\text{ cm}$$' },
+            { num: 'Step 4: Calculating DC', text: '$$\\frac{AB}{EF} = \\frac{DC}{HG} \\implies 3 = \\frac{DC}{10\\sqrt{2}} \\implies DC = 3 \\times 10\\sqrt{2} = 30\\sqrt{2}\\text{ cm}$$' }
+          ],
+          ans: '1) $m(\\angle H) = 105^\\circ, m(\\angle C) = 45^\\circ$; &nbsp; 2) $FG = 10\\text{ cm}, DC = 30\\sqrt{2}\\text{ cm}$.'
+        },
+
+        {
+          id: 'ex2_2',
+          type: 'solved',
+          tag: 'Solved Example 2.2 • Textbook Page 53 (Problem 10)',
+          accent: '#6c5ce7',
+          q: 'In the figure: Polygon $ABCD \\sim$ Polygon $EBGF$. $ABCD$ has $AD = 6\\text{ cm}$, $CD = 7.5\\text{ cm}$, and side $AB$ has $AE = 9\\text{ cm}$ and $EB = 6\\text{ cm}$ (so $AB = 15\\text{ cm}$). Polygon $EBGF$ has sides $EF = y\\text{ cm}$ and $FG = x\\text{ cm}$.<br>Find the values of $x$ and $y$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Outer Trapezoid ABCD (Purple) -->
+      <polygon points="135,215 535,215 420,65 245,65" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8" stroke-linejoin="round"/>
+
+      <!-- Sub-Polygon EBGF (Emerald / Mint Green) -->
+      <polygon points="135,215 295,215 249,155 179,155" fill="rgba(0, 184, 148, 0.18)" stroke="#00b894" stroke-width="2.8" stroke-linejoin="round"/>
+
+      <!-- Dimension Line along AB for AE = 9 cm, EB = 6 cm -->
+      <line x1="103" y1="203" x2="147" y2="143" stroke="#2c3e50" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="147" y1="143" x2="213" y2="53" stroke="#2c3e50" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Ticks -->
+      <line x1="97" y1="207" x2="109" y2="199" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="141" y1="147" x2="153" y2="139" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="207" y1="57" x2="219" y2="49" stroke="#2c3e50" stroke-width="2"/>
+
+      <!-- Dimension Badges on AB -->
+      <rect x="82" y="162" width="72" height="22" rx="5" fill="#ffffff" stroke="#2c3e50" stroke-width="1.2"/>
+      <text x="118" y="177" fill="#2c3e50" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+      <rect x="138" y="87" width="72" height="22" rx="5" fill="#ffffff" stroke="#2c3e50" stroke-width="1.2"/>
+      <text x="174" y="102" fill="#2c3e50" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">9 cm</text>
+
+      <!-- Side AD = 6 cm (Top Base) -->
+      <rect x="297" y="37" width="70" height="22" rx="5" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+      <text x="332" y="52" fill="#6c5ce7" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+      <!-- Side CD = 7.5 cm (Right Slanted Leg) -->
+      <rect x="470" y="129" width="74" height="22" rx="5" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+      <text x="507" y="144" fill="#6c5ce7" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">7.5 cm</text>
+
+      <!-- Side EF = y (Inner Horizontal Top) -->
+      <rect x="187" y="166" width="55" height="22" rx="5" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+      <text x="214" y="181" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">y cm</text>
+
+      <!-- Side FG = x (Inner Slanted Leg) -->
+      <rect x="276" y="174" width="55" height="22" rx="5" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+      <text x="303" y="189" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">x cm</text>
+
+      <!-- Vertices Circles & Labels -->
+      <circle cx="135" cy="215" r="4.5" fill="#182038"/>
+      <circle cx="535" cy="215" r="4.5" fill="#182038"/>
+      <circle cx="420" cy="65" r="4.5" fill="#182038"/>
+      <circle cx="245" cy="65" r="4.5" fill="#182038"/>
+
+      <circle cx="179" cy="155" r="4.5" fill="#00b894"/>
+      <circle cx="249" cy="155" r="4.5" fill="#00b894"/>
+      <circle cx="295" cy="215" r="4.5" fill="#00b894"/>
+
+      <text x="116" y="235" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+      <text x="230" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+      <text x="430" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+      <text x="548" y="230" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+
+      <text x="158" y="152" fill="#00b894" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+      <text x="252" y="145" fill="#00b894" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+      <text x="295" y="235" fill="#00b894" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+
+      <!-- Titles Below -->
+      <text x="215" y="260" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EBGF</text>
+      <text x="440" y="260" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+    </svg>
+  `,
+          steps: [
+            { num: 'Step 1: Total Length of AB & Scale Factor', text: 'Length of side segment $AB = AE + EB = 9 + 6 = 15\\text{ cm}$.<br>Because $ABCD \\sim EBGF$, the scale factor is:<br>$$k = \\frac{AB}{EB} = \\frac{15}{6} = \\frac{5}{2} = 2.5$$' },
+            { num: 'Step 2: Solving for y', text: 'Corresponding sides give $\\frac{AD}{EF} = k$:<br>$$\\frac{6}{y} = \\frac{5}{2} \\implies 5y = 6 \\times 2 = 12 \\implies y = \\frac{12}{5} = 2.4\\text{ cm}$$' },
+            { num: 'Step 3: Solving for x', text: 'Corresponding sides give $\\frac{CD}{FG} = k$:<br>$$\\frac{7.5}{x} = \\frac{5}{2} \\implies 5x = 7.5 \\times 2 = 15 \\implies x = \\frac{15}{5} = 3\\text{ cm}$$' }
+          ],
+          ans: '$x = 3\\text{ cm}$, &nbsp;&nbsp; $y = 2.4\\text{ cm}$.'
+        },
+
+        {
+          id: 'try2',
+          type: 'try',
+          tag: 'Self-Assessment 2 • Textbook Page 49 (Try It Yourself)',
+          accent: '#00b894',
+          canvasId: 'can-try-2',
+          wrapId: 'can-wrap-try-2',
+          solId: 'sol-try-2',
+          q: 'In the figure: Polygon $ABCD \\sim$ Polygon $EFGH$. In $ABCD$: $m(\\angle B) = 90^\\circ, m(\\angle A) = 75^\\circ, BC = 4\\sqrt{3}\\text{ cm}, CD = 4\\sqrt{2}\\text{ cm}$. In $EFGH$: $EH = 16\\sqrt{2}\\text{ cm}, GH = 8\\sqrt{2}\\text{ cm}, m(\\angle G) = 135^\\circ$.<br>1) Find $m(\\angle D)$ and $m(\\angle C)$.<br>2) Find the lengths of $AD$ and $FG$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Polygon ABCD (Left) -->
+      <g>
+        <polygon points="75,115 75,205 165,205 217,153" fill="rgba(235, 77, 75, 0.08)" stroke="#eb4d4b" stroke-width="2.8"/>
+
+        <!-- True Right Angle Marker at B = 90° -->
+        <polyline points="75,190 90,190 90,205" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+
+        <!-- Angle A = 75° Arc -->
+        <path d="M 75 137 A 22 22 0 0 0 96 121" fill="none" stroke="#eb4d4b" stroke-width="2"/>
+        <rect x="85" y="125" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1"/>
+        <text x="104" y="139" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">75°</text>
+
+        <!-- Vertices Circles & Labels -->
+        <circle cx="75" cy="115" r="4.5" fill="#182038"/>
+        <circle cx="75" cy="205" r="4.5" fill="#182038"/>
+        <circle cx="165" cy="205" r="4.5" fill="#182038"/>
+        <circle cx="217" cy="153" r="4.5" fill="#182038"/>
+        <text x="56" y="112" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="56" y="222" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="168" y="224" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="226" y="148" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Side BC = 4√3 cm (bottom horizontal) -->
+        <rect x="85" y="214" width="70" height="22" rx="5" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="120" y="229" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4√3 cm</text>
+
+        <!-- Side CD = 4√2 cm (slanted right) -->
+        <rect x="195" y="168" width="70" height="22" rx="5" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.2"/>
+        <text x="230" y="183" fill="#eb4d4b" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4√2 cm</text>
+
+        <text x="145" y="258" fill="#eb4d4b" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+      </g>
+
+      <!-- Polygon EFGH (Right) -->
+      <g>
+        <polygon points="380,80 380,205 505,205 577,133" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <!-- True Right Angle Marker at F = 90° -->
+        <polyline points="380,187 398,187 398,205" fill="none" stroke="#00b894" stroke-width="2"/>
+
+        <!-- Angle G = 135° Arc -->
+        <path d="M 479 205 A 26 26 0 0 1 523 187" fill="none" stroke="#00b894" stroke-width="2"/>
+        <rect x="475" y="162" width="44" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/>
+        <text x="497" y="176" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">135°</text>
+
+        <!-- Vertices Circles & Labels -->
+        <circle cx="380" cy="80" r="4.5" fill="#182038"/>
+        <circle cx="380" cy="205" r="4.5" fill="#182038"/>
+        <circle cx="505" cy="205" r="4.5" fill="#182038"/>
+        <circle cx="577" cy="133" r="4.5" fill="#182038"/>
+        <text x="360" y="78" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="360" y="222" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+        <text x="508" y="224" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="586" y="128" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+
+        <!-- Side EH = 16√2 cm (top side) -->
+        <rect x="440" y="68" width="78" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="479" y="84" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">16√2 cm</text>
+
+        <!-- Side GH = 8√2 cm (slanted right) -->
+        <rect x="548" y="157" width="72" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="584" y="173" fill="#00b894" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">8√2 cm</text>
+
+        <text x="480" y="258" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EFGH</text>
+      </g>
+    </svg>
+  `,
+          solutionHtml: `
+            <strong>1. Angle Calculations:</strong><br>
+            • $m(\\angle C) = m(\\angle G) = 135^\\circ$<br>
+            • $m(\\angle F) = m(\\angle B) = 90^\\circ, m(\\angle E) = m(\\angle A) = 75^\\circ$<br>
+            • In quadrilateral $ABCD$, interior angles sum to $360^\\circ$:<br>
+            $$m(\\angle D) = 360^\\circ - (75^\\circ + 90^\\circ + 135^\\circ) = 360^\\circ - 300^\\circ = 60^\\circ$$<br>
+            <strong>2. Similarity Ratio:</strong><br>
+            $$k = \\frac{CD}{GH} = \\frac{4\\sqrt{2}}{8\\sqrt{2}} = \\frac{1}{2}$$<br>
+            <strong>3. Finding Lengths:</strong><br>
+            • $\\frac{BC}{FG} = \\frac{1}{2} \\implies \\frac{4\\sqrt{3}}{FG} = \\frac{1}{2} \\implies FG = 2 \\times 4\\sqrt{3} = 8\\sqrt{3}\\text{ cm}$.<br>
+            • $\\frac{AD}{EH} = \\frac{1}{2} \\implies \\frac{AD}{16\\sqrt{2}} = \\frac{1}{2} \\implies AD = \\frac{16\\sqrt{2}}{2} = 8\\sqrt{2}\\text{ cm}$.
+          `
+        }
+      ]
+    },
+
+    // ========================================================================
+    // IDEA 3: Special Quadrilaterals (COMPLETELY SEPARATE CARDS PER PROBLEM!)
+    // ========================================================================
+    {
+      id: 3,
+      badge: '🏛️',
+      flashcardTitle: 'Idea 3: Special Quadrilateral Similarity Criteria',
+      flashcardText: '<strong>Mastery Strategy:</strong> Remember the quick tests: (1) All squares are always similar. (2) Rectangles only need $\\frac{L_1}{L_2} = \\frac{W_1}{W_2}$. (3) Rhombuses only need one angle equal ($m(\\angle 1) = m(\\angle 2)$). (4) Parallelograms need one angle equal AND adjacent sides proportional! Every question is presented on its own dedicated canvas.',
+      cards: [
+        // Problem 3.1: Rectangles ONLY!
+        {
+          id: 'ex3_1_rect',
+          type: 'solved',
+          tag: 'Solved Example 3.1 • Rectangles Only (Textbook Page 50)',
+          accent: '#6c5ce7',
+          q: '<strong>Problem:</strong> Prove that Rectangle $ABCD$ (length $BC = 6\\text{ cm}$, width $CD = 4\\text{ cm}$) is similar to Rectangle $XYZM$ (length $YZ = 3\\text{ cm}$, width $ZM = 2\\text{ cm}$), and calculate the similarity ratio of $ABCD$ to $XYZM$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 270" style="display:block; width:100%; max-height:270px;">
+      <!-- Rectangle ABCD (Vertical) -->
+      <g transform="translate(60, 15)">
+        <rect x="50" y="30" width="120" height="160" rx="3" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+        
+        <polyline points="50,45 65,45 65,30" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="155,30 155,45 170,45" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="170,175 155,175 155,190" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="65,190 65,175 50,175" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+
+        <circle cx="50" cy="190" r="4.5" fill="#182038"/>
+        <circle cx="170" cy="190" r="4.5" fill="#182038"/>
+        <circle cx="170" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="50" cy="30" r="4.5" fill="#182038"/>
+        <text x="32" y="205" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="178" y="205" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="178" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="32" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- CD = 4 cm -->
+        <rect x="85" y="10" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="112" y="26" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4 cm</text>
+
+        <!-- BC = 6 cm -->
+        <rect x="180" y="98" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="207" y="114" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <text x="110" y="228" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Rectangle ABCD</text>
+      </g>
+
+      <!-- Rectangle XYZM (Horizontal) -->
+      <g transform="translate(395, 45)">
+        <rect x="40" y="30" width="180" height="110" rx="3" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <polyline points="40,45 55,45 55,30" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="205,30 205,45 220,45" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="220,125 205,125 205,140" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="55,140 55,125 40,125" fill="none" stroke="#00b894" stroke-width="2"/>
+
+        <circle cx="40" cy="140" r="4.5" fill="#182038"/>
+        <circle cx="220" cy="140" r="4.5" fill="#182038"/>
+        <circle cx="220" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="40" cy="30" r="4.5" fill="#182038"/>
+        <text x="22" y="155" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">M</text>
+        <text x="228" y="155" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">X</text>
+        <text x="228" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">Y</text>
+        <text x="22" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">Z</text>
+
+        <!-- ZY = 3 cm -->
+        <rect x="105" y="10" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="132" y="26" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">3 cm</text>
+
+        <!-- ZM = 2 cm -->
+        <rect x="0" y="74" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="27" y="90" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2 cm</text>
+
+        <text x="130" y="175" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Rectangle XYZM</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Step 1: Verify Angles', text: 'In any rectangle, all four interior angles are right angles ($90^\\circ$). Therefore, all corresponding angles are automatically equal.' },
+            { num: 'Step 2: Compare Dimension Ratios', text: 'Evaluate the ratio between corresponding lengths and widths:<br>$$\\frac{BC}{YZ} = \\frac{6}{3} = 2, \\quad \\frac{CD}{ZM} = \\frac{4}{2} = 2$$' },
+            { num: 'Step 3: Conclusion', text: 'Since corresponding dimensions are proportional ($\\frac{BC}{YZ} = \\frac{CD}{ZM} = 2$), the two rectangles are similar.' }
+          ],
+          ans: 'Rectangle $ABCD \\sim$ Rectangle $XYZM$, and the similarity ratio is $k = 2$.'
+        },
+
+        // Problem 3.2: Rhombuses ONLY!
+        {
+          id: 'ex3_2_rhomb',
+          type: 'solved',
+          tag: 'Solved Example 3.2 • Rhombuses Only (Textbook Page 50)',
+          accent: '#e17055',
+          q: '<strong>Problem:</strong> Prove that Rhombus $ABCD$ (side length $AB = 3\\text{ cm}$, angle $m(\\angle D) = 110^\\circ$) is similar to Rhombus $EFGH$ (side length $EF = 5\\text{ cm}$, angle $m(\\angle G) = 70^\\circ$), and calculate the similarity ratio of $ABCD$ to $EFGH$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Rhombus ABCD -->
+      <g transform="translate(40, 15)">
+        <polygon points="60,185 180,185 235,65 115,65" fill="rgba(225, 112, 85, 0.08)" stroke="#e17055" stroke-width="2.8"/>
+        
+        <line x1="117" y1="180" x2="117" y2="190" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="123" y1="180" x2="123" y2="190" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="204" y1="121" x2="212" y2="129" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="208" y1="117" x2="216" y2="125" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="172" y1="60" x2="172" y2="70" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="178" y1="60" x2="178" y2="70" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="84" y1="121" x2="92" y2="129" stroke="#e17055" stroke-width="1.8"/>
+        <line x1="88" y1="117" x2="96" y2="125" stroke="#e17055" stroke-width="1.8"/>
+
+        <circle cx="60" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="180" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="235" cy="65" r="4.5" fill="#182038"/>
+        <circle cx="115" cy="65" r="4.5" fill="#182038"/>
+        <text x="42" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="188" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="245" y="65" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="98" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Angle Arc at D (110°) -->
+        <path d="M 137 65 A 22 22 0 0 1 103 85" fill="none" stroke="#e17055" stroke-width="2"/>
+        <rect x="110" y="75" width="42" height="20" rx="4" fill="#ffffff" stroke="#e17055" stroke-width="1"/>
+        <text x="131" y="89" fill="#e17055" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">110°</text>
+
+        <!-- Base AB = 3 cm -->
+        <rect x="95" y="195" width="55" height="24" rx="6" fill="#ffffff" stroke="#e17055" stroke-width="1.2"/>
+        <text x="122" y="211" fill="#e17055" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">3 cm</text>
+
+        <text x="120" y="240" fill="#e17055" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Rhombus ABCD</text>
+      </g>
+
+      <!-- Rhombus EFGH -->
+      <g transform="translate(385, 15)">
+        <polygon points="40,185 220,185 275,65 95,65" fill="rgba(9, 132, 227, 0.08)" stroke="#0984e3" stroke-width="2.8"/>
+
+        <line x1="127" y1="180" x2="127" y2="190" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="133" y1="180" x2="133" y2="190" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="244" y1="121" x2="252" y2="129" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="248" y1="117" x2="256" y2="125" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="182" y1="60" x2="182" y2="70" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="188" y1="60" x2="188" y2="70" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="64" y1="121" x2="72" y2="129" stroke="#0984e3" stroke-width="1.8"/>
+        <line x1="68" y1="117" x2="76" y2="125" stroke="#0984e3" stroke-width="1.8"/>
+
+        <circle cx="40" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="220" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="275" cy="65" r="4.5" fill="#182038"/>
+        <circle cx="95" cy="65" r="4.5" fill="#182038"/>
+        <text x="22" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="228" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+        <text x="285" y="65" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="78" y="55" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+
+        <!-- Angle Arc at G (70°) -->
+        <path d="M 252 65 A 25 25 0 0 0 263 89" fill="none" stroke="#0984e3" stroke-width="2"/>
+        <rect x="238" y="75" width="40" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1"/>
+        <text x="258" y="89" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">70°</text>
+
+        <!-- Base EF = 5 cm -->
+        <rect x="105" y="195" width="55" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="132" y="211" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <text x="130" y="240" fill="#0984e3" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Rhombus EFGH</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Step 1: Calculate Supplementary Angle', text: 'In rhombus $ABCD$, consecutive angles are supplementary:<br>$$m(\\angle C) = 180^\\circ - 110^\\circ = 70^\\circ$$' },
+            { num: 'Step 2: Angle Equality', text: 'Since $m(\\angle C) = 70^\\circ$ and $m(\\angle G) = 70^\\circ$, one pair of corresponding angles is equal. In any rhombus, having one matching angle guarantees all four angles are equal in pairs ($70^\\circ$ and $110^\\circ$).' },
+            { num: 'Step 3: Side Proportionality', text: 'All four sides are equal within each rhombus. Thus, the ratio of every corresponding side is identical: $\\frac{AB}{EF} = \\frac{3}{5}$.' }
+          ],
+          ans: 'Rhombus $ABCD \\sim$ Rhombus $EFGH$, and the similarity ratio is $k = \\frac{3}{5}$.'
+        },
+
+        // Problem 3.3: Squares ONLY!
+        {
+          id: 'try3_1_sq',
+          type: 'try',
+          tag: 'Self-Assessment 3A • Squares Only (Textbook Page 50)',
+          accent: '#00b894',
+          canvasId: 'can-try-3a',
+          wrapId: 'can-wrap-try-3a',
+          solId: 'sol-try-3a',
+          q: '<strong>Problem:</strong> Prove that Square $ABCD$ (side length $15\\text{ cm}$) is similar to Square $LMNO$ (side length $6\\text{ cm}$), and write the similarity ratio of $ABCD$ to $LMNO$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 270" style="display:block; width:100%; max-height:270px;">
+      <!-- Square ABCD -->
+      <g transform="translate(60, 15)">
+        <rect x="30" y="30" width="150" height="150" rx="2" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+        <polyline points="30,45 45,45 45,30" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="165,30 165,45 180,45" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="180,165 165,165 165,180" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <polyline points="45,180 45,165 30,165" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+
+        <line x1="105" y1="26" x2="105" y2="34" stroke="#6c5ce7" stroke-width="2"/>
+        <line x1="176" y1="105" x2="184" y2="105" stroke="#6c5ce7" stroke-width="2"/>
+        <line x1="105" y1="176" x2="105" y2="184" stroke="#6c5ce7" stroke-width="2"/>
+        <line x1="26" y1="105" x2="34" y2="105" stroke="#6c5ce7" stroke-width="2"/>
+
+        <circle cx="30" cy="180" r="4.5" fill="#182038"/>
+        <circle cx="180" cy="180" r="4.5" fill="#182038"/>
+        <circle cx="180" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="30" cy="30" r="4.5" fill="#182038"/>
+        <text x="12" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="188" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="188" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="12" y="25" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Base AB = 15 cm -->
+        <rect x="75" y="188" width="60" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="105" y="204" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">15 cm</text>
+
+        <text x="105" y="235" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Square ABCD</text>
+      </g>
+
+      <!-- Square LMNO -->
+      <g transform="translate(420, 45)">
+        <rect x="30" y="30" width="90" height="90" rx="2" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+        <polyline points="30,42 42,42 42,30" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="108,30 108,42 120,42" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="120,108 108,108 108,120" fill="none" stroke="#00b894" stroke-width="2"/>
+        <polyline points="42,120 42,108 30,108" fill="none" stroke="#00b894" stroke-width="2"/>
+
+        <line x1="75" y1="26" x2="75" y2="34" stroke="#00b894" stroke-width="2"/>
+        <line x1="116" y1="75" x2="124" y2="75" stroke="#00b894" stroke-width="2"/>
+        <line x1="75" y1="116" x2="75" y2="124" stroke="#00b894" stroke-width="2"/>
+        <line x1="26" y1="75" x2="34" y2="75" stroke="#00b894" stroke-width="2"/>
+
+        <circle cx="30" cy="120" r="4.5" fill="#182038"/>
+        <circle cx="120" cy="120" r="4.5" fill="#182038"/>
+        <circle cx="120" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="30" cy="30" r="4.5" fill="#182038"/>
+        <text x="14" y="135" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">L</text>
+        <text x="126" y="135" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">M</text>
+        <text x="126" y="25" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">N</text>
+        <text x="14" y="25" fill="#182038" font-size="15" font-weight="900" font-family="'Outfit', sans-serif">O</text>
+
+        <!-- Base LM = 6 cm -->
+        <rect x="50" y="128" width="55" height="24" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.2"/>
+        <text x="77" y="144" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <text x="75" y="175" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Square LMNO</text>
+      </g>
+    </svg>
+  `,
+          solutionHtml: `
+            <strong>Squares Similarity Proof:</strong><br>
+            1. All four interior angles in both squares are right angles ($90^\\circ$).<br>
+            2. All four sides in each square are equal, so side ratios are identical:<br>
+            $$\\frac{AB}{LM} = \\frac{15}{6} = \\frac{5}{2} = 2.5$$
+            <strong>Conclusion:</strong> <strong>Square $ABCD \\sim$ Square $LMNO$</strong>, with similarity ratio <strong>$k = 2.5$</strong> (or $\\frac{5}{2}$).
+          `
+        },
+
+        // Problem 3.4: Parallelograms ONLY!
+        {
+          id: 'try3_2_para',
+          type: 'try',
+          tag: 'Self-Assessment 3B • Parallelograms Only (Textbook Page 50)',
+          accent: '#0984e3',
+          canvasId: 'can-try-3b',
+          wrapId: 'can-wrap-try-3b',
+          solId: 'sol-try-3b',
+          q: '<strong>Problem:</strong> Parallelogram $ABCD$ has sides $AB = 8\\text{ cm}, AD = 6\\text{ cm}$, and angle $m(\\angle B) = 120^\\circ$. Parallelogram $PQRS$ has sides $PQ = 6\\text{ cm}, PS = 4.5\\text{ cm}$, and angle $m(\\angle P) = 60^\\circ$.<br>Prove that Parallelogram $ABCD \\sim$ Parallelogram $PQRS$ and find the similarity ratio of $ABCD$ to $PQRS$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Parallelogram ABCD -->
+      <g transform="translate(35, 15)">
+        <polygon points="50,185 230,185 285,70 105,70" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+        
+        <circle cx="50" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="230" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="285" cy="70" r="4.5" fill="#182038"/>
+        <circle cx="105" cy="70" r="4.5" fill="#182038"/>
+        <text x="32" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="238" y="200" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+        <text x="295" y="70" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="90" y="60" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+
+        <!-- Angle at B = 120° -->
+        <path d="M 205 185 A 25 25 0 0 1 245 153" fill="none" stroke="#6c5ce7" stroke-width="2"/>
+        <rect x="200" y="155" width="42" height="20" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1"/>
+        <text x="221" y="169" fill="#6c5ce7" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">120°</text>
+
+        <!-- Base AB = 8 cm -->
+        <rect x="115" y="195" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="142" y="211" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">8 cm</text>
+
+        <!-- Side AD = 6 cm -->
+        <rect x="40" y="115" width="55" height="24" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.2"/>
+        <text x="67" y="131" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <text x="140" y="238" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Parallelogram ABCD</text>
+      </g>
+
+      <!-- Parallelogram PQRS -->
+      <g transform="translate(390, 20)">
+        <polygon points="40,180 175,180 215,90 80,90" fill="rgba(9, 132, 227, 0.08)" stroke="#0984e3" stroke-width="2.8"/>
+
+        <circle cx="40" cy="180" r="4.5" fill="#182038"/>
+        <circle cx="175" cy="180" r="4.5" fill="#182038"/>
+        <circle cx="215" cy="90" r="4.5" fill="#182038"/>
+        <circle cx="80" cy="90" r="4.5" fill="#182038"/>
+        <text x="22" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">P</text>
+        <text x="182" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">Q</text>
+        <text x="225" y="90" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">R</text>
+        <text x="68" y="80" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">S</text>
+
+        <!-- Angle at P = 60° -->
+        <path d="M 65 180 A 25 25 0 0 0 54 152" fill="none" stroke="#0984e3" stroke-width="2"/>
+        <rect x="62" y="162" width="38" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1"/>
+        <text x="81" y="176" fill="#0984e3" font-size="11" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">60°</text>
+
+        <!-- Base PQ = 6 cm -->
+        <rect x="85" y="190" width="55" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="112" y="206" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <!-- Side PS = 4.5 cm -->
+        <rect x="15" y="122" width="60" height="24" rx="6" fill="#ffffff" stroke="#0984e3" stroke-width="1.2"/>
+        <text x="45" y="138" fill="#0984e3" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4.5 cm</text>
+
+        <text x="110" y="232" fill="#0984e3" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Parallelogram PQRS</text>
+      </g>
+    </svg>
+  `,
+          solutionHtml: `
+            <strong>Parallelograms Similarity Proof:</strong><br>
+            • <strong>Angle Check:</strong> In $ABCD$, consecutive angles are supplementary: $m(\\angle A) = 180^\\circ - 120^\\circ = 60^\\circ$. Thus $m(\\angle A) = m(\\angle P) = 60^\\circ$.<br>
+            • <strong>Adjacent Sides Proportionality Check:</strong><br>
+            $$\\frac{AB}{PQ} = \\frac{8}{6} = \\frac{4}{3}, \\quad \\frac{AD}{PS} = \\frac{6}{4.5} = \\frac{60}{45} = \\frac{4}{3}$$
+            Since one pair of corresponding angles is congruent ($60^\\circ$) and the adjacent sides including that angle are proportional ($\\frac{4}{3}$), <strong>Parallelogram $ABCD \\sim$ Parallelogram $PQRS$</strong>, with similarity ratio <strong>$k = \\frac{4}{3}$</strong>.
+          `
+        }
+      ]
+    },
+
+    // ========================================================================
+    // IDEA 4: Ratio of Perimeters & Algebraic Systems (x, y, z)
+    // ========================================================================
+    {
+      id: 4,
+      badge: '📐',
+      flashcardTitle: 'Idea 4: Ratio of Perimeters & Solving Algebraic Systems (x, y, z)',
+      flashcardText: '<strong>Perimeter Theorem:</strong> The ratio of the perimeters of two similar polygons is equal to the similarity ratio $k$ of any two corresponding sides: $\\frac{\\text{Perimeter}_1}{\\text{Perimeter}_2} = k$. Equate each side expression to $k$ to solve for algebraic variables $x, y, z$!',
+      cards: [
+        {
+          id: 'ex4_1',
+          type: 'solved',
+          tag: 'Solved Example 4.1 • Textbook Page 51 (Example 4)',
+          accent: '#6c5ce7',
+          q: 'Given: Polygon $ABCD \\sim$ Polygon $EFGH$, and $\\frac{\\text{Perimeter of } ABCD}{\\text{Perimeter of } EFGH} = \\frac{3}{2}$. Sides given: $AB = 6\\text{ cm}, EF = z\\text{ cm}$; $BC = (y + 3)\\text{ cm}, FG = 5\\text{ cm}$; $CD = (2x + 1)\\text{ cm}, GH = (x + 2)\\text{ cm}$.<br>Find the values of $x, y, z$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Polygon ABCD (Textbook Trapezoid) -->
+      <g transform="translate(35, 15)">
+        <polygon points="45,30 250,30 185,185 75,185" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+
+        <circle cx="45" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="250" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="185" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="75" cy="185" r="4.5" fill="#182038"/>
+        <text x="25" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="260" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+        <text x="195" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="55" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+
+        <!-- Left Leg AB = 6 cm -->
+        <rect x="15" y="95" width="62" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="46" y="112" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">6 cm</text>
+
+        <!-- Bottom Base BC = (y + 3) cm -->
+        <rect x="95" y="195" width="70" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="130" y="212" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">y + 3</text>
+
+        <!-- Right Leg CD = (2x + 1) cm -->
+        <rect x="225" y="95" width="76" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="263" y="112" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2x + 1</text>
+
+        <text x="135" y="242" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+      </g>
+
+      <!-- Polygon EFGH (Textbook Trapezoid) -->
+      <g transform="translate(415, 25)">
+        <polygon points="35,40 175,40 130,150 55,150" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <circle cx="35" cy="40" r="4.5" fill="#182038"/>
+        <circle cx="175" cy="40" r="4.5" fill="#182038"/>
+        <circle cx="130" cy="150" r="4.5" fill="#182038"/>
+        <circle cx="55" cy="150" r="4.5" fill="#182038"/>
+        <text x="18" y="37" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="185" y="37" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+        <text x="140" y="160" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="38" y="160" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+
+        <!-- Left Leg EF = z cm -->
+        <rect x="15" y="85" width="50" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="40" y="102" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">z</text>
+
+        <!-- Bottom Base FG = 5 cm -->
+        <rect x="65" y="160" width="58" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="94" y="177" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">5 cm</text>
+
+        <!-- Right Leg GH = (x + 2) cm -->
+        <rect x="160" y="85" width="65" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="192" y="102" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">x + 2</text>
+
+        <text x="105" y="210" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EFGH</text>
+      </g>
+    </svg>
+  `,
+          steps: [
+            { num: 'Perimeter Ratio Property', text: 'By the perimeter theorem: $\\frac{AB}{EF} = \\frac{BC}{FG} = \\frac{CD}{GH} = \\frac{\\text{Perimeter of } ABCD}{\\text{Perimeter of } EFGH} = \\frac{3}{2}$.' },
+            { num: 'Solving for z', text: '$$\\frac{AB}{EF} = \\frac{3}{2} \\implies \\frac{6}{z} = \\frac{3}{2} \\implies 3z = 12 \\implies z = 4$$' },
+            { num: 'Solving for y', text: '$$\\frac{BC}{FG} = \\frac{3}{2} \\implies \\frac{y + 3}{5} = \\frac{3}{2} \\implies 2(y + 3) = 15 \\implies 2y + 6 = 15 \\implies 2y = 9 \\implies y = 4.5$$' },
+            { num: 'Solving for x', text: '$$\\frac{CD}{GH} = \\frac{3}{2} \\implies \\frac{2x + 1}{x + 2} = \\frac{3}{2} \\implies 2(2x + 1) = 3(x + 2)$$<br>$$4x + 2 = 3x + 6 \\implies 4x - 3x = 6 - 2 \\implies x = 4$$' }
+          ],
+          ans: '$x = 4$, &nbsp;&nbsp; $y = 4.5$, &nbsp;&nbsp; $z = 4$.'
+        },
+
+        {
+          id: 'ex4_2',
+          type: 'solved',
+          tag: 'Solved Example 4.2 • Textbook Page 53 (Problem 12)',
+          accent: '#00b894',
+          q: 'Two polygons are similar. The side lengths of the first polygon are $3\\text{ cm}, 5\\text{ cm}, 6\\text{ cm}, 8\\text{ cm}, 10\\text{ cm}$. The perimeter of the second polygon is $80\\text{ cm}$.<br>Find the lengths of the five sides of the second polygon.',
+          steps: [
+            { num: 'Step 1: Calculate Perimeter of 1st Polygon', text: '$$P_1 = 3 + 5 + 6 + 8 + 10 = 32\\text{ cm}$$' },
+            { num: 'Step 2: Scale Factor k', text: '$$k = \\frac{P_2}{P_1} = \\frac{80}{32} = \\frac{5}{2} = 2.5$$' },
+            { num: 'Step 3: Scaling Every Side Length', text: 'Multiply each side length by $k = 2.5$:<br>• $s_1 = 3 \\times 2.5 = 7.5\\text{ cm}$<br>• $s_2 = 5 \\times 2.5 = 12.5\\text{ cm}$<br>• $s_3 = 6 \\times 2.5 = 15\\text{ cm}$<br>• $s_4 = 8 \\times 2.5 = 20\\text{ cm}$<br>• $s_5 = 10 \\times 2.5 = 25\\text{ cm}$' },
+            { num: 'Step 4: Verification', text: '$7.5 + 12.5 + 15 + 20 + 25 = 80\\text{ cm}$ (Exact match!).' }
+          ],
+          ans: 'The side lengths are: $7.5\\text{ cm}, 12.5\\text{ cm}, 15\\text{ cm}, 20\\text{ cm}, 25\\text{ cm}$.'
+        },
+
+        {
+          id: 'try4',
+          type: 'try',
+          tag: 'Self-Assessment 4 • Textbook Page 51 (Try It Yourself)',
+          accent: '#00b894',
+          canvasId: 'can-try-4',
+          wrapId: 'can-wrap-try-4',
+          solId: 'sol-try-4',
+          q: 'Given: Polygon $ABCD \\sim$ Polygon $EFGH$, and $\\frac{\\text{Perimeter of } ABCD}{\\text{Perimeter of } EFGH} = \\frac{3}{4}$. In $ABCD$: $AB = 2z - 3, BC = x + 1, CD = 4.5$. In $EFGH$: $EF = 8, FG = 2x, GH = 2y$.<br>Find the values of $x, y, z$.',
+          svg: `
+    <svg width="100%" height="auto" viewBox="0 0 680 280" style="display:block; width:100%; max-height:280px;">
+      <!-- Polygon ABCD (Textbook Trapezoid) -->
+      <g transform="translate(35, 15)">
+        <polygon points="45,30 250,30 185,185 75,185" fill="rgba(108, 92, 231, 0.08)" stroke="#6c5ce7" stroke-width="2.8"/>
+
+        <circle cx="45" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="250" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="185" cy="185" r="4.5" fill="#182038"/>
+        <circle cx="75" cy="185" r="4.5" fill="#182038"/>
+        <text x="25" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">A</text>
+        <text x="260" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">D</text>
+        <text x="195" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">C</text>
+        <text x="55" y="195" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">B</text>
+
+        <!-- Left Leg AB = 2z - 3 -->
+        <rect x="15" y="95" width="75" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="52" y="112" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2z - 3</text>
+
+        <!-- Bottom Base BC = x + 1 -->
+        <rect x="95" y="195" width="70" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="130" y="212" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">x + 1</text>
+
+        <!-- Right Leg CD = 4.5 -->
+        <rect x="225" y="95" width="60" height="26" rx="6" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/>
+        <text x="255" y="112" fill="#6c5ce7" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">4.5</text>
+
+        <text x="135" y="242" fill="#6c5ce7" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon ABCD</text>
+      </g>
+
+      <!-- Polygon EFGH (Textbook Trapezoid) -->
+      <g transform="translate(415, 15)">
+        <polygon points="40,30 270,30 200,195 70,195" fill="rgba(0, 184, 148, 0.08)" stroke="#00b894" stroke-width="2.8"/>
+
+        <circle cx="40" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="270" cy="30" r="4.5" fill="#182038"/>
+        <circle cx="200" cy="195" r="4.5" fill="#182038"/>
+        <circle cx="70" cy="195" r="4.5" fill="#182038"/>
+        <text x="20" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">E</text>
+        <text x="282" y="27" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">H</text>
+        <text x="212" y="210" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">G</text>
+        <text x="52" y="210" fill="#182038" font-size="16" font-weight="900" font-family="'Outfit', sans-serif">F</text>
+
+        <!-- Left Leg EF = 8 -->
+        <rect x="15" y="95" width="55" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="42" y="112" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">8</text>
+
+        <!-- Bottom Base FG = 2x -->
+        <rect x="105" y="205" width="60" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="135" y="222" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2x</text>
+
+        <!-- Right Leg GH = 2y -->
+        <rect x="245" y="95" width="60" height="26" rx="6" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/>
+        <text x="275" y="112" fill="#00b894" font-size="12" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">2y</text>
+
+        <text x="155" y="245" fill="#00b894" font-size="13" font-weight="900" text-anchor="middle" font-family="'Outfit', sans-serif">Polygon EFGH</text>
+      </g>
+    </svg>
+  `,
+          solutionHtml: `
+            <strong>1. Solving for z:</strong><br>
+            $$\\frac{AB}{EF} = \\frac{3}{4} \\implies \\frac{2z - 3}{8} = \\frac{3}{4} \\implies 2z - 3 = \\frac{3 \\times 8}{4} = 6$$
+            $$2z = 9 \\implies z = 4.5$$
+            <strong>2. Solving for x:</strong><br>
+            $$\\frac{BC}{FG} = \\frac{3}{4} \\implies \\frac{x + 1}{2x} = \\frac{3}{4} \\implies 4(x + 1) = 6x$$
+            $$4x + 4 = 6x \\implies 2x = 4 \\implies x = 2$$
+            <strong>3. Solving for y:</strong><br>
+            $$\\frac{CD}{GH} = \\frac{3}{4} \\implies \\frac{4.5}{2y} = \\frac{3}{4} \\implies 6y = 4 \\times 4.5 = 18 \\implies y = 3$$
+            <strong>Final Answer:</strong> $x = 2$, &nbsp; $y = 3$, &nbsp; $z = 4.5$.
+          `
+        }
+      ]
+    }
+  ],
+
+  // 6. 10 MCQ Questions (From Pages 52 & 53)
+  mcqs: [
+    {
+      id: 1,
+      q: "In the figure: Polygon $ABCD$ has sides $24, 18, 12, 24$, and Polygon $KLMN$ has sides $16, 12, 8, 16$. What is the similarity ratio of polygon $ABCD$ to polygon $KLMN$?",
+      diagramSvg: `<svg width="480" height="170" viewBox="0 0 480 170" xmlns="http://www.w3.org/2000/svg"><polygon points="50,30 200,45 180,145 30,130" fill="rgba(108,92,231,0.08)" stroke="#6c5ce7" stroke-width="2.5"/><polygon points="280,45 390,55 375,135 265,125" fill="rgba(0,184,148,0.08)" stroke="#00b894" stroke-width="2.5"/><circle cx="50" cy="30" r="4" fill="#6c5ce7"/><text x="45" y="24" fill="#182038" font-size="13" font-weight="800">A</text><circle cx="200" cy="45" r="4" fill="#6c5ce7"/><text x="208" y="45" fill="#182038" font-size="13" font-weight="800">B</text><circle cx="180" cy="145" r="4" fill="#6c5ce7"/><text x="185" y="160" fill="#182038" font-size="13" font-weight="800">C</text><circle cx="30" cy="130" r="4" fill="#6c5ce7"/><text x="20" y="145" fill="#182038" font-size="13" font-weight="800">D</text><rect x="115" y="22" width="28" height="18" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1"/><text x="129" y="35" fill="#6c5ce7" font-size="11" font-weight="800" text-anchor="middle">24</text><rect x="185" y="85" width="28" height="18" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1"/><text x="199" y="98" fill="#6c5ce7" font-size="11" font-weight="800" text-anchor="middle">18</text><rect x="95" y="132" width="28" height="18" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1"/><text x="109" y="145" fill="#6c5ce7" font-size="11" font-weight="800" text-anchor="middle">12</text><rect x="25" y="70" width="28" height="18" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1"/><text x="39" y="83" fill="#6c5ce7" font-size="11" font-weight="800" text-anchor="middle">24</text><circle cx="280" cy="45" r="4" fill="#00b894"/><text x="275" y="38" fill="#182038" font-size="13" font-weight="800">K</text><circle cx="390" cy="55" r="4" fill="#00b894"/><text x="398" y="55" fill="#182038" font-size="13" font-weight="800">L</text><circle cx="375" cy="135" r="4" fill="#00b894"/><text x="382" y="148" fill="#182038" font-size="13" font-weight="800">M</text><circle cx="265" cy="125" r="4" fill="#00b894"/><text x="252" y="138" fill="#182038" font-size="13" font-weight="800">N</text><rect x="325" y="36" width="28" height="18" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/><text x="339" y="49" fill="#00b894" font-size="11" font-weight="800" text-anchor="middle">16</text><rect x="380" y="85" width="28" height="18" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/><text x="394" y="98" fill="#00b894" font-size="11" font-weight="800" text-anchor="middle">12</text><rect x="310" y="125" width="24" height="18" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/><text x="322" y="138" fill="#00b894" font-size="11" font-weight="800" text-anchor="middle">8</text><rect x="260" y="75" width="28" height="18" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1"/><text x="274" y="88" fill="#00b894" font-size="11" font-weight="800" text-anchor="middle">16</text></svg>`,
+      options: ["2/3", "3/2", "1/2", "3/1"],
+      correct: 1,
+      proof: "Calculate the ratio of corresponding side lengths: $\\frac{AB}{KL} = \\frac{24}{16} = \\frac{3}{2}$, $\\frac{BC}{LM} = \\frac{18}{12} = \\frac{3}{2}$, $\\frac{CD}{MN} = \\frac{12}{8} = \\frac{3}{2}$. The ratio is $\\frac{3}{2}$."
+    },
+    {
+      id: 2,
+      q: "In the figure: Rectangle $ABCD \\sim$ Rectangle $EFGH$. Dimensions of $ABCD$ are length $36\\text{ cm}$, width $27\\text{ cm}$. Dimensions of $EFGH$ are length $24\\text{ cm}$, width $x\\text{ cm}$. What is the value of $x$?",
+      diagramSvg: `<svg width="460" height="150" viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="30" width="180" height="100" fill="rgba(108,92,231,0.08)" stroke="#6c5ce7" stroke-width="2.5" rx="3"/><rect x="290" y="45" width="120" height="70" fill="rgba(0,184,148,0.08)" stroke="#00b894" stroke-width="2.5" rx="3"/><text x="30" y="26" fill="#182038" font-size="13" font-weight="800">A</text><text x="225" y="26" fill="#182038" font-size="13" font-weight="800">B</text><text x="225" y="142" fill="#182038" font-size="13" font-weight="800">C</text><text x="30" y="142" fill="#182038" font-size="13" font-weight="800">D</text><text x="130" y="22" fill="#6c5ce7" font-size="12" font-weight="800" text-anchor="middle">36 cm</text><text x="230" y="85" fill="#6c5ce7" font-size="12" font-weight="800">27 cm</text><text x="280" y="40" fill="#182038" font-size="13" font-weight="800">E</text><text x="415" y="40" fill="#182038" font-size="13" font-weight="800">F</text><text x="415" y="128" fill="#182038" font-size="13" font-weight="800">G</text><text x="280" y="128" fill="#182038" font-size="13" font-weight="800">H</text><text x="350" y="38" fill="#00b894" font-size="12" font-weight="800" text-anchor="middle">24 cm</text><text x="420" y="85" fill="#eb4d4b" font-size="13" font-weight="800">x cm</text></svg>`,
+      options: ["27", "9", "18", "24"],
+      correct: 2,
+      proof: "By proportionality of dimensions: $\\frac{36}{24} = \\frac{27}{x} \\implies \\frac{3}{2} = \\frac{27}{x} \\implies 3x = 54 \\implies x = 18\\text{ cm}$."
+    },
+    {
+      id: 3,
+      q: "In the figure: Parallelogram $ABCD \\sim$ Parallelogram $KLMN$. In $ABCD$, angle $m(\\angle D) = 130^\\circ$. In $KLMN$, angle $m(\\angle M) = x^\\circ$. What is the value of $x$?",
+      diagramSvg: `<svg width="460" height="150" viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg"><polygon points="60,30 200,30 160,125 20,125" fill="rgba(108,92,231,0.08)" stroke="#6c5ce7" stroke-width="2.5"/><polygon points="290,40 395,40 365,115 260,115" fill="rgba(0,184,148,0.08)" stroke="#00b894" stroke-width="2.5"/><path d="M 36,125 A 20 20 0 0 1 45,108" fill="none" stroke="#eb4d4b" stroke-width="2"/><rect x="36" y="90" width="38" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.5"/><text x="55" y="104" fill="#eb4d4b" font-size="11" font-weight="800" text-anchor="middle">130°</text><path d="M 350,115 A 18 18 0 0 0 357,100" fill="none" stroke="#0984e3" stroke-width="2"/><rect x="330" y="82" width="28" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1.5"/><text x="344" y="96" fill="#0984e3" font-size="12" font-weight="800" text-anchor="middle">x°</text><text x="55" y="24" fill="#182038" font-size="13" font-weight="800">A</text><text x="205" y="24" fill="#182038" font-size="13" font-weight="800">B</text><text x="165" y="140" fill="#182038" font-size="13" font-weight="800">C</text><text x="10" y="140" fill="#182038" font-size="13" font-weight="800">D</text><text x="285" y="32" fill="#182038" font-size="13" font-weight="800">K</text><text x="400" y="32" fill="#182038" font-size="13" font-weight="800">L</text><text x="370" y="130" fill="#182038" font-size="13" font-weight="800">M</text><text x="250" y="130" fill="#182038" font-size="13" font-weight="800">N</text></svg>`,
+      options: ["130", "60", "70", "50"],
+      correct: 3,
+      proof: "In parallelogram $ABCD$, consecutive angles are supplementary: $m(\\angle C) = 180^\\circ - 130^\\circ = 50^\\circ$. Since $ABCD \\sim KLMN$, corresponding angle $m(\\angle M) = m(\\angle C) = 50^\\circ$. Thus $x = 50$."
+    },
+    {
+      id: 4,
+      q: "In the figure: Square $ABCD$ has side $6\\text{ cm}$, and Square $XYZM$ is similar to it. If $\\frac{\\text{Perimeter of } ABCD}{\\text{Perimeter of } XYZM} = \\frac{3}{2}$, what is the area of square $XYZM$?",
+      diagramSvg: `<svg width="420" height="150" viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="25" width="100" height="100" fill="rgba(108,92,231,0.08)" stroke="#6c5ce7" stroke-width="2.5" rx="2"/><rect x="250" y="42" width="67" height="67" fill="rgba(0,184,148,0.08)" stroke="#00b894" stroke-width="2.5" rx="2"/><text x="42" y="20" fill="#182038" font-size="13" font-weight="800">A</text><text x="155" y="20" fill="#182038" font-size="13" font-weight="800">B</text><text x="155" y="138" fill="#182038" font-size="13" font-weight="800">C</text><text x="42" y="138" fill="#182038" font-size="13" font-weight="800">D</text><text x="100" y="18" fill="#6c5ce7" font-size="12" font-weight="800" text-anchor="middle">6 cm</text><text x="242" y="37" fill="#182038" font-size="13" font-weight="800">X</text><text x="322" y="37" fill="#182038" font-size="13" font-weight="800">Y</text><text x="322" y="122" fill="#182038" font-size="13" font-weight="800">Z</text><text x="242" y="122" fill="#182038" font-size="13" font-weight="800">M</text><text x="283" y="80" fill="#00b894" font-size="13" font-weight="800" text-anchor="middle">Area = ?</text></svg>`,
+      options: ["16 cm²", "36 cm²", "24 cm²", "8 cm²"],
+      correct: 0,
+      proof: "Ratio of perimeters equals ratio of side lengths: $\\frac{6}{s} = \\frac{3}{2} \\implies 3s = 12 \\implies s = 4\\text{ cm}$. Therefore, Area of square $XYZM = s^2 = 4^2 = 16\\text{ cm}^2$."
+    },
+    {
+      id: 5,
+      q: "In the figure: Rhombus $ABCD \\sim$ Rhombus $HLKJ$. In $ABCD$, angle $m(\\angle B) = (2x)^\\circ$. In $HLKJ$, angle $m(\\angle K) = 60^\\circ$. What is the value of $x$?",
+      diagramSvg: `<svg width="460" height="170" viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg"><polygon points="100,20 180,85 100,150 20,85" fill="rgba(108,92,231,0.08)" stroke="#6c5ce7" stroke-width="2.5"/><polygon points="340,25 410,85 340,145 270,85" fill="rgba(0,184,148,0.08)" stroke="#00b894" stroke-width="2.5"/><path d="M 160,70 A 25 25 0 0 0 160,100" fill="none" stroke="#eb4d4b" stroke-width="2"/><rect x="115" y="74" width="42" height="22" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.5"/><text x="136" y="89" fill="#eb4d4b" font-size="12" font-weight="800" text-anchor="middle" font-family="sans-serif">(2x)°</text><path d="M 320,130 A 25 25 0 0 1 360,130" fill="none" stroke="#0984e3" stroke-width="2"/><rect x="323" y="105" width="34" height="20" rx="4" fill="#ffffff" stroke="#0984e3" stroke-width="1.5"/><text x="340" y="119" fill="#0984e3" font-size="11" font-weight="800" text-anchor="middle" font-family="sans-serif">60°</text><circle cx="100" cy="20" r="4" fill="#6c5ce7"/><text x="100" y="14" fill="#182038" font-size="14" font-weight="800" text-anchor="middle">A</text><circle cx="180" cy="85" r="4" fill="#6c5ce7"/><text x="195" y="89" fill="#182038" font-size="14" font-weight="800" text-anchor="start">B</text><circle cx="100" cy="150" r="4" fill="#6c5ce7"/><text x="100" y="166" fill="#182038" font-size="14" font-weight="800" text-anchor="middle">C</text><circle cx="20" cy="85" r="4" fill="#6c5ce7"/><text x="8" y="89" fill="#182038" font-size="14" font-weight="800" text-anchor="end">D</text><circle cx="340" cy="25" r="4" fill="#00b894"/><text x="340" y="17" fill="#182038" font-size="14" font-weight="800" text-anchor="middle">H</text><circle cx="410" cy="85" r="4" fill="#00b894"/><text x="424" y="89" fill="#182038" font-size="14" font-weight="800" text-anchor="start">L</text><circle cx="340" cy="145" r="4" fill="#00b894"/><text x="340" y="162" fill="#182038" font-size="14" font-weight="800" text-anchor="middle">K</text><circle cx="270" cy="85" r="4" fill="#00b894"/><text x="258" y="89" fill="#182038" font-size="14" font-weight="800" text-anchor="end">J</text><text x="100" y="90" fill="#6c5ce7" font-size="11" font-weight="700" text-anchor="middle">Rhombus ABCD</text><text x="340" y="90" fill="#00b894" font-size="11" font-weight="700" text-anchor="middle">Rhombus HLKJ</text></svg>`,
+      options: ["120", "60", "80", "100"],
+      correct: 1,
+      proof: "In rhombus $HLKJ$, consecutive angles are supplementary: $m(\\angle L) = 180^\\circ - 60^\\circ = 120^\\circ$. Since $ABCD \\sim HLKJ$, $m(\\angle B) = m(\\angle L) = 120^\\circ \\implies 2x = 120 \\implies x = 60$."
+    },
+    {
+      id: 6,
+      q: "In the figure: Polygon $ABCD \\sim$ Polygon $EBHG$. If $DC = 6\\text{ cm}$, $GH = 4\\text{ cm}$, $EB = 5\\text{ cm}$, and $AE = x\\text{ cm}$, what is the value of $x$?",
+      diagramSvg: `<svg width="420" height="170" viewBox="0 0 420 170" xmlns="http://www.w3.org/2000/svg"><polygon points="50,30 330,30 270,145 100,145" fill="rgba(108,92,231,0.06)" stroke="#6c5ce7" stroke-width="2.5"/><polygon points="218,30 330,30 290,107 178,107" fill="rgba(0,184,148,0.14)" stroke="#00b894" stroke-width="2.5"/><circle cx="50" cy="30" r="4" fill="#6c5ce7"/><text x="40" y="24" fill="#182038" font-size="13" font-weight="800">A</text><circle cx="330" cy="30" r="4" fill="#182038"/><text x="338" y="24" fill="#182038" font-size="13" font-weight="800">B</text><circle cx="270" cy="145" r="4" fill="#6c5ce7"/><text x="280" y="155" fill="#182038" font-size="13" font-weight="800">C</text><circle cx="100" cy="145" r="4" fill="#6c5ce7"/><text x="90" y="155" fill="#182038" font-size="13" font-weight="800">D</text><circle cx="218" cy="30" r="4" fill="#00b894"/><text x="218" y="20" fill="#00b894" font-size="13" font-weight="800" text-anchor="middle">E</text><circle cx="290" cy="107" r="4" fill="#00b894"/><text x="302" y="112" fill="#00b894" font-size="13" font-weight="800">G</text><circle cx="178" cy="107" r="4" fill="#00b894"/><text x="165" y="112" fill="#00b894" font-size="13" font-weight="800">H</text><rect x="125" y="12" width="34" height="20" rx="4" fill="#ffffff" stroke="#eb4d4b" stroke-width="1.5"/><text x="142" y="26" fill="#eb4d4b" font-size="12" font-weight="800" text-anchor="middle">AE = x</text><rect x="260" y="12" width="34" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/><text x="277" y="26" fill="#00b894" font-size="12" font-weight="800" text-anchor="middle">EB = 5</text><rect x="175" y="140" width="34" height="20" rx="4" fill="#ffffff" stroke="#6c5ce7" stroke-width="1.5"/><text x="192" y="154" fill="#6c5ce7" font-size="12" font-weight="800" text-anchor="middle">DC = 6</text><rect x="220" y="98" width="34" height="20" rx="4" fill="#ffffff" stroke="#00b894" stroke-width="1.5"/><text x="237" y="112" fill="#00b894" font-size="12" font-weight="800" text-anchor="middle">GH = 4</text></svg>`,
+      options: ["5", "7.5", "2.5", "4"],
+      correct: 2,
+      proof: "The scale factor is $\\frac{CD}{HG} = \\frac{6}{4} = 1.5$. Since side $AB = AE + EB = x + 5$, we have $\\frac{AB}{EB} = 1.5 \\implies \\frac{x + 5}{5} = 1.5 \\implies x + 5 = 7.5 \\implies x = 2.5\\text{ cm}$."
+    },
+    {
+      id: 7,
+      q: "Two similar polygons have a ratio between two corresponding sides of $2 : 3$. If the perimeter of the smaller polygon is $34\\text{ cm}$, what is the perimeter of the larger polygon?",
+      options: ["34 cm", "17 cm", "68 cm", "51 cm"],
+      correct: 3,
+      proof: "The ratio of perimeters equals the ratio of sides: $\\frac{P_{\\text{small}}}{P_{\\text{large}}} = \\frac{2}{3} \\implies \\frac{34}{P} = \\frac{2}{3} \\implies P = \\frac{34 \\times 3}{2} = 17 \\times 3 = 51\\text{ cm}$."
+    },
+    {
+      id: 8,
+      q: "Teacher asked: 'Are all regular polygons similar?' Ahmed answered: 'Yes, all regular polygons are similar.' Nourhan answered: 'No, they are only similar if they have the same number of sides.' Who is correct?",
+      options: ["Nourhan is correct", "Ahmed is correct", "Both are wrong", "Both are correct"],
+      correct: 0,
+      proof: "Nourhan is correct. Regular polygons can only be similar if they have the identical number of sides. An equilateral triangle (3 sides) can never be similar to a regular hexagon (6 sides) or a square (4 sides)."
+    },
+    {
+      id: 9,
+      q: "Marwan used CAD software to scale down a rectangle of length $10\\text{ cm}$ and width $4\\text{ cm}$. If the width of the reduced rectangle is $3\\text{ cm}$, what is its length?",
+      options: ["6.5 cm", "7.5 cm", "8 cm", "7 cm"],
+      correct: 1,
+      proof: "By proportion of dimensions: $\\frac{L}{10} = \\frac{3}{4} \\implies L = \\frac{10 \\times 3}{4} = \\frac{30}{4} = 7.5\\text{ cm}$."
+    },
+    {
+      id: 10,
+      q: "Which of the following conditions is sufficient by itself to guarantee that two rhombuses are similar?",
+      options: ["One pair of corresponding sides is equal", "Both have four equal sides", "One pair of corresponding angles is equal", "The perimeters are equal"],
+      correct: 2,
+      proof: "All rhombuses already have four equal sides. Therefore, if just one pair of corresponding angles is equal ($m(\\angle A) = m(\\angle E)$), all corresponding angles will be equal, making the rhombuses similar."
+    }
+  ],
+
+  // 7. 3 Timed Quiz Models (30 Questions Total)
+  quizModels: [
+    {
+      title: "Timed Quiz — Model #1 (Similarity Conditions & Theorems)",
+      questions: [
+        {
+          q: "1. Two polygons having the same number of sides are similar if and only if:",
+          options: ["Corresponding angles are equal only", "Corresponding angles are equal AND corresponding sides are proportional", "Corresponding sides are proportional only", "Their areas are equal"],
+          correct: 1,
+          proof: "Both conditions must be fulfilled simultaneously."
+        },
+        {
+          q: "2. If Polygon $ABCD \\sim$ Polygon $XYZM$, then the angle corresponding to $\\angle C$ is:",
+          options: ["∠X", "∠Y", "∠Z", "∠M"],
+          correct: 2,
+          proof: "Vertices in order: $A \\leftrightarrow X, B \\leftrightarrow Y, C \\leftrightarrow Z, D \\leftrightarrow M$."
+        },
+        {
+          q: "3. If the similarity ratio between two polygons $k = 1$, then the two polygons are:",
+          options: ["Squares", "Different sizes", "Not similar", "Congruent"],
+          correct: 3,
+          proof: "When $k = 1$, all corresponding sides are equal in length, so the figures are congruent."
+        },
+        {
+          q: "4. Which of the following shapes are ALWAYS similar to each other?",
+          options: ["All squares", "All rectangles", "All rhombuses", "All parallelograms"],
+          correct: 0,
+          proof: "All squares have equal angles ($90^\\circ$) and equal sides, so they are always similar."
+        },
+        {
+          q: "5. If Polygon 1 is similar to Polygon 2 with ratio $k = 2.5$, then Polygon 1 is an:",
+          options: ["Reduction of Polygon 2", "Identical copy", "Enlargement of Polygon 2", "Incongruent shape"],
+          correct: 2,
+          proof: "Since $k = 2.5 > 1$, Polygon 1 is an enlargement."
+        },
+        {
+          q: "6. If Polygon $ABCD \\sim$ Polygon $EFGH$ and $AB = 18\\text{ cm}, EF = 6\\text{ cm}$, the scale factor of $ABCD$ to $EFGH$ is:",
+          options: ["1/3", "2", "6", "3"],
+          correct: 3,
+          proof: "$k = \\frac{18}{6} = 3$."
+        },
+        {
+          q: "7. The ratio between the perimeters of two similar polygons is equal to:",
+          options: ["The ratio between any two corresponding sides", "The ratio between their areas", "Twice the side ratio", "The sum of their angles"],
+          correct: 0,
+          proof: "By the perimeter theorem: $\\frac{P_1}{P_2} = k$."
+        },
+        {
+          q: "8. If two polygons are congruent, their similarity ratio $k = $",
+          options: ["0", "1", "2", "0.5"],
+          correct: 1,
+          proof: "Congruence means identical dimensions, so ratio is $1$."
+        },
+        {
+          q: "9. If Polygon $A \\sim$ Polygon $B$ and Polygon $B \\sim$ Polygon $C$, then:",
+          options: ["Polygon A is congruent to C", "Polygon A is not related to C", "A and C are squares", "Polygon A ~ Polygon C (Transitivity)"],
+          correct: 3,
+          proof: "Polygons similar to a third polygon are similar to each other."
+        },
+        {
+          q: "10. In quadrilateral $ABCD$, if $m(\\angle A)=100^\\circ, m(\\angle B)=80^\\circ, m(\\angle C)=100^\\circ$, then $m(\\angle D) = $",
+          options: ["80°", "100°", "90°", "120°"],
+          correct: 0,
+          proof: "$m(\\angle D) = 360^\\circ - (100^\\circ + 80^\\circ + 100^\\circ) = 360^\\circ - 280^\\circ = 80^\\circ$."
+        }
+      ]
+    },
+
+    {
+      title: "Timed Quiz — Model #2 (Special Quadrilaterals & Radical Unknowns)",
+      questions: [
+        {
+          q: "1. Two rectangles are similar if:",
+          options: ["Their perimeters are equal", "Their adjacent dimensions are proportional", "One has larger angles", "Their diagonals are perpendicular"],
+          correct: 1,
+          proof: "Since all angles are already $90^\\circ$, only proportionality of adjacent dimensions is required."
+        },
+        {
+          q: "2. If $ABCD \\sim EFGH$ and $\\frac{AB}{EF} = \\frac{15\\sqrt{3}}{5\\sqrt{3}}$, then $k = $",
+          options: ["3√3", "5", "3", "1/3"],
+          correct: 2,
+          proof: "$\\frac{15\\sqrt{3}}{5\\sqrt{3}} = \\frac{15}{5} = 3$."
+        },
+        {
+          q: "3. Two rhombuses are similar if:",
+          options: ["Side lengths are proportional", "Diagonals are perpendicular", "One pair of corresponding angles is equal", "They have the same perimeter"],
+          correct: 2,
+          proof: "One equal angle guarantees all angles match in a rhombus, and sides are already proportional."
+        },
+        {
+          q: "4. If $ABCD \\sim EFGH$ with $k = 1/2$, and $EH = 16\\sqrt{2}$, then $AD = $",
+          options: ["16√2", "8√2", "4√2", "32√2"],
+          correct: 1,
+          proof: "$AD = k \\times EH = \\frac{1}{2} \\times 16\\sqrt{2} = 8\\sqrt{2}$."
+        },
+        {
+          q: "5. A rectangle has dimensions $18\\text{ cm} \\times 15\\text{ cm}$. Which rectangle is similar to it?",
+          options: ["30 cm × 25 cm", "20 cm × 15 cm", "18 cm × 12 cm", "36 cm × 20 cm"],
+          correct: 0,
+          proof: "$\\frac{18}{30} = \\frac{3}{5}$ and $\\frac{15}{25} = \\frac{3}{5}$. Both equal $0.6$."
+        },
+        {
+          q: "6. A regular octagon has side $5\\text{ cm}$ and another regular octagon has side $12\\text{ cm}$. Are they similar?",
+          options: ["No, different side lengths", "Only if perimeters match", "Cannot be determined", "Yes, always similar with ratio 5/12"],
+          correct: 3,
+          proof: "Regular polygons with the same number of sides are ALWAYS similar."
+        },
+        {
+          q: "7. In similar polygons, if $m(\\angle A) = 75^\\circ, m(\\angle B) = 90^\\circ, m(\\angle G) = 135^\\circ$, then the remaining angle is:",
+          options: ["75°", "60°", "90°", "45°"],
+          correct: 1,
+          proof: "$360^\\circ - (75^\\circ + 90^\\circ + 135^\\circ) = 360^\\circ - 300^\\circ = 60^\\circ$."
+        },
+        {
+          q: "8. If two similar parallelograms have ratio $4/3$, and one has sides $8$ and $6$, the other has sides:",
+          options: ["4 and 3", "8 and 6", "6 and 4.5", "12 and 9"],
+          correct: 2,
+          proof: "$8 \\div \\frac{4}{3} = 6$, and $6 \\div \\frac{4}{3} = 4.5$."
+        },
+        {
+          q: "9. If square $A$ has side $15\\text{ cm}$ and square $B$ has side $6\\text{ cm}$, the similarity ratio of $A$ to $B$ is:",
+          options: ["2.0", "3.0", "0.4", "2.5 (or 5/2)"],
+          correct: 3,
+          proof: "$k = \\frac{15}{6} = 2.5$."
+        },
+        {
+          q: "10. Are a square and a rhombus with equal side lengths always similar?",
+          options: ["No, because rhombus angles may not be 90°", "Yes, always", "Only if sides are 4 cm", "Yes, because sides are equal"],
+          correct: 0,
+          proof: "Angles of a general rhombus are not $90^\\circ$, so corresponding angles are not equal."
+        }
+      ]
+    },
+
+    {
+      title: "Timed Quiz — Model #3 (Perimeters, Algebraic Unknowns & Real-World Modeling)",
+      questions: [
+        {
+          q: "1. If $\\frac{\\text{Perimeter of } ABCD}{\\text{Perimeter of } EFGH} = \\frac{3}{2}$ and $AB = 6, EF = z$, then $z = $",
+          options: ["6", "9", "4", "3"],
+          correct: 2,
+          proof: "$\\frac{6}{z} = \\frac{3}{2} \\implies 3z = 12 \\implies z = 4$."
+        },
+        {
+          q: "2. If $\\frac{y + 3}{5} = \\frac{3}{2}$, then $y = $",
+          options: ["5.5", "3.5", "6", "4.5"],
+          correct: 3,
+          proof: "$2(y + 3) = 15 \\implies 2y + 6 = 15 \\implies 2y = 9 \\implies y = 4.5$."
+        },
+        {
+          q: "3. If $\\frac{2x + 1}{x + 2} = \\frac{3}{2}$, then $x = $",
+          options: ["4", "3", "5", "2"],
+          correct: 0,
+          proof: "$2(2x + 1) = 3(x + 2) \\implies 4x + 2 = 3x + 6 \\implies x = 4$."
+        },
+        {
+          q: "4. The perimeter of a polygon with sides $3, 5, 6, 8, 10$ is $32\\text{ cm}$. A similar polygon has perimeter $80\\text{ cm}$. Its scale factor $k = $",
+          options: ["2.0", "2.5", "3.0", "1.5"],
+          correct: 1,
+          proof: "$k = \\frac{80}{32} = 2.5$."
+        },
+        {
+          q: "5. In the problem above, the longest side of the second polygon ($10 \\times 2.5$) is:",
+          options: ["20 cm", "30 cm", "24 cm", "25 cm"],
+          correct: 3,
+          proof: "$10 \\times 2.5 = 25\\text{ cm}$."
+        },
+        {
+          q: "6. A cinema screen has dimensions $45\\text{ ft} \\times 25\\text{ ft}$ (ratio $1.8$). Which TV screen matches without distortion?",
+          options: ["36 in × 20 in (ratio 1.8)", "36 in × 27 in (ratio 1.33)", "40 in × 30 in (ratio 1.33)", "32 in × 24 in (ratio 1.33)"],
+          correct: 0,
+          proof: "$\\frac{36}{20} = 1.8$, which is identical to $\\frac{45}{25} = 1.8$."
+        },
+        {
+          q: "7. A laptop screen $13.25'' \\times 10.6''$ is projected on a wall as $53'' \\times 42.4''$. The magnification factor is:",
+          options: ["3×", "4×", "5×", "2.5×"],
+          correct: 1,
+          proof: "$\\frac{53}{13.25} = 4$ and $\\frac{42.4}{10.6} = 4$."
+        },
+        {
+          q: "8. If $\\frac{2z - 3}{8} = \\frac{3}{4}$, then $z = $",
+          options: ["5", "4", "4.5", "3.5"],
+          correct: 2,
+          proof: "$2z - 3 = \\frac{24}{4} = 6 \\implies 2z = 9 \\implies z = 4.5$."
+        },
+        {
+          q: "9. If $\\frac{x + 1}{2x} = \\frac{3}{4}$, then $x = $",
+          options: ["3", "1", "2", "4"],
+          correct: 2,
+          proof: "$4x + 4 = 6x \\implies 2x = 4 \\implies x = 2$."
+        },
+        {
+          q: "10. Two similar polygons have perimeters $12\\text{ cm}$ and $36\\text{ cm}$. The similarity ratio of the first to the second is:",
+          options: ["3", "1/3", "1/2", "1/4"],
+          correct: 1,
+          proof: "$\\frac{12}{36} = \\frac{1}{3}$."
+        }
+      ]
+    }
+  ]
+};
+
+

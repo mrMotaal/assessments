@@ -1,0 +1,705 @@
+{
+  "key": "proportion",
+  "unitTag": "<i class=\"fa-solid fa-scale-balanced\"></i> Unit 1 • Numbers and Operations on Them",
+  "title": "Lesson One: Proportion",
+  "subtitle": "Master the concept of proportion, cross-multiplication (Product of Extremes = Product of Means), solving linear and binomial unknowns, real-world rate applications, and graphical coordinate representations passing through the origin.",
+  "stageBadge": "<i class=\"fa-solid fa-graduation-cap\"></i> Unit 1: Numbers & Operations • Lesson One: Proportion",
+  "preStudy": {
+    "title": "Pre-Study: Check Your Readiness",
+    "subtitle": "Review essential prerequisite concepts: simplifying fractions, ratio equivalence, and rates before studying proportion.",
+    "cards": [
+      {
+        "icon": "fa-solid fa-divide",
+        "iconBg": "#6c5ce7",
+        "title": "1. Simplifying Fractions to Lowest Terms",
+        "desc": "Divide the numerator and denominator by their greatest common divisor (GCD):<div class=\"pre-study-formula-box\">• $\\frac{12}{18} = \\frac{12 \\div 6}{18 \\div 6} = \\frac{2}{3}$<br>• Ratios with identical irreducible fractions represent equivalent quantities.</div>"
+      },
+      {
+        "icon": "fa-solid fa-scale-balanced",
+        "iconBg": "#00b894",
+        "title": "2. Understanding Ratios & Rates",
+        "desc": "A ratio compares quantities of the same unit, while a rate compares different units:<div class=\"pre-study-formula-box\">• <strong>Ratio:</strong> $\\frac{4}{8} = \\frac{1}{2}$<br>• <strong>Rate:</strong> $\\frac{8\\text{ eggs}}{2\\text{ cups}} = \\frac{4\\text{ eggs}}{1\\text{ cup}}$</div>"
+      },
+      {
+        "icon": "fa-solid fa-xmark",
+        "iconBg": "#fdcb6e",
+        "title": "3. Cross-Multiplication Principle",
+        "desc": "If two fractions are equal $\\frac{a}{b} = \\frac{c}{d}$, their cross products are equal:<div class=\"pre-study-formula-box\">$$a \\times d = b \\times c$$ If $\\frac{3}{4} = \\frac{6}{8}$, then $3 \\times 8 = 4 \\times 6 = 24$.</div>"
+      }
+    ],
+    "diagnosticQuestions": [
+      {
+        "id": "diag-prop-1",
+        "text": "1. Which ratio is equivalent to $\\frac{24}{36}$?",
+        "options": ["8 : 18", "10 : 12", "10 : 15", "16 : 28"],
+        "correct": 2,
+        "explanation": "Simplify $\\frac{24}{36} = \\frac{2}{3} = \\frac{10}{15}$."
+      },
+      {
+        "id": "diag-prop-2",
+        "text": "2. If $\\frac{x}{6} = \\frac{10}{15}$, what is the value of $x$?",
+        "options": ["4", "5", "3", "6"],
+        "correct": 0,
+        "explanation": "$\\frac{10}{15} = \\frac{2}{3} \\implies 3x = 12 \\implies x = 4$."
+      },
+      {
+        "id": "diag-prop-3",
+        "text": "3. If a person writes 150 words in 30 minutes, how many words does he write in two hours?",
+        "options": ["10 words", "15 words", "300 words", "600 words"],
+        "correct": 3,
+        "explanation": "Two hours = 120 min. Rate = 5 words/min. In 120 min: $5 \\times 120 = 600$ words."
+      }
+    ]
+  },
+  "realWorldApps": [
+    {
+      "accent": "#6c5ce7",
+      "accentBg": "rgba(108, 92, 231, 0.12)",
+      "icon": "fa-solid fa-gas-pump",
+      "tag": "Automotive & Travel",
+      "title": "Car Petrol & Highway Mileage",
+      "desc": "A car consumes 3 liters of gasoline to travel 33 km. How many liters of gasoline does it need to travel 121 km at the same rate?"
+    },
+    {
+      "accent": "#00b894",
+      "accentBg": "rgba(0, 184, 148, 0.12)",
+      "icon": "fa-solid fa-cake-candles",
+      "tag": "Culinary Chemistry",
+      "title": "Bakery Recipe Scaling",
+      "desc": "A baker needs 5 cups of sugar to make 3 cakes. How many cups of sugar does the baker need to make 15 cakes?"
+    },
+    {
+      "accent": "#e17055",
+      "accentBg": "rgba(225, 112, 85, 0.12)",
+      "icon": "fa-solid fa-moon",
+      "tag": "Space Physics & Gravitation",
+      "title": "Earth vs. Moon Gravity Ratio",
+      "desc": "The weight of a body on earth is 90 Newtons. If its weight on the moon is 15 Newtons, what is the weight of another body on the moon if its weight on earth is 60 Newtons?"
+    }
+  ],
+  "foundation": {
+    "badge": "Core Mathematical Foundation",
+    "subBadge": "Equality of Ratios & Cross Multiplication",
+    "formulaText": "$$\\frac{a}{b} = \\frac{c}{d} \\iff a \\times d = b \\times c$$",
+    "formulaSubtext": "A proportion is an equality of at least two ratios or two rates. For four quantities $a, b, c, d$ in proportion, the product of extremes equals the product of means.",
+    "rules": [
+      { "num": 1, "title": "Concept of Proportion", "desc": "A proportion is an equality of at least two ratios or two rates." },
+      { "num": 2, "title": "Writing Proportion", "desc": "If quantities $a, b, c, d$ are proportional, then $\\frac{a}{b} = \\frac{c}{d}$. $a, d$ are Extremes; $b, c$ are Means." },
+      { "num": 3, "title": "Cross Multiplication Property", "desc": "Product of Extremes = Product of Means: $a \\times d = b \\times c$." },
+      { "num": 4, "title": "Solving Proportion Definition", "desc": "Solving the proportion means finding the unknown value in the proportion." }
+    ]
+  },
+  "ideas": [
+    {
+      "id": 1,
+      "badge": "💡",
+      "flashcardTitle": "Idea 1: Testing Proportions via Cross Products & Simplification",
+      "flashcardText": "If the product of extremes equals the product of means ($ad = bc$), then the pair of ratios represents a proportion.",
+      "cards": [
+        {
+          "id": "p_ex1_1",
+          "type": "solved",
+          "tag": "Solved Example 1.1 • Testing Proportions",
+          "accent": "#6c5ce7",
+          "q": "Determine whether the pair represents a proportion:<br><div class=\"q-sub-item\">$$\\frac{3}{8} \\quad \\text{and} \\quad \\frac{6}{10}$$</div>",
+          "steps": [
+            { "num": "Step 1", "text": "Extremes: $3 \\times 10 = 30$." },
+            { "num": "Step 2", "text": "Means: $8 \\times 6 = 48$." },
+            { "num": "Step 3", "text": "$30 \\ne 48 \\implies \\frac{3}{8} \\ne \\frac{6}{10}$." }
+          ],
+          "ans": "$\\frac{3}{8}$ and $\\frac{6}{10}$ do NOT represent a proportion."
+        },
+        {
+          "id": "p_ex1_2",
+          "type": "solved",
+          "tag": "Solved Example 1.2 • Proportional Ratios",
+          "accent": "#0984e3",
+          "q": "Determine whether the pair represents a proportion:<br><div class=\"q-sub-item\">$$\\frac{8}{10} \\quad \\text{and} \\quad \\frac{12}{15}$$</div>",
+          "steps": [
+            { "num": "Step 1", "text": "Extremes: $8 \\times 15 = 120$." },
+            { "num": "Step 2", "text": "Means: $10 \\times 12 = 120$." },
+            { "num": "Step 3", "text": "$120 = 120 \\implies \\frac{8}{10} = \\frac{12}{15}$." }
+          ],
+          "ans": "$\\frac{8}{10}$ and $\\frac{12}{15}$ represent a valid proportion."
+        },
+        {
+          "id": "p_ex1_3",
+          "type": "solved",
+          "tag": "Solved Example 1.3 • Identifying Proportions",
+          "accent": "#e17055",
+          "q": "Determine whether proportional, if so write proportion:<br><div class=\"q-sub-item\">1) $5, 8, 15, 24$</div><div class=\"q-sub-item\">2) $7, 8, 14, 15$</div>",
+          "steps": [
+            { "num": "1", "text": "$5 \\times 24 = 120 = 8 \\times 15 \\implies \\frac{5}{8} = \\frac{15}{24}$." },
+            { "num": "2", "text": "$7 \\times 15 = 105 \\ne 8 \\times 14 = 112 \\implies$ Not proportional." }
+          ],
+          "ans": "1) Yes: $\\frac{5}{8} = \\frac{15}{24}$. 2) No."
+        },
+        {
+          "id": "p_try1",
+          "type": "try",
+          "tag": "Try It Yourself 1.1 • Equivalent Pairs",
+          "accent": "#00b894",
+          "q": "Determine which of the following pairs of ratios represents a proportion:<br><div class=\"q-sub-item\">1) $\\frac{5}{7}$ and $\\frac{10}{14}$</div><div class=\"q-sub-item\">2) $\\frac{4}{12}$ and $\\frac{3}{9}$</div>",
+          "steps": [
+            { "num": "1", "text": "$5 \\times 14 = 70 = 7 \\times 10 \\implies$ Proportion." },
+            { "num": "2", "text": "$4 \\times 9 = 36 = 12 \\times 3 \\implies$ Proportion." }
+          ],
+          "ans": "Both pairs 1) and 2) represent valid proportions."
+        },
+        {
+          "id": "p_try1_b",
+          "type": "try",
+          "tag": "Try It Yourself 1.2 • Proportionality Check",
+          "accent": "#fdcb6e",
+          "q": "Which represents a proportion?<br><div class=\"q-sub-item\">1) $\\frac{2}{5}, \\frac{4}{10}$</div><div class=\"q-sub-item\">2) $\\frac{3}{4}, \\frac{6}{9}$</div><div class=\"q-sub-item\">3) $\\frac{15}{25}, \\frac{30}{60}$</div><div class=\"q-sub-item\">4) $\\frac{10}{3}, \\frac{40}{12}$</div>",
+          "steps": [
+            { "num": "1", "text": "$2 \\times 10 = 20 = 5 \\times 4$ (Yes)." },
+            { "num": "2", "text": "$3 \\times 9 = 27 \\ne 24$ (No)." },
+            { "num": "3", "text": "$15 \\times 60 = 900 \\ne 750$ (No)." },
+            { "num": "4", "text": "$10 \\times 12 = 120 = 3 \\times 40$ (Yes)." }
+          ],
+          "ans": "1) and 4) represent proportions."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "badge": "🎯",
+      "flashcardTitle": "Idea 2: Solving for Unknowns in Proportions (Linear & Binomial Terms)",
+      "flashcardText": "Solving the proportion means finding the unknown value in the proportion.",
+      "cards": [
+        {
+          "id": "p_ex2_1",
+          "type": "solved",
+          "tag": "Solved Example 2.1 • Linear Variable Unknowns",
+          "accent": "#6c5ce7",
+          "q": "Solve: <div class=\"q-sub-item\">1) $\\frac{4}{12} = \\frac{20}{x}$</div><div class=\"q-sub-item\">2) $\\frac{4}{7} = \\frac{x}{35}$</div>",
+          "steps": [
+            { "num": "1", "text": "$4x = 240 \\implies x = 60$." },
+            { "num": "2", "text": "$7x = 140 \\implies x = 20$." }
+          ],
+          "ans": "1) $x = 60$. 2) $x = 20$."
+        },
+        {
+          "id": "p_ex2_2",
+          "type": "solved",
+          "tag": "Solved Example 2.2 • Binomial & Grouped Unknowns",
+          "accent": "#0984e3",
+          "q": "Solve: <div class=\"q-sub-item\">1) $\\frac{3}{x - 3} = \\frac{12}{8}$</div><div class=\"q-sub-item\">2) $\\frac{40}{2x} = \\frac{5}{7}$</div>",
+          "steps": [
+            { "num": "1", "text": "$x - 3 = \\frac{24}{12} = 2 \\implies x = 5$." },
+            { "num": "2", "text": "$2x = \\frac{280}{5} = 56 \\implies x = 28$." }
+          ],
+          "ans": "1) $x = 5$. 2) $x = 28$."
+        },
+        {
+          "id": "p_ex2_3",
+          "type": "solved",
+          "tag": "Solved Example 2.3 • Multi-Term Proportions",
+          "accent": "#e17055",
+          "q": "Solve: <div class=\"q-sub-item\">1) $\\frac{1}{3} = \\frac{2}{b + 1}$</div><div class=\"q-sub-item\">2) $\\frac{l - 3}{12} = \\frac{5}{4}$</div><div class=\"q-sub-item\">3) $\\frac{16}{3x} = \\frac{8}{12}$</div>",
+          "steps": [
+            { "num": "1", "text": "$b + 1 = 6 \\implies b = 5$." },
+            { "num": "2", "text": "$l - 3 = 15 \\implies l = 18$." },
+            { "num": "3", "text": "$24x = 192 \\implies x = 8$." }
+          ],
+          "ans": "1) $b = 5$. 2) $l = 18$. 3) $x = 8$."
+        },
+        {
+          "id": "p_try2",
+          "type": "try",
+          "tag": "Try It Yourself 2.1 • Solving for X",
+          "accent": "#00b894",
+          "q": "Find $X$: <div class=\"q-sub-item\">1) $\\frac{X}{32} = \\frac{9}{36}$</div><div class=\"q-sub-item\">2) $\\frac{8}{X - 1} = \\frac{16}{10}$</div>",
+          "steps": [
+            { "num": "1", "text": "$X = \\frac{32 \\times 9}{36} = 8$." },
+            { "num": "2", "text": "$X - 1 = \\frac{80}{16} = 5 \\implies X = 6$." }
+          ],
+          "ans": "1) $X = 8$. 2) $X = 6$."
+        },
+        {
+          "id": "p_try2_b",
+          "type": "try",
+          "tag": "Try It Yourself 2.2 • Practice Proportions",
+          "accent": "#fdcb6e",
+          "q": "Solve: <div class=\"q-sub-item\">1) $a : 16 = 5 : 4$, find $a$.</div><div class=\"q-sub-item\">2) $7 : 8 = 21 : m$, find $m$.</div><div class=\"q-sub-item\">3) $\\frac{n - 2}{3} = \\frac{3}{18}$, find $n$.</div>",
+          "steps": [
+            { "num": "1", "text": "$4a = 80 \\implies a = 20$." },
+            { "num": "2", "text": "$7m = 168 \\implies m = 24$." },
+            { "num": "3", "text": "$n - 2 = 0.5 \\implies n = 2.5$." }
+          ],
+          "ans": "1) $a = 20$. 2) $m = 24$. 3) $n = 2.5$."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "badge": "📝",
+      "flashcardTitle": "Idea 3: Real-World Life Applications & Rate Proportions",
+      "flashcardText": "Set up a rate proportion comparing two quantities of different units.",
+      "cards": [
+        {
+          "id": "p_ex3_1",
+          "type": "solved",
+          "tag": "Solved Example 3.1 • Automotive Fuel Consumption",
+          "accent": "#6c5ce7",
+          "q": "<div class=\"q-sub-item\">1) Car consumes 3 L gasoline for 33 km. How many liters for 121 km?</div><div class=\"q-sub-item\">2) Car uses 5 L petrol for 40 km. How much petrol for 128 km?</div>",
+          "steps": [
+            { "num": "1", "text": "$\\frac{X}{121} = \\frac{3}{33} \\implies X = 11\\text{ liters}$." },
+            { "num": "2", "text": "$\\frac{P}{128} = \\frac{5}{40} \\implies P = 16\\text{ liters}$." }
+          ],
+          "ans": "1) 11 liters. 2) 16 liters."
+        },
+        {
+          "id": "p_ex3_2",
+          "type": "solved",
+          "tag": "Solved Example 3.2 • Shopping & Food Prices",
+          "accent": "#0984e3",
+          "q": "<div class=\"q-sub-item\">1) Omar bought 8 apples for 60 LE. How many apples for 105 LE?</div><div class=\"q-sub-item\">2) If $\\frac{3}{4}$ L milk costs 24 pounds, how much for $1\\frac{3}{4}$ liters?</div>",
+          "steps": [
+            { "num": "1", "text": "$\\frac{8}{60} = \\frac{x}{105} \\implies x = 14\\text{ apples}$." },
+            { "num": "2", "text": "$24 \\div \\frac{3}{4} = 32\\text{ LE/L} \\implies \\frac{7}{4} \\times 32 = 56\\text{ pounds}$." }
+          ],
+          "ans": "1) 14 apples. 2) 56 pounds."
+        },
+        {
+          "id": "p_ex3_3",
+          "type": "solved",
+          "tag": "Solved Example 3.3 • Science & Agriculture Rates",
+          "accent": "#e17055",
+          "q": "<div class=\"q-sub-item\">1) Body weighs 90 N on Earth, 15 N on Moon. Moon weight of 60 N body on Earth?</div><div class=\"q-sub-item\">2) Tractor cultivates 840 m² in 3 hours. Area in 5 hours? Hours for 1,960 m²?</div>",
+          "steps": [
+            { "num": "1", "text": "$\\frac{x}{60} = \\frac{15}{90} = \\frac{1}{6} \\implies x = 10\\text{ Newtons}$." },
+            { "num": "2", "text": "Rate $= 280\\text{ m}^2/\\text{h}$. Area in 5 h $= 1,400\\text{ m}^2$. Hours for 1,960 m² $= 7\\text{ hours}$." }
+          ],
+          "ans": "1) 10 N. 2) 1,400 m² and 7 hours."
+        },
+        {
+          "id": "p_try3",
+          "type": "try",
+          "tag": "Try It Yourself 3.1 • Recipe Scaling",
+          "accent": "#00b894",
+          "q": "A baker needs 5 cups of sugar to make 3 cakes. How many cups of sugar does the baker need to make 15 cakes?",
+          "steps": [
+            { "num": "1", "text": "$\\frac{S}{15} = \\frac{5}{3} \\implies 3S = 75 \\implies S = 25\\text{ cups}$." }
+          ],
+          "ans": "25 cups of sugar."
+        },
+        {
+          "id": "p_try3_b",
+          "type": "try",
+          "tag": "Try It Yourself 3.2 • School & Reading Rates",
+          "accent": "#fdcb6e",
+          "q": "<div class=\"q-sub-item\">1) School: 221 students, 13 teachers. How many teachers for 272 students?</div><div class=\"q-sub-item\">2) Eman reads 10 pages in 40 minutes. How many hours for 120 pages?</div>",
+          "steps": [
+            { "num": "1", "text": "$\\frac{272}{T} = 17 \\implies T = 16\\text{ teachers}$." },
+            { "num": "2", "text": "Time $= \\frac{40 \\times 120}{10} = 480\\text{ min} = 8\\text{ hours}$." }
+          ],
+          "ans": "1) 16 teachers. 2) 8 hours."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "badge": "📈",
+      "flashcardTitle": "Idea 4: Graphical Representation of Proportion & The Origin Test",
+      "flashcardText": "Points must lie on a straight line passing through $(0, 0)$.",
+      "cards": [
+        {
+          "id": "p_ex4_1",
+          "type": "solved",
+          "tag": "Solved Example 4.1 • Distance vs Time Tables",
+          "accent": "#6c5ce7",
+          "q": "Determine graphically whether distance is proportional to time:<br><div class=\"q-sub-item\">Table 1: Time (1, 2, 3, 4), Distance (70, 140, 210, 280)</div><div class=\"q-sub-item\">Table 2: Time (1, 2, 3, 4), Distance (80, 100, 190, 260)</div>",
+          "steps": [
+            { "num": "1", "text": "Table 1: Points lie on a straight line through $(0, 0) \\implies$ Proportional." },
+            { "num": "2", "text": "Table 2: Points do NOT lie on a straight line $\\implies$ Not proportional." }
+          ],
+          "ans": "Table 1 is proportional; Table 2 is not proportional."
+        },
+        {
+          "id": "p_ex4_2",
+          "type": "solved",
+          "tag": "Solved Example 4.2 • Origin Line Test Analysis",
+          "accent": "#0984e3",
+          "q": "Which of the relationships shown represents a proportion? (a) Curve through (0,0) (b) Straight line through origin (0,0) to (8,8) (c) Straight line through (0,1) (d) Straight line through (0,4)",
+          "steps": [
+            { "num": "1", "text": "Graph (b) is a straight line passing through $(0, 0)$." }
+          ],
+          "ans": "Graph (b) represents a proportion."
+        },
+        {
+          "id": "p_ex4_3",
+          "type": "solved",
+          "tag": "Solved Example 4.3 • Travel vs Delivery Costs",
+          "accent": "#e17055",
+          "q": "Determine which table shows a proportional relationship: <div class=\"q-sub-item\">1) Covered distances [6, 12, 18, 24] m in [1, 2, 3, 4] s.</div><div class=\"q-sub-item\">2) Price of pies with delivery [25, 45, 65, 85] LE.</div>",
+          "steps": [
+            { "num": "1", "text": "Table 1 has constant ratio 6 m/s through $(0,0) \\implies$ Proportional." },
+            { "num": "2", "text": "Table 2 has 5 LE delivery fee at zero pies ($y = 20x + 5$) $\\implies$ Not proportional." }
+          ],
+          "ans": "Table 1 is proportional; Table 2 is not proportional."
+        },
+        {
+          "id": "p_try4",
+          "type": "try",
+          "tag": "Try It Yourself 4.1 • Data Linearity Check",
+          "accent": "#00b894",
+          "q": "Adam types pages on computer: Time: [1, 2, 3, 4] hours; Pages: [3, 6, 9, 21]. Is number of pages proportional to time?",
+          "steps": [
+            { "num": "1", "text": "Ratios: $\\frac{3}{1} = 3, \\frac{6}{2} = 3, \\frac{9}{3} = 3, \\text{but } \\frac{21}{4} = 5.25 \\ne 3$." }
+          ],
+          "ans": "NOT proportional."
+        },
+        {
+          "id": "p_try4_b",
+          "type": "try",
+          "tag": "Try It Yourself 4.2 • Market Rates Comparison",
+          "accent": "#fdcb6e",
+          "q": "<div class=\"q-sub-item\">1) Apples: [45, 90, 135, 180] LE for [1, 2, 3, 4] kg.</div><div class=\"q-sub-item\">2) Shampoo: [40, 50, 58, 70] LE for [100, 200, 300, 400] mL.</div>",
+          "steps": [
+            { "num": "1", "text": "Apples ratio is constant ($45\\text{ LE/kg}$) through $(0,0) \\implies$ Proportional." },
+            { "num": "2", "text": "Shampoo ratios are not constant $\\implies$ Not proportional." }
+          ],
+          "ans": "Apples is proportional; Shampoo is not proportional."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "badge": "⭐",
+      "flashcardTitle": "Idea 5: Creative Thinking, Geometric Proportions & Combined Rates",
+      "flashcardText": "Equilateral triangle perimeter $P = 3s$ represents proportion. For collaborative work, add rates: Rate $= \\frac{1}{t_1} + \\frac{1}{t_2}$.",
+      "cards": [
+        {
+          "id": "p_ex5_1",
+          "type": "solved",
+          "tag": "Solved Example 5.1 • Equilateral Triangles Perimeter",
+          "accent": "#6c5ce7",
+          "q": "Equilateral triangles have side lengths 2 cm, 3 cm, and 4 cm. Does the relationship between perimeter and side length represent a proportion?",
+          "steps": [
+            { "num": "1", "text": "$P_1 = 6, P_2 = 9, P_3 = 12$." },
+            { "num": "2", "text": "$\\frac{6}{2} = \\frac{9}{3} = \\frac{12}{4} = 3$ (constant ratio)." }
+          ],
+          "ans": "Yes, represents a proportion (P = 3s)."
+        },
+        {
+          "id": "p_ex5_2",
+          "type": "solved",
+          "tag": "Solved Example 5.2 • Collaborative Work Rate",
+          "accent": "#0984e3",
+          "q": "Worker 1 paints a wall in 4 hours, Worker 2 in 2 hours. How many minutes if they work together?",
+          "steps": [
+            { "num": "1", "text": "Combined rate $= \\frac{1}{4} + \\frac{1}{2} = \\frac{3}{4}$ wall/hour." },
+            { "num": "2", "text": "Time $= \\frac{4}{3}\\text{ hours} = 80\\text{ minutes}$." }
+          ],
+          "ans": "80 minutes."
+        },
+        {
+          "id": "p_ex5_3",
+          "type": "solved",
+          "tag": "Solved Example 5.3 • Proportional Products & Variables",
+          "accent": "#e17055",
+          "q": "<div class=\"q-sub-item\">1) If $a, 2, 5, b$ are proportional, find $a \\times b$.</div><div class=\"q-sub-item\">2) If $\\frac{8}{y} = \\frac{y}{2}$ for positive integer $y$, find $y$.</div>",
+          "steps": [
+            { "num": "1", "text": "$\\frac{a}{2} = \\frac{5}{b} \\implies a \\times b = 10$." },
+            { "num": "2", "text": "$y^2 = 16 \\implies y = 4$." }
+          ],
+          "ans": "1) $a \\times b = 10$. 2) $y = 4$."
+        },
+        {
+          "id": "p_try5",
+          "type": "try",
+          "tag": "Try It Yourself 5.1 • Variable Equations",
+          "accent": "#00b894",
+          "q": "<div class=\"q-sub-item\">1) If $\\frac{8}{X} = 0.5$, find $X$.</div><div class=\"q-sub-item\">2) If $\\frac{2}{3} = \\frac{6}{k}$, find $k$.</div>",
+          "steps": [
+            { "num": "1", "text": "$X = \\frac{8}{0.5} = 16$." },
+            { "num": "2", "text": "$2k = 18 \\implies k = 9$." }
+          ],
+          "ans": "1) $X = 16$. 2) $k = 9$."
+        },
+        {
+          "id": "p_try5_b",
+          "type": "try",
+          "tag": "Try It Yourself 5.2 • Monthly Savings Rates",
+          "accent": "#fdcb6e",
+          "q": "Ibrahim saves: [300, 600, 900, 1,200] LE in [2, 4, 6, 8] months. Are amounts proportional to months?",
+          "steps": [
+            { "num": "1", "text": "$\\frac{300}{2} = \\frac{600}{4} = \\frac{900}{6} = \\frac{1200}{8} = 150\\text{ LE/month}$." }
+          ],
+          "ans": "Yes, proportional (150 LE/month)."
+        }
+      ]
+    }
+  ],
+  "mcqs": [
+    {
+      "id": 1,
+      "q": "A proportion is defined as:",
+      "options": ["The sum of two fractions", "The equality of at least two ratios or two rates", "The difference between extremes and means", "A single simplified fraction"],
+      "correct": 1,
+      "proof": "Standard definition: Equality of at least two ratios or two rates."
+    },
+    {
+      "id": 2,
+      "q": "If two ratios are equal, then the product of the extremes is equal to:",
+      "options": ["The sum of the means", "The difference of the means", "The product of the means", "The quotient of the means"],
+      "correct": 2,
+      "proof": "Product of Extremes = Product of Means ($ad = bc$)."
+    },
+    {
+      "id": 3,
+      "q": "Which of the following ratios is proportional to the given ratio $\\frac{24}{36}$?",
+      "options": ["$\\frac{8}{18}$", "$\\frac{10}{12}$", "$\\frac{10}{15}$", "$\\frac{16}{28}$"],
+      "correct": 2,
+      "proof": "$\\frac{24}{36} = \\frac{2}{3} = \\frac{10}{15}$."
+    },
+    {
+      "id": 4,
+      "q": "Which of the following pairs of ratios are not proportional?",
+      "options": ["$\\frac{2}{5} , \\frac{12}{30}$", "$\\frac{8}{10} , \\frac{12}{15}$", "$\\frac{7}{8} , \\frac{35}{40}$", "$\\frac{3}{4} , \\frac{12}{18}$"],
+      "correct": 3,
+      "proof": "$3 \\times 18 = 54 \\ne 48 = 4 \\times 12$."
+    },
+    {
+      "id": 5,
+      "q": "If $\\frac{8}{X} = 0.5$, what is the value of $X$?",
+      "options": ["4", "8", "16", "40"],
+      "correct": 2,
+      "proof": "$X = \\frac{8}{0.5} = 16$."
+    },
+    {
+      "id": 6,
+      "q": "A person writes 150 words in 30 minutes. How many words does he write in two hours?",
+      "options": ["10 words", "15 words", "300 words", "600 words"],
+      "correct": 3,
+      "proof": "$120 \\times 5 = 600$ words."
+    },
+    {
+      "id": 7,
+      "q": "Which of the relationships shown represents a proportion?",
+      "options": ["Curved line passing through (0, 0)", "Straight line passing through the origin (0, 0) to (8, 8)", "Straight line with y-intercept 1", "Straight line with y-intercept 4"],
+      "correct": 1,
+      "proof": "Straight line passing through $(0, 0)$."
+    },
+    {
+      "id": 8,
+      "q": "If the quantities $a, 2, 5$, and $b$ are proportional, then the value of $a \\times b$ is:",
+      "options": ["7", "10", "20", "2.5"],
+      "correct": 1,
+      "proof": "$\\frac{a}{2} = \\frac{5}{b} \\implies a \\times b = 10$."
+    },
+    {
+      "id": 9,
+      "q": "If $\\frac{8}{y} = \\frac{y}{2}$, where $y$ is a positive integer, then $y = $",
+      "options": ["2", "4", "8", "16"],
+      "correct": 1,
+      "proof": "$y^2 = 16 \\implies y = 4$."
+    },
+    {
+      "id": 10,
+      "q": "If $\\frac{3}{4}$ liter of milk costs 24 pounds, how much would $1\\frac{3}{4}$ liters cost at the same rate?",
+      "options": ["48 pounds", "32 pounds", "64 pounds", "56 pounds"],
+      "correct": 3,
+      "proof": "$\\frac{7}{4} \\times 32 = 56$ pounds."
+    }
+  ],
+  "quizModels": [
+    {
+      "title": "Timed Quiz — Model #1 (Definitions & Equivalence Tests)",
+      "questions": [
+        {
+          "q": "1. A proportion is defined as:",
+          "options": ["The sum of two fractions", "The equality of at least two ratios or two rates", "The difference between extremes and means", "A single simplified fraction"],
+          "correct": 1,
+          "proof": "Standard definition."
+        },
+        {
+          "q": "2. In the proportion $3 : 4 = 6 : 8$, the extremes are:",
+          "options": ["4 and 6", "3 and 4", "3 and 8", "6 and 8"],
+          "correct": 2,
+          "proof": "3 and 8."
+        },
+        {
+          "q": "3. If $\\frac{20}{25} = \\frac{36}{x}$, then $x = $",
+          "options": ["40", "30", "45", "50"],
+          "correct": 2,
+          "proof": "$4x = 180 \\implies x = 45$."
+        },
+        {
+          "q": "4. Which pair represents a valid proportion?",
+          "options": ["$\\frac{2}{5}$ and $\\frac{4}{15}$", "$\\frac{15}{25}$ and $\\frac{30}{50}$", "$\\frac{3}{4}$ and $\\frac{6}{9}$", "$\\frac{10}{3}$ and $\\frac{40}{15}$"],
+          "correct": 1,
+          "proof": "Both equal $\\frac{3}{5}$."
+        },
+        {
+          "q": "5. If $\\frac{48}{72} = \\frac{x}{15}$, then $x = $",
+          "options": ["10", "12", "8", "14"],
+          "correct": 0,
+          "proof": "$\\frac{2}{3} = \\frac{x}{15} \\implies x = 10$."
+        },
+        {
+          "q": "6. If $\\frac{12}{x} = \\frac{18}{12}$, then $x = $",
+          "options": ["6", "8", "9", "10"],
+          "correct": 1,
+          "proof": "$18x = 144 \\implies x = 8$."
+        },
+        {
+          "q": "7. Which set of quantities is proportional?",
+          "options": ["5, 8, 15, 24", "7, 8, 14, 15", "10, 12, 15, 20", "4, 6, 8, 10"],
+          "correct": 0,
+          "proof": "$5 \\times 24 = 120 = 8 \\times 15$."
+        },
+        {
+          "q": "8. In $\\frac{x}{15} = \\frac{3}{5}$, the value of $x$ is:",
+          "options": ["6", "9", "12", "10"],
+          "correct": 1,
+          "proof": "$5x = 45 \\implies x = 9$."
+        },
+        {
+          "q": "9. If $\\frac{6}{x} = \\frac{12}{14}$, then $x = $",
+          "options": ["7", "8", "6", "9"],
+          "correct": 0,
+          "proof": "$12x = 84 \\implies x = 7$."
+        },
+        {
+          "q": "10. If $\\frac{15}{x} = \\frac{30}{12}$, then $x = $",
+          "options": ["4", "5", "6", "8"],
+          "correct": 2,
+          "proof": "$30x = 180 \\implies x = 6$."
+        }
+      ]
+    },
+    {
+      "title": "Timed Quiz — Model #2 (Solving Equations & Unknowns)",
+      "questions": [
+        {
+          "q": "1. If $\\frac{3}{4} = \\frac{x}{20}$, then $x = $",
+          "options": ["12", "15", "16", "18"],
+          "correct": 1,
+          "proof": "$4x = 60 \\implies x = 15$."
+        },
+        {
+          "q": "2. If $a : 16 = 5 : 4$, then $a = $",
+          "options": ["20", "15", "25", "18"],
+          "correct": 0,
+          "proof": "$4a = 80 \\implies a = 20$."
+        },
+        {
+          "q": "3. If $7 : 8 = 21 : m$, then $m = $",
+          "options": ["24", "28", "32", "16"],
+          "correct": 0,
+          "proof": "$7m = 168 \\implies m = 24$."
+        },
+        {
+          "q": "4. If $\\frac{1}{3} = \\frac{2}{b + 1}$, then $b = $",
+          "options": ["4", "5", "6", "7"],
+          "correct": 1,
+          "proof": "$b + 1 = 6 \\implies b = 5$."
+        },
+        {
+          "q": "5. If $\\frac{l - 3}{12} = \\frac{5}{4}$, then $l = $",
+          "options": ["18", "15", "12", "8"],
+          "correct": 0,
+          "proof": "$l - 3 = 15 \\implies l = 18$."
+        },
+        {
+          "q": "6. If $\\frac{16}{3x} = \\frac{8}{12}$, then $x = $",
+          "options": ["6", "8", "10", "4"],
+          "correct": 1,
+          "proof": "$24x = 192 \\implies x = 8$."
+        },
+        {
+          "q": "7. If $\\frac{2}{3} = \\frac{6}{k}$, find $k$.",
+          "options": ["9", "12", "8", "10"],
+          "correct": 0,
+          "proof": "$2k = 18 \\implies k = 9$."
+        },
+        {
+          "q": "8. If 100 grams of chocolate provide 300 calories, calories in 30 grams?",
+          "options": ["60 calories", "90 calories", "100 calories", "80 calories"],
+          "correct": 1,
+          "proof": "$30 \\times 3 = 90$ calories."
+        },
+        {
+          "q": "9. If $\\frac{n - 2}{3} = \\frac{3}{18}$, then $n = $",
+          "options": ["2", "2.5", "3", "3.5"],
+          "correct": 1,
+          "proof": "$n - 2 = 0.5 \\implies n = 2.5$."
+        },
+        {
+          "q": "10. If $a, 2, 5, b$ are proportional, then $a \\times b = $",
+          "options": ["10", "7", "20", "2.5"],
+          "correct": 0,
+          "proof": "$a \\times b = 10$."
+        }
+      ]
+    },
+    {
+      "title": "Timed Quiz — Model #3 (Applications, Graphs & Problem Solving)",
+      "questions": [
+        {
+          "q": "1. In a school of 221 students and 13 teachers, how many teachers for 272 students?",
+          "options": ["14", "15", "16", "18"],
+          "correct": 2,
+          "proof": "$\\frac{272}{17} = 16$ teachers."
+        },
+        {
+          "q": "2. Omar bought 8 apples for 60 LE. How many apples for 105 LE?",
+          "options": ["12", "14", "15", "16"],
+          "correct": 1,
+          "proof": "$x = \\frac{8 \\times 105}{60} = 14$ apples."
+        },
+        {
+          "q": "3. A car uses 5 L petrol for 40 km. Liters for 128 km?",
+          "options": ["12", "15", "16", "20"],
+          "correct": 2,
+          "proof": "$x = \\frac{128}{8} = 16$ liters."
+        },
+        {
+          "q": "4. A body weighs 90 N on Earth, 15 N on Moon. Moon weight for 60 N on Earth?",
+          "options": ["10 N", "12 N", "8 N", "15 N"],
+          "correct": 0,
+          "proof": "$x = \\frac{60}{6} = 10$ N."
+        },
+        {
+          "q": "5. Eman reads 10 pages in 40 minutes. How many hours for 120 pages?",
+          "options": ["6 hours", "8 hours", "10 hours", "4 hours"],
+          "correct": 1,
+          "proof": "$\\frac{480}{60} = 8$ hours."
+        },
+        {
+          "q": "6. A tractor cultivates 840 m² in 3 hours. Area in 5 hours?",
+          "options": ["1,200 m²", "1,400 m²", "1,500 m²", "1,680 m²"],
+          "correct": 1,
+          "proof": "$280 \\times 5 = 1,400$ m²."
+        },
+        {
+          "q": "7. Hours needed for tractor to cultivate 1,960 m²?",
+          "options": ["6 hours", "7 hours", "8 hours", "9 hours"],
+          "correct": 1,
+          "proof": "$\\frac{1960}{280} = 7$ hours."
+        },
+        {
+          "q": "8. Which graph represents a proportion?",
+          "options": ["Curved line through (0,0)", "Straight line through origin (0,0)", "Straight line with y-intercept 1", "Straight line with y-intercept 4"],
+          "correct": 1,
+          "proof": "Straight line through $(0,0)$."
+        },
+        {
+          "q": "9. Does perimeter vs side length in equilateral triangles represent a proportion?",
+          "options": ["Yes, because P = 3s", "No, because geometry is not linear", "Only for right triangles", "No, because perimeter is larger"],
+          "correct": 0,
+          "proof": "$P = 3s$, constant ratio 3 through $(0,0)$."
+        },
+        {
+          "q": "10. Worker A takes 4 hours, Worker B takes 2 hours. Minutes together?",
+          "options": ["60 minutes", "80 minutes", "90 minutes", "120 minutes"],
+          "correct": 1,
+          "proof": "$\\frac{4}{3} \\times 60 = 80$ minutes."
+        }
+      ]
+    }
+  ]
+}

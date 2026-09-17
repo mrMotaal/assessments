@@ -1,0 +1,695 @@
+﻿{
+  "key": "place_value",
+  "unitTag": "<i class=\"fa-solid fa-cubes-stacked\"></i> Unit 1 • Numbers & Operations in Base Ten",
+  "title": "Place Value, Powers of 10 & Product Estimation",
+  "subtitle": "Master multidigit place value through millions, base-10 shifts (10 times more/less), multiplying by powers of 10, exponential notation, and strategic product estimation using rounding and compatible numbers.",
+  "stageBadge": "<i class=\"fa-solid fa-graduation-cap\"></i> Grade 5 • Place Value, Powers of 10 & Estimation",
+  "preStudy": {
+    "title": "Pre-Study: Check Your Readiness",
+    "subtitle": "Review essential prerequisite concepts: reading multi-digit whole numbers, multiplying by 10, and basic rounding before advancing to millions and powers of 10.",
+    "cards": [
+      {
+        "icon": "fa-solid fa-table-cells",
+        "iconBg": "#6c5ce7",
+        "title": "1. Understanding Periods & Digits",
+        "desc": "Numbers are grouped into 3-digit periods separated by commas (Millions, Thousands, Ones):<div class=\"pre-study-formula-box\">• In each period, place values follow the repeating pattern: <strong>Hundreds, Tens, Ones</strong>.<br>• Example: In $213,560,447$, the digit 2 is in the hundred millions place.</div>"
+      },
+      {
+        "icon": "fa-solid fa-arrows-left-right",
+        "iconBg": "#00b894",
+        "title": "2. The Base-Ten Shift Rule",
+        "desc": "Our number system is based on ten:<div class=\"pre-study-formula-box\">• Moving <strong>1 place to the left</strong> multiplies a digit's value by $10$ ($10\\times$ more).<br>• Moving <strong>1 place to the right</strong> divides a digit's value by $10$ ($10\\times$ less).</div>"
+      },
+      {
+        "icon": "fa-solid fa-superscript",
+        "iconBg": "#fdcb6e",
+        "title": "3. What is an Exponent?",
+        "desc": "Repeated multiplication can be written in exponential form:<div class=\"pre-study-formula-box\">$$10 \\times 10 \\times 10 = 10^3$$• <strong>Base:</strong> The repeated factor ($10$).<br>• <strong>Exponent:</strong> How many times the factor is repeated ($3$).</div>"
+      }
+    ],
+    "diagnosticQuestions": [
+      {
+        "id": "diag-pv-1",
+        "text": "1. In the number $421,389$, what is the place value of the digit 2?",
+        "options": ["Ten thousands", "Thousands", "Hundred thousands", "Millions"],
+        "correct": 0,
+        "explanation": "The digit 4 is in hundred-thousands, 2 is in ten-thousands, and 1 is in thousands."
+      },
+      {
+        "id": "diag-pv-2",
+        "text": "2. What is the value of $10^4$ in standard form?",
+        "options": ["40", "400", "1,000", "10,000"],
+        "correct": 3,
+        "explanation": "$10^4 = 10 \\times 10 \\times 10 \\times 10 = 10,000$ (1 followed by 4 zeros)."
+      },
+      {
+        "id": "diag-pv-3",
+        "text": "3. What is the estimated product of $69 \\times 63$ using rounding to the nearest ten?",
+        "options": ["4,200", "3,600", "4,500", "4,800"],
+        "correct": 0,
+        "explanation": "Round 69 to 70 and 63 to 60. Then $70 \\times 60 = 4,200$."
+      }
+    ]
+  },
+  "realWorldApps": [
+    {
+      "accent": "#6c5ce7",
+      "accentBg": "rgba(108, 92, 231, 0.12)",
+      "icon": "fa-solid fa-shuttle-space",
+      "tag": "Aerospace Engineering",
+      "title": "Earth & Spacecraft Mass in Powers of 10",
+      "desc": "Earth has an estimated mass of about $6 \\times 10^{24}\\text{ kg}$. A deep-space exploration spacecraft has a mass of $3 \\times 10^4\\text{ kg}$. Writing these in standard form allows aerospace engineers to compute propulsion ratios accurately.",
+      "svg": "<svg width=\"100%\" height=\"150\" viewBox=\"0 0 320 150\"><circle cx=\"75\" cy=\"75\" r=\"48\" fill=\"url(#earthGrad)\"/><defs><linearGradient id=\"earthGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"#00cec9\"/><stop offset=\"100%\" stop-color=\"#0984e3\"/></linearGradient></defs><path d=\"M 50 65 Q 65 50 85 60 Q 95 75 75 90 Z\" fill=\"#55efc4\" opacity=\"0.6\"/><rect x=\"170\" y=\"50\" width=\"130\" height=\"52\" rx=\"10\" fill=\"#f8fafd\" stroke=\"#6c5ce7\" stroke-width=\"1.5\"/><text x=\"235\" y=\"72\" fill=\"#2d3436\" font-size=\"12\" font-weight=\"bold\" text-anchor=\"middle\">Spacecraft Mass</text><text x=\"235\" y=\"91\" fill=\"#6c5ce7\" font-size=\"14\" font-weight=\"bold\" text-anchor=\"middle\">3 × 10⁴ kg = 30,000 kg</text></svg>"
+    },
+    {
+      "accent": "#0984e3",
+      "accentBg": "rgba(9, 132, 227, 0.12)",
+      "icon": "fa-solid fa-sun",
+      "tag": "Planetary Astronomy",
+      "title": "Solar Distance & the 10-Times Principle",
+      "desc": "The average distance between Earth and the Sun is approximately $93,000,000\\text{ miles}$. A deep-space probe travelling $10$ times this distance spans $930,000,000\\text{ miles}$, shifting each digit one position to the left.",
+      "svg": "<svg width=\"100%\" height=\"150\" viewBox=\"0 0 320 150\"><circle cx=\"60\" cy=\"75\" r=\"35\" fill=\"#fdcb6e\"/><circle cx=\"60\" cy=\"75\" r=\"42\" fill=\"none\" stroke=\"#ffeaa7\" stroke-width=\"2\" stroke-dasharray=\"4,3\"/><line x1=\"100\" y1=\"75\" x2=\"220\" y2=\"75\" stroke=\"#0984e3\" stroke-width=\"2\" stroke-dasharray=\"5,4\"/><circle cx=\"235\" cy=\"75\" r=\"14\" fill=\"#74b9ff\"/><text x=\"160\" y=\"65\" fill=\"#0984e3\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">93,000,000 miles</text><text x=\"160\" y=\"105\" fill=\"#2d3436\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">× 10 = 930,000,000 miles</text></svg>"
+    },
+    {
+      "accent": "#00b894",
+      "accentBg": "rgba(0, 184, 148, 0.12)",
+      "icon": "fa-solid fa-globe",
+      "tag": "Celestial Mechanics",
+      "title": "Estimating Venus Orbital Periods",
+      "desc": "Venus completes one orbit around the Sun in $225\\text{ Earth days}$. To estimate the days required for $16$ full orbits, astronomers use compatible numbers: $250 \\times 16 = 4,000\\text{ days}$, or rounding: $200 \\times 20 = 4,000\\text{ days}$.",
+      "svg": "<svg width=\"100%\" height=\"150\" viewBox=\"0 0 320 150\"><ellipse cx=\"160\" cy=\"75\" rx=\"120\" ry=\"50\" fill=\"none\" stroke=\"#00b894\" stroke-width=\"2\" stroke-dasharray=\"6,4\"/><circle cx=\"160\" cy=\"75\" r=\"20\" fill=\"#f39c12\"/><circle cx=\"250\" cy=\"60\" r=\"12\" fill=\"#e17055\"/><text x=\"160\" y=\"135\" fill=\"#00b894\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">225 × 16 ≈ 250 × 16 = 4,000 days</text></svg>"
+    }
+  ],
+  "foundationRules": [
+    {
+      "badge": "Rule 1: Base-Ten Structure",
+      "badgeColor": "#6c5ce7",
+      "title": "Place Value Structure & Three-Digit Periods",
+      "formula": "$$\\text{Millions Period} \\; | \\; \\text{Thousands Period} \\; | \\; \\text{Ones Period}$$",
+      "summary": "Every whole number is partitioned into groups of three digits called <strong>periods</strong> (Ones, Thousands, Millions, Billions). Inside each period, the digits represent <strong>Hundreds, Tens, and Ones</strong>. A digit in one place has $10$ times the value of the same digit in the place to its right.",
+      "visualHtml": "<div class=\"rule-visual-box\" style=\"background:#f8fafd; border:1px solid #e2e8f0; border-radius:10px; padding:0.75rem; text-align:center;\"><span style=\"font-family:monospace; font-size:1.15rem; font-weight:700; color:#2d3436;\"><span style=\"color:#6c5ce7;\">213</span>, <span style=\"color:#0984e3;\">560</span>, <span style=\"color:#00b894;\">447</span></span><br><small style=\"color:#64748b;\">Millions &nbsp;&nbsp;|&nbsp;&nbsp; Thousands &nbsp;&nbsp;|&nbsp;&nbsp; Ones</small></div>"
+    },
+    {
+      "badge": "Rule 2: Shift Principle",
+      "badgeColor": "#0984e3",
+      "title": "The 10-Times Principle (Left ×10, Right ÷10)",
+      "formula": "$$\\text{Left Shift} = \\times 10 \\quad \\Longleftrightarrow \\quad \\text{Right Shift} = \\div 10$$",
+      "summary": "When a digit shifts <strong>one place to the left</strong>, its value becomes $10$ times greater. When a digit shifts <strong>two places to the left</strong>, its value becomes $10 \\times 10 = 100$ times greater. Conversely, shifting to the right divides its value by $10$ ($\\\\frac{1}{10}$ of its previous value).",
+      "visualHtml": "<div class=\"rule-visual-box\" style=\"background:#f8fafd; border:1px solid #e2e8f0; border-radius:10px; padding:0.75rem; text-align:center;\"><span style=\"font-weight:700; color:#0984e3;\">500</span> is $10\\times$ more than <span style=\"font-weight:700; color:#64748b;\">50</span>, and $100\\times$ more than <span style=\"font-weight:700; color:#64748b;\">5</span>.</div>"
+    },
+    {
+      "badge": "Rule 3: Exponential Notation",
+      "badgeColor": "#e17055",
+      "title": "Powers of 10 and Scientific Exponents",
+      "formula": "$$10^n = \\underbrace{10 \\times 10 \\times \\dots \\times 10}_{n \\text{ times}} = 1\\underbrace{00\\dots0}_{n \\text{ zeros}}$$",
+      "summary": "An exponent indicates how many times the base ($10$) is multiplied by itself. For any whole number multiplied by $10^n$, write the number and append $n$ zeros: $$a \\times 10^n = a\\underbrace{00\\dots0}_{n \\text{ zeros}}$$<strong>Critical Rule:</strong> $10^3 = 1,000$ (NOT $30$). Never multiply the base by the exponent!",
+      "visualHtml": "<div class=\"rule-visual-box\" style=\"background:#fff5f5; border:1px solid #fed7d7; border-radius:10px; padding:0.75rem; text-align:center;\"><strong style=\"color:#e53e3e;\">Common Trap:</strong> $10^3 \\ne 30$ ($10 \\times 3$). <span style=\"color:#2f855a;\">Correct: $10^3 = 10 \\times 10 \\times 10 = 1,000$.</span></div>"
+    },
+    {
+      "badge": "Rule 4: Estimation",
+      "badgeColor": "#00b894",
+      "title": "Product Estimation: Rounding vs. Compatible Numbers",
+      "formula": "$$\\text{Rounding: Highest Place Value} \\quad \\text{vs.} \\quad \\text{Compatible: Mental Math Friendly}$$",
+      "summary": "<strong>Rounding Method:</strong> Round each factor to its greatest place value (e.g., $482 \\times 19 \\to 500 \\times 20 = 10,000$).<br><strong>Compatible Numbers Method:</strong> Substitute numbers with values close to the factors that make mental multiplication effortless (e.g., $225 \\times 16 \\to 250 \\times 16 = 4,000$).",
+      "visualHtml": "<div class=\"rule-visual-box\" style=\"background:#f0fff4; border:1px solid #c6f6d5; border-radius:10px; padding:0.75rem; text-align:center;\"><span style=\"color:#276749; font-weight:700;\">$69 \\times 63 \\approx 70 \\times 60 = 4,200$ (Close to actual: $4,347$)</span></div>"
+    }
+  ],
+  "specialCases": [
+    {
+      "type": "warning",
+      "icon": "fa-solid fa-triangle-exclamation",
+      "title": "The Zero Trap in Exponential Multiplication",
+      "desc": "When multiplying a number that already ends in zeros by a power of 10, count the original zeros PLUS the exponent's zeros:<div class=\"special-case-math\">$$40 \\times 10^3 = (4 \\times 10^1) \\times 10^3 = 4 \\times 10^4 = 40,000$$</div>Do not stop at 3 zeros! The product has 4 zeros total ($1$ original $+ 3$ from $10^3$).",
+      "badge": "Common Pitfall"
+    },
+    {
+      "type": "tip",
+      "icon": "fa-solid fa-lightbulb",
+      "title": "Choosing Between Rounding and Compatible Numbers",
+      "desc": "• Use <strong>Rounding</strong> when asked for standard algorithmic estimation or when numbers are naturally close to multiples of 10 or 100.<br>• Use <strong>Compatible Numbers</strong> when factors involve friendly fractions (like $25, 50, 75, 250$) or when factors easily multiply mentally ($25 \\times 4 = 100$, $125 \\times 8 = 1,000$).",
+      "badge": "Strategy Insight"
+    }
+  ],
+  "ideas": [
+    {
+      "id": 1,
+      "num": "Idea 1",
+      "title": "Understanding Place Value & Multi-Digit Representation",
+      "flashcardTitle": "Idea 1: Place Value through Millions & Number Forms",
+      "coreRule": "Whole numbers are written in <strong>standard form</strong> ($213,560,447$), <strong>word form</strong>, and <strong>expanded form</strong> ($200,000,000 + 10,000,000 + \\dots$). Each period has Hundreds, Tens, and Ones.",
+      "cards": [
+        {
+          "id": "c1_ex1",
+          "type": "example",
+          "badge": "Solved Example 1.1 • Identifying Place Value & Value of Digits",
+          "prompt": "Consider the multi-digit whole number $213,560,447$:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> State the place value and value of the digit $1$.</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> State the place value and value of the digit $5$.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Identify the period and position of digit $1$: It is in the millions period, in the ten-millions place. Its value is $10,000,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Identify the period and position of digit $5$: It is in the thousands period, in the hundred-thousands place. Its value is $500,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) Ten Millions, Value = $10,000,000$ &nbsp;|&nbsp; (b) Hundred Thousands, Value = $500,000$</div></div>"
+        },
+        {
+          "id": "c1_ex2",
+          "type": "example",
+          "badge": "Solved Example 1.2 • Converting Standard Form to Expanded Form",
+          "prompt": "Write each number in expanded form:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $7,564,209$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $1,000,000 + 300,000 + 40,000 + 500 + 60 + 2$ (write in standard form)</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Decompose $7,564,209$ by the value of each digit:$$7,000,000 + 500,000 + 60,000 + 4,000 + 200 + 9$$ (Notice zero in the tens place contributes nothing).</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Combine the expanded values for (b): Align by place value: $1$ million, $3$ hundred-thousands, $4$ ten-thousands, $0$ thousands, $5$ hundreds, $6$ tens, $2$ ones $= 1,340,562$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) $7,000,000 + 500,000 + 60,000 + 4,000 + 200 + 9$ &nbsp;|&nbsp; (b) $1,340,562$</div></div>"
+        },
+        {
+          "id": "c1_ex3",
+          "type": "example",
+          "badge": "Solved Example 1.3 • Word Form to Standard Form",
+          "prompt": "Write in standard form:<div class=\"q-sub-item\">\"Thirty-four million, two hundred seven thousand, eight hundred fifteen\"</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Break into three periods: Millions period: $34$, Thousands period: $207$, Ones period: $815$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Place commas between periods: $34,207,815$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $34,207,815$</div></div>"
+        },
+        {
+          "id": "c1_try1",
+          "type": "try_it",
+          "badge": "Try-It Practice 1.1 • Place Value Analysis",
+          "prompt": "In the number $582,360,194$:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> What is the place value of the digit $8$?</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> What is the value of the digit $2$?</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">The digit 8 is in the ten millions place.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">The digit 2 is in the millions place, so its value is $2,000,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) Ten Millions &nbsp;|&nbsp; (b) $2,000,000$</div></div>"
+        },
+        {
+          "id": "c1_try2",
+          "type": "try_it",
+          "badge": "Try-It Practice 1.2 • Standard & Expanded Forms",
+          "prompt": "Write $90,405,620$ in expanded form using values of digits.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Determine values: $9 \\to 90,000,000$, $4 \\to 400,000$, $5 \\to 5,000$, $6 \\to 600$, $2 \\to 20$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Write the sum: $90,000,000 + 400,000 + 5,000 + 600 + 20$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $90,000,000 + 400,000 + 5,000 + 600 + 20$</div></div>"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "num": "Idea 2",
+      "title": "The 10-Times Principle & Place Value Shifts",
+      "flashcardTitle": "Idea 2: The 10-Times Principle (Left ×10, Right ÷10)",
+      "coreRule": "Moving a digit <strong>one place to the left</strong> multiplies its value by $10$. Moving <strong>two places to the left</strong> multiplies its value by $100$. Shifting to the right divides its value by $10$ ($\\\\frac{1}{10}$).",
+      "cards": [
+        {
+          "id": "c2_ex1",
+          "type": "example",
+          "badge": "Solved Example 2.1 • Comparing Same Digits in Different Positions",
+          "prompt": "In the number $55,240$:<div class=\"q-sub-item\">How does the value of the digit $5$ in the ten-thousands place compare to the value of the digit $5$ in the thousands place?</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Value of the first $5$ (ten-thousands) $= 50,000$. Value of the second $5$ (thousands) $= 5,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Divide values: $50,000 \\div 5,000 = 10$. The first 5 is $10$ times greater than the second 5.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> The $5$ in ten-thousands is $10$ times the value of the $5$ in thousands ($50,000 = 10 \\times 5,000$).</div></div>"
+        },
+        {
+          "id": "c2_ex2",
+          "type": "example",
+          "badge": "Solved Example 2.2 • Two-Place Value Shifts (100 Times)",
+          "prompt": "In the number $4,400$:<div class=\"q-sub-item\">Explain the relationship between the value of the digit $4$ in the thousands place and the value of $4$ in the tens place if the number was $4,040$.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Value of 4 in thousands place $= 4,000$. Value of 4 in tens place $= 40$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">The thousands place is $2$ positions to the left of the tens place. Moving 2 positions to the left multiplies by $10 \\times 10 = 100$.$$4,000 \\div 40 = 100$$</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> The 4 in thousands is $100$ times the value of the 4 in tens ($4,000 = 100 \\times 40$).</div></div>"
+        },
+        {
+          "id": "c2_ex3",
+          "type": "example",
+          "badge": "Solved Example 2.3 • Dividing Whole Numbers by 10, 100, 1,000",
+          "prompt": "Find each quotient and explain how the digits shifted:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $806,335,000 \\div 1,000$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $450,000 \\div 10$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Dividing by $1,000$ shifts all digits $3$ places to the right (reducing by a factor of $1,000$): $806,335,000 \\div 1,000 = 806,335$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Dividing by $10$ shifts all digits $1$ place to the right (reducing by a factor of $10$): $450,000 \\div 10 = 45,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) $806,335$ &nbsp;|&nbsp; (b) $45,000$</div></div>"
+        },
+        {
+          "id": "c2_try1",
+          "type": "try_it",
+          "badge": "Try-It Practice 2.1 • Comparing Identical Digits",
+          "prompt": "In the number $77,314$, how many times greater is the value of the $7$ in the ten-thousands place than the $7$ in the thousands place?",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">The ten-thousands digit has value $70,000$. The thousands digit has value $7,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$70,000 \\div 7,000 = 10$. It is $10$ times greater.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $10$ times greater ($70,000 = 10 \\times 7,000$).</div></div>"
+        },
+        {
+          "id": "c2_try2",
+          "type": "try_it",
+          "badge": "Try-It Practice 2.2 • Base-Ten Rightward Shift",
+          "prompt": "A number has a digit with value $600$. If that digit moves one place to the right, what will its new value be?",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Moving one place to the right divides the value by $10$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$600 \\div 10 = 60$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> The new value is $60$.</div></div>"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "num": "Idea 3",
+      "title": "Powers of 10 & Exponential Form",
+      "flashcardTitle": "Idea 3: Powers of 10 & Exponential Notation ($10^n$)",
+      "coreRule": "An exponent represents <strong>repeated multiplication</strong>: $10^n = 10 \\times 10 \\dots (n \\text{ times})$. The exponent equals the number of zeros when written in standard form ($10^4 = 10,000$).",
+      "cards": [
+        {
+          "id": "c3_ex1",
+          "type": "example",
+          "badge": "Solved Example 3.1 • Expressing Repeated Multiplication as Powers of 10",
+          "prompt": "Write each product in exponential form and in standard form:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $10 \\times 10 \\times 10$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $10 \\times 10 \\times 10 \\times 10 \\times 10 \\times 10$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Count factors of 10 for (a): $10$ is multiplied $3$ times $\\implies 10^3$. Standard form has 3 zeros: $1,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Count factors of 10 for (b): $10$ is multiplied $6$ times $\\implies 10^6$. Standard form has 6 zeros: $1,000,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) $10^3 = 1,000$ &nbsp;|&nbsp; (b) $10^6 = 1,000,000$</div></div>"
+        },
+        {
+          "id": "c3_ex2",
+          "type": "example",
+          "badge": "Solved Example 3.2 • Evaluating Whole Numbers Multiplied by Powers of 10",
+          "prompt": "Find the value of each expression:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $7 \\times 10^3$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $9 \\times 10^5$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Evaluate $10^3$: $10^3 = 1,000$. Then multiply: $7 \\times 1,000 = 7,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Evaluate $10^5$: $10^5 = 100,000$. Then multiply: $9 \\times 100,000 = 900,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) $7,000$ &nbsp;|&nbsp; (b) $900,000$</div></div>"
+        },
+        {
+          "id": "c3_ex3",
+          "type": "example",
+          "badge": "Solved Example 3.3 • Error Analysis in Exponents (Jonah, Zoey & Lamiaa)",
+          "prompt": "Three students wrote their answers for $10^3$ and $10^4$:<div class=\"q-sub-item\">• Jonah wrote: $10^3 = 30$<br>• Zoey wrote: $10^4 = 40$<br>• Lamiaa wrote: $10^3 = 100$</div><div class=\"q-sub-item\">Explain the misconception each student made and provide the correct mathematical evaluation.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Jonah and Zoey multiplied the base by the exponent ($10 \\times 3 = 30$ and $10 \\times 4 = 40$). An exponent means <strong>repeated multiplication of the base</strong>, NOT multiplying base by exponent!</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Lamiaa only multiplied two tens ($10 \\times 10 = 100 = 10^2$) instead of three tens ($10 \\times 10 \\times 10 = 1,000$).</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> Correct Values: $10^3 = 1,000$ and $10^4 = 10,000$.</div></div>"
+        },
+        {
+          "id": "c3_try1",
+          "type": "try_it",
+          "badge": "Try-It Practice 3.1 • Scientific Powers of 10",
+          "prompt": "Write $10^5$ in standard form and in words.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">$10^5 = 10 \\times 10 \\times 10 \\times 10 \\times 10 = 100,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">In words: \"One hundred thousand\".</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> Standard: $100,000$ &nbsp;|&nbsp; Word: One hundred thousand</div></div>"
+        },
+        {
+          "id": "c3_try2",
+          "type": "try_it",
+          "badge": "Try-It Practice 3.2 • Exponent Error Analysis",
+          "prompt": "A student wrote $5 \\times 10^2 = 50$. Explain the mistake and state the correct product.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">The student calculated $5 \\times (10 \\times 1)$ or appended only 1 zero. But $10^2 = 100$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Correct product: $5 \\times 100 = 500$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> The student used $10^1$ instead of $10^2$. Correct answer is $500$.</div></div>"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "num": "Idea 4",
+      "title": "Multiplying Multi-Digit Numbers by Powers of 10",
+      "flashcardTitle": "Idea 4: Multi-Digit Products with Powers of 10",
+      "coreRule": "To multiply a multi-digit number by $10^n$, shift all digits $n$ places to the left, appending $n$ zeros to the right of the whole number.",
+      "cards": [
+        {
+          "id": "c4_ex1",
+          "type": "example",
+          "badge": "Solved Example 4.1 • Mental Math Patterns with Powers of 10",
+          "prompt": "Compute each product using mental math patterns:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $52 \\times 10^3$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $145 \\times 10^4$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">For (a): The exponent is $3$. Append $3$ zeros to $52$: $52 \\times 1,000 = 52,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">For (b): The exponent is $4$. Append $4$ zeros to $145$: $145 \\times 10,000 = 1,450,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) $52,000$ &nbsp;|&nbsp; (b) $1,450,000$</div></div>"
+        },
+        {
+          "id": "c4_ex2",
+          "type": "example",
+          "badge": "Solved Example 4.2 • Products Ending in Zero Multiplied by Powers of 10",
+          "prompt": "Find the product: $30 \\times 10^3$:<div class=\"q-sub-item\">Explain why the product ends in four zeros rather than three.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Break $30$ into $3 \\times 10^1$. Then:$$30 \\times 10^3 = 3 \\times 10^1 \\times 10^3 = 3 \\times 10^4$$</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$3 \\times 10,000 = 30,000$. One zero came from the factor $30$ and three zeros came from $10^3$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $30,000$ (Contains 4 zeros total).</div></div>"
+        },
+        {
+          "id": "c4_ex3",
+          "type": "example",
+          "badge": "Solved Example 4.3 • Real-World Spacecraft Mass Calculation",
+          "prompt": "A space exploration probe has a mass of $3 \\times 10^4\\text{ kg}$.<div class=\"q-sub-item\">Write the mass in standard form and determine how many 1,000 kg satellites would equal this probe's mass.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Standard form: $3 \\times 10^4 = 3 \\times 10,000 = 30,000\\text{ kg}$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">Divide by $1,000$: $30,000 \\div 1,000 = 30$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> Standard mass = $30,000\\text{ kg}$ &nbsp;|&nbsp; Equals $30$ satellites of $1,000\\text{ kg}$.</div></div>"
+        },
+        {
+          "id": "c4_try1",
+          "type": "try_it",
+          "badge": "Try-It Practice 4.1 • Base-Ten Multiplication",
+          "prompt": "Find the product: $48 \\times 10^4$.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">$10^4 = 10,000$. Append 4 zeros to 48.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$48 \\times 10,000 = 480,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $480,000$</div></div>"
+        },
+        {
+          "id": "c4_try2",
+          "type": "try_it",
+          "badge": "Try-It Practice 4.2 • Missing Exponent",
+          "prompt": "Find the missing exponent $n$: $8 \\times 10^n = 8,000,000$.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Count the zeros after the 8: There are 6 zeros.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$8,000,000 = 8 \\times 10^6$. Therefore, $n = 6$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> $n = 6$</div></div>"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "num": "Idea 5",
+      "title": "Estimating Products Using Compatible Numbers & Rounding",
+      "flashcardTitle": "Idea 5: Estimating Products (Rounding & Compatible Numbers)",
+      "coreRule": "To estimate products, round each factor to its greatest place value or choose compatible numbers close to the actual values that make mental computation straightforward.",
+      "cards": [
+        {
+          "id": "c5_ex1",
+          "type": "example",
+          "badge": "Solved Example 5.1 • Product Estimation via Rounding",
+          "prompt": "Estimate each product by rounding to the nearest ten or hundred:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $69 \\times 63$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $482 \\times 19$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">For (a): Round $69 \\to 70$ and $63 \\to 60$. Multiply: $70 \\times 60 = 4,200$. (Actual $= 4,347$).</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">For (b): Round $482 \\to 500$ and $19 \\to 20$. Multiply: $500 \\times 20 = 10,000$. (Actual $= 9,158$).</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) Estimate $= 4,200$ &nbsp;|&nbsp; (b) Estimate $= 10,000$</div></div>"
+        },
+        {
+          "id": "c5_ex2",
+          "type": "example",
+          "badge": "Solved Example 5.2 • Product Estimation via Compatible Numbers",
+          "prompt": "Estimate each product using compatible numbers:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $9,358 \\times 69$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $225 \\times 16$</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">For (a): Choose friendly numbers: $9,358 \\to 9,000$ and $69 \\to 70$. Mental math: $9 \\times 7 = 63$, so $9,000 \\times 70 = 630,000$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">For (b): Notice $225 \\approx 250$. Since $250 \\times 4 = 1,000$ and $16 = 4 \\times 4$: $250 \\times 16 = 4,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) Compatible Estimate $= 630,000$ &nbsp;|&nbsp; (b) Compatible Estimate $= 4,000$</div></div>"
+        },
+        {
+          "id": "c5_ex3",
+          "type": "example",
+          "badge": "Solved Example 5.3 • Real-World Application: Airplane Distance & Furniture Cost",
+          "prompt": "Solve both real-world estimation problems:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> An airplane flies at an average speed of $482$ miles per hour. Estimate how far it travels in $19$ hours.</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> A company orders $41$ conference tables costing $\\$85$ each. Estimate the total cost using rounding.</div>",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">For airplane (a): Round speed $482 \\to 500\\text{ mph}$ and time $19 \\to 20\\text{ hours}$. Estimated distance $= 500 \\times 20 = 10,000\\text{ miles}$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">For tables (b): Round $41 \\to 40$ tables and $\\$85 \\to \\$90$. Estimated cost $= 40 \\times 90 = \\$3,600$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> (a) Distance $\\approx 10,000\\text{ miles}$ &nbsp;|&nbsp; (b) Cost $\\approx \\$3,600$</div></div>"
+        },
+        {
+          "id": "c5_try1",
+          "type": "try_it",
+          "badge": "Try-It Practice 5.1 • Rounding Product Estimation",
+          "prompt": "Estimate the product of $78 \\times 42$ by rounding each factor to the nearest ten.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">Round $78 \\to 80$ and $42 \\to 40$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$80 \\times 40 = 3,200$. (Actual $= 3,276$).</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> Estimated product is $3,200$.</div></div>"
+        },
+        {
+          "id": "c5_try2",
+          "type": "try_it",
+          "badge": "Try-It Practice 5.2 • Compatible Numbers Strategy",
+          "prompt": "Use compatible numbers to estimate $492 \\times 22$.",
+          "solution": "<div class=\"solution-steps-accordion\"><div class=\"step-row\"><span class=\"step-num-pill\">Step 1</span><div class=\"step-body\">$492$ is close to $500$, and $22$ is close to $20$.</div></div><div class=\"step-row\"><span class=\"step-num-pill\">Step 2</span><div class=\"step-body\">$500 \\times 20 = 10,000$.</div></div><div class=\"final-answer-badge\"><i class=\"fa-solid fa-circle-check\"></i> Compatible estimate is $10,000$.</div></div>"
+        }
+      ]
+    }
+  ],
+  "mcqs": [
+    {
+      "id": "mcq-pv-1",
+      "question": "In the number $213,560,447$, what is the place value of the digit 1?",
+      "options": ["Hundred thousands", "Millions", "Ten millions", "Hundred millions"],
+      "correct": 2,
+      "explanation": "The digit 2 is in hundred-millions, 1 is in ten-millions, and 3 is in millions."
+    },
+    {
+      "id": "mcq-pv-2",
+      "question": "Which of the following represents the number 7,564,209 in expanded form?",
+      "options": [
+        "7,000,000 + 50,000 + 6,000 + 400 + 20 + 9",
+        "7,000,000 + 500,000 + 60,000 + 4,000 + 200 + 9",
+        "70,000,000 + 500,000 + 6,000 + 200 + 9",
+        "7,000,000 + 564,000 + 209"
+      ],
+      "correct": 1,
+      "explanation": "Expanding by digit values gives 7,000,000 + 500,000 + 60,000 + 4,000 + 200 + 9."
+    },
+    {
+      "id": "mcq-pv-3",
+      "question": "In the number 65,520, the 5 in the thousands place is how many times the value of the 5 in the hundreds place?",
+      "options": ["1 time", "10 times", "100 times", "1,000 times"],
+      "correct": 1,
+      "explanation": "The 5 in thousands has value 5,000, and the 5 in hundreds has value 500. Since 5,000 = 10 × 500, it is 10 times greater."
+    },
+    {
+      "id": "mcq-pv-4",
+      "question": "What is the value of 806,335,000 ÷ 1,000?",
+      "options": ["806,335", "8,063,350", "80,633.5", "806,335,000,000"],
+      "correct": 0,
+      "explanation": "Dividing by 1,000 shifts the digits 3 places to the right (removes 3 zeros): 806,335."
+    },
+    {
+      "id": "mcq-pv-5",
+      "question": "Which represents 10 × 10 × 10 × 10 in exponential form?",
+      "options": ["40", "10 × 4", "10⁴", "4¹⁰"],
+      "correct": 2,
+      "explanation": "10 multiplied by itself 4 times is written with base 10 and exponent 4: 10⁴."
+    },
+    {
+      "id": "mcq-pv-6",
+      "question": "What is the value of 7 × 10³?",
+      "options": ["70", "700", "2,100", "7,000"],
+      "correct": 3,
+      "explanation": "10³ = 1,000. Therefore, 7 × 1,000 = 7,000."
+    },
+    {
+      "id": "mcq-pv-7",
+      "question": "Zoey wrote 10⁴ = 40. Which statement explains her error?",
+      "options": [
+        "She should have added 10 + 4 = 14.",
+        "She multiplied the base 10 by the exponent 4 instead of multiplying 10 by itself 4 times.",
+        "She should have divided 10 by 4.",
+        "There is no error; 10⁴ equals 40."
+      ],
+      "correct": 1,
+      "explanation": "10⁴ = 10 × 10 × 10 × 10 = 10,000. Zoey mistakenly computed 10 × 4 = 40."
+    },
+    {
+      "id": "mcq-pv-8",
+      "question": "What is the product of 52 × 10³?",
+      "options": ["520", "5,200", "52,000", "520,000"],
+      "correct": 2,
+      "explanation": "52 × 10³ = 52 × 1,000 = 52,000."
+    },
+    {
+      "id": "mcq-pv-9",
+      "question": "Estimate the product of 69 × 63 by rounding to the nearest ten.",
+      "options": ["3,600", "4,200", "4,500", "4,900"],
+      "correct": 1,
+      "explanation": "69 rounds to 70 and 63 rounds to 60. Then 70 × 60 = 4,200."
+    },
+    {
+      "id": "mcq-pv-10",
+      "question": "An airplane flies 482 miles per hour. Estimate how far it travels in 19 hours using rounding.",
+      "options": ["8,000 miles", "9,000 miles", "10,000 miles", "12,000 miles"],
+      "correct": 2,
+      "explanation": "Round 482 to 500 and 19 to 20. Then 500 × 20 = 10,000 miles."
+    }
+  ],
+  "quizModels": [
+    {
+      "modelId": 1,
+      "title": "Assessment Model A: Foundation & Place Value Shifts",
+      "questions": [
+        {
+          "id": "q_m1_1",
+          "text": "State the place value of the digit 1 in 213,560,447.",
+          "points": 2,
+          "rubric": "Ten millions."
+        },
+        {
+          "id": "q_m1_2",
+          "text": "In 65,520, how many times greater is the 5 in the thousands place than the 5 in the hundreds place?",
+          "points": 2,
+          "rubric": "10 times greater (5,000 = 10 × 500)."
+        },
+        {
+          "id": "q_m1_3",
+          "text": "Write 10 × 10 × 10 × 10 × 10 in exponential form and standard form.",
+          "points": 2,
+          "rubric": "10⁵ = 100,000."
+        },
+        {
+          "id": "q_m1_4",
+          "text": "Find the product: 52 × 10³.",
+          "points": 2,
+          "rubric": "52,000."
+        },
+        {
+          "id": "q_m1_5",
+          "text": "Estimate the product of 482 × 19 by rounding each factor to its highest place value.",
+          "points": 2,
+          "rubric": "500 × 20 = 10,000."
+        }
+      ]
+    },
+    {
+      "modelId": 2,
+      "title": "Assessment Model B: Powers of 10 & Mental Math",
+      "questions": [
+        {
+          "id": "q_m2_1",
+          "text": "Write thirty-four million, two hundred seven thousand, eight hundred fifteen in standard form.",
+          "points": 2,
+          "rubric": "34,207,815."
+        },
+        {
+          "id": "q_m2_2",
+          "text": "Explain why shifting a digit two places to the left multiplies its value by 100.",
+          "points": 2,
+          "rubric": "Each position to the left is 10 times greater: 10 × 10 = 100."
+        },
+        {
+          "id": "q_m2_3",
+          "text": "Find the missing exponent n: 8 × 10ⁿ = 8,000,000.",
+          "points": 2,
+          "rubric": "n = 6."
+        },
+        {
+          "id": "q_m2_4",
+          "text": "A spacecraft has a mass of 3 × 10⁴ kg. Write this mass in standard form.",
+          "points": 2,
+          "rubric": "30,000 kg."
+        },
+        {
+          "id": "q_m2_5",
+          "text": "Estimate the product of 69 × 63 using rounding.",
+          "points": 2,
+          "rubric": "Round to 70 × 60 = 4,200."
+        }
+      ]
+    },
+    {
+      "modelId": 3,
+      "title": "Assessment Model C: Error Analysis & Product Estimation",
+      "questions": [
+        {
+          "id": "q_m3_1",
+          "text": "Write the number 7,564,209 in expanded form.",
+          "points": 2,
+          "rubric": "7,000,000 + 500,000 + 60,000 + 4,000 + 200 + 9."
+        },
+        {
+          "id": "q_m3_2",
+          "text": "Find the quotient: 806,335,000 ÷ 1,000.",
+          "points": 2,
+          "rubric": "806,335."
+        },
+        {
+          "id": "q_m3_3",
+          "text": "Correct Lamiaa's error: Explain why 10³ ≠ 30 and state the correct value.",
+          "points": 2,
+          "rubric": "An exponent means repeated multiplication: 10 × 10 × 10 = 1,000."
+        },
+        {
+          "id": "q_m3_4",
+          "text": "Estimate the total cost of 41 tables if each table costs $85.",
+          "points": 2,
+          "rubric": "Round to 90 × 40 = $3,600."
+        },
+        {
+          "id": "q_m3_5",
+          "text": "Use compatible numbers to estimate the product: 9,358 × 69.",
+          "points": 2,
+          "rubric": "9,000 × 70 = 630,000 (or 9,000 × 60 = 540,000)."
+        }
+      ]
+    }
+  ],
+  "questionPools": {
+    "1": [
+      {
+        "tag": "Alternative Practice 1.A • Comparing Digit Values in Multi-Digit Numbers",
+        "q": "Rialto, California had a population of $99,171$.<div class=\"q-sub-item\">How do the values of the two $9$s in the ten-thousands place and thousands place compare?</div>",
+        "steps": [
+          { "num": "Step 1: Identify Digit Values", "text": "The $9$ in the ten-thousands place has a value of $90,000$. The $9$ in the thousands place has a value of $9,000$." },
+          { "num": "Step 2: Compare Values", "text": "Since $90,000 = 10 \\times 9,000$, the $9$ in the ten-thousands place is $10$ times the value of the $9$ in the thousands place." }
+        ],
+        "ans": "The $9$ in ten-thousands is $10$ times the value of the $9$ in thousands ($90,000 = 10 \\times 9,000$)."
+      },
+      {
+        "tag": "Alternative Practice 1.B • Converting Expanded Form to Standard and Word Form",
+        "q": "Write the given number in standard form and word form:<div class=\"q-sub-item\">$$700,000 + 40,000 + 3,000 + 200 + 80 + 9$$</div>",
+        "steps": [
+          { "num": "Step 1: Standard Form", "text": "Align by place value: $7$ hundred-thousands, $4$ ten-thousands, $3$ thousands, $2$ hundreds, $8$ tens, $9$ ones $= 743,289$." },
+          { "num": "Step 2: Word Form", "text": "Read period by period: \"Seven hundred forty-three thousand, two hundred eighty-nine\"." }
+        ],
+        "ans": "Standard: $743,289$ &nbsp;|&nbsp; Word: Seven hundred forty-three thousand, two hundred eighty-nine"
+      },
+      {
+        "tag": "Alternative Practice 1.C • Expanded Form with Seven-Digit Numbers",
+        "q": "Write $5,248,319$ in expanded form:<div class=\"q-sub-item\">Show the sum of the values of all digits in their respective places.</div>",
+        "steps": [
+          { "num": "Step 1: Decompose by Place Values", "text": "$5$ millions $= 5,000,000$; $2$ hundred-thousands $= 200,000$; $4$ ten-thousands $= 40,000$; $8$ thousands $= 8,000$; $3$ hundreds $= 300$; $1$ ten $= 10$; $9$ ones $= 9$." },
+          { "num": "Step 2: Combine in Sum", "text": "$5,000,000 + 200,000 + 40,000 + 8,000 + 300 + 10 + 9$." }
+        ],
+        "ans": "$5,000,000 + 200,000 + 40,000 + 8,000 + 300 + 10 + 9$"
+      }
+    ],
+    "2": [
+      {
+        "tag": "Alternative Practice 2.A • Word-Unit Place Value Equivalence",
+        "q": "Complete the place value equivalence:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $60\\text{ thousands} = \\dots\\text{ hundreds}$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $300\\text{ tens} = \\dots\\text{ thousands}$</div>",
+        "steps": [
+          { "num": "Step 1: Convert (a)", "text": "$60\\text{ thousands} = 60 \\times 1,000 = 60,000$. Divide by $100$: $60,000 \\div 100 = 600\\text{ hundreds}$." },
+          { "num": "Step 2: Convert (b)", "text": "$300\\text{ tens} = 300 \\times 10 = 3,000$. Divide by $1,000$: $3,000 \\div 1,000 = 3\\text{ thousands}$." }
+        ],
+        "ans": "(a) $600\\text{ hundreds}$ &nbsp;|&nbsp; (b) $3\\text{ thousands}$"
+      },
+      {
+        "tag": "Alternative Practice 2.B • Space Distance Multiplied by 10",
+        "q": "The distance from Earth to the Sun is approximately $93,000,000$ miles.<div class=\"q-sub-item\">A space mission travels $10$ times this distance into the outer solar system. What is the total distance traveled?</div>",
+        "steps": [
+          { "num": "Step 1: Multiply by 10", "text": "$93,000,000 \\times 10$. Each digit shifts one place to the left, increasing in value by a factor of 10." },
+          { "num": "Step 2: Compute Product", "text": "$93 \\times 10 = 930$, so $93,000,000 \\times 10 = 930,000,000\\text{ miles}$." }
+        ],
+        "ans": "$930,000,000\\text{ miles}$ (Nine hundred thirty million miles)"
+      },
+      {
+        "tag": "Alternative Practice 2.C • Division by 10 & Rightward Shifts",
+        "q": "Find the quotient and describe the digit shift:<div class=\"q-sub-item\">$$4,500,000 \\div 10$$</div>",
+        "steps": [
+          { "num": "Step 1: Shift Principle", "text": "Dividing by $10$ shifts every digit one place to the right, reducing each digit's value to $\\frac{1}{10}$ of its original value." },
+          { "num": "Step 2: Calculate", "text": "$4,500,000 \\div 10 = 450,000$." }
+        ],
+        "ans": "$450,000$ (Digits shift 1 place right, decreasing by a factor of 10)"
+      }
+    ],
+    "3": [
+      {
+        "tag": "Alternative Practice 3.A • Repeated Factors to Exponential Form",
+        "q": "Write each expression in exponential form and find its value:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $10 \\times 10 \\times 10 \\times 10 \\times 10$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $10 \\times 10 \\times 10$</div>",
+        "steps": [
+          { "num": "Step 1: Part (a)", "text": "The base is $10$. It is multiplied by itself $5$ times. Form: $10^5 = 100,000$." },
+          { "num": "Step 2: Part (b)", "text": "The base is $10$. It is multiplied by itself $3$ times. Form: $10^3 = 1,000$." }
+        ],
+        "ans": "(a) $10^5 = 100,000$ &nbsp;|&nbsp; (b) $10^3 = 1,000$"
+      },
+      {
+        "tag": "Alternative Practice 3.B • Error Analysis in Exponents",
+        "q": "Zoey wrote: \"$10^4 = 40$\".<div class=\"q-sub-item\">Explain Zoey's mistake and write the correct standard form.</div>",
+        "steps": [
+          { "num": "Step 1: Identify the Error", "text": "Zoey multiplied the base by the exponent ($10 \\times 4 = 40$). An exponent does not mean multiplication by the exponent; it indicates repeated multiplication of the base." },
+          { "num": "Step 2: Find Correct Value", "text": "$10^4 = 10 \\times 10 \\times 10 \\times 10 = 10,000$." }
+        ],
+        "ans": "Zoey multiplied base by exponent ($10 \\times 4 = 40$). The correct value is $10^4 = 10 \\times 10 \\times 10 \\times 10 = 10,000$."
+      },
+      {
+        "tag": "Alternative Practice 3.C • Spacecraft Scientific Mass",
+        "q": "A satellite has a mass of $4 \\times 10^4\\text{ kg}$.<div class=\"q-sub-item\">Write this mass in standard form and word form.</div>",
+        "steps": [
+          { "num": "Step 1: Evaluate Power of 10", "text": "$10^4 = 10,000$." },
+          { "num": "Step 2: Multiply by Factor", "text": "$4 \\times 10,000 = 40,000\\text{ kg}$." }
+        ],
+        "ans": "Standard form: $40,000\\text{ kg}$ &nbsp;|&nbsp; Word form: Forty thousand kilograms"
+      }
+    ],
+    "4": [
+      {
+        "tag": "Alternative Practice 4.A • Multi-Digit Multiplication with Powers of 10",
+        "q": "Find the product for each expression:<div class=\"q-sub-item\"><span class=\"q-part-pill\">(a)</span> $34 \\times 10^2$</div><div class=\"q-sub-item\"><span class=\"q-part-pill\">(b)</span> $18 \\times 10^4$</div>",
+        "steps": [
+          { "num": "Step 1: Part (a)", "text": "$10^2 = 100$. Multiply $34 \\times 100 = 3,400$. (Append 2 zeros)." },
+          { "num": "Step 2: Part (b)", "text": "$10^4 = 10,000$. Multiply $18 \\times 10,000 = 180,000$. (Append 4 zeros)." }
+        ],
+        "ans": "(a) $3,400$ &nbsp;|&nbsp; (b) $180,000$"
+      },
+      {
+        "tag": "Alternative Practice 4.B • Missing Exponent Discovery",
+        "q": "Find the missing exponent $n$ to make the statement true:<div class=\"q-sub-item\">$$6 \\times 10^n = 600,000$$</div>",
+        "steps": [
+          { "num": "Step 1: Count Zeros", "text": "In $600,000$, there are $5$ zeros following the non-zero digit $6$." },
+          { "num": "Step 2: Connect to Power of 10", "text": "$600,000 = 6 \\times 100,000 = 6 \\times 10^5$. Therefore, $n = 5$." }
+        ],
+        "ans": "$n = 5$ (Since $6 \\times 10^5 = 600,000$)"
+      },
+      {
+        "tag": "Alternative Practice 4.C • Comparing Numbers in Exponential Form",
+        "q": "Compare using $>$, $<$, or $=$:<div class=\"q-sub-item\">$$52 \\times 10^3 \\quad \\bigcirc \\quad 5 \\times 10^4$$</div>",
+        "steps": [
+          { "num": "Step 1: Evaluate Left Side", "text": "$52 \\times 10^3 = 52 \\times 1,000 = 52,000$." },
+          { "num": "Step 2: Evaluate Right Side", "text": "$5 \\times 10^4 = 5 \\times 10,000 = 50,000$." },
+          { "num": "Step 3: Compare", "text": "Since $52,000 > 50,000$, $52 \\times 10^3 > 5 \\times 10^4$." }
+        ],
+        "ans": "$52 \\times 10^3 > 5 \\times 10^4$"
+      }
+    ],
+    "5": [
+      {
+        "tag": "Alternative Practice 5.A • Airplane Travel Distance Estimation",
+        "q": "An airplane flies at an average speed of $482$ miles per hour.<div class=\"q-sub-item\">Estimate how far it travels in $19$ hours using rounding to the highest place value.</div>",
+        "steps": [
+          { "num": "Step 1: Round Factors", "text": "Round $482$ to nearest hundred: $500$. Round $19$ to nearest ten: $20$." },
+          { "num": "Step 2: Multiply Rounded Factors", "text": "$500 \\times 20 = 10,000\\text{ miles}$." }
+        ],
+        "ans": "Estimated distance: $10,000\\text{ miles}$ ($500 \\times 20 = 10,000$)"
+      },
+      {
+        "tag": "Alternative Practice 5.B • Cafeteria Table Cost Estimation",
+        "q": "A school purchases $28$ cafeteria tables. Each table costs $\\$315$.<div class=\"q-sub-item\">Estimate the total cost using compatible numbers.</div>",
+        "steps": [
+          { "num": "Step 1: Choose Compatible Numbers", "text": "Choose friendly numbers close to the actual values: $315 \\to 300$, and $28 \\to 30$." },
+          { "num": "Step 2: Compute Product", "text": "$300 \\times 30 = \\$9,000$." }
+        ],
+        "ans": "Estimated cost: $\\$9,000$ ($300 \\times 30 = 9,000$)"
+      },
+      {
+        "tag": "Alternative Practice 5.C • Planetary Orbit Estimation",
+        "q": "Venus takes $225$ Earth days to complete one orbit around the Sun.<div class=\"q-sub-item\">Estimate how many Earth days it takes Venus to complete $16$ full orbits using compatible numbers or rounding.</div>",
+        "steps": [
+          { "num": "Step 1: Method 1 (Rounding)", "text": "Round $225$ to $200$, and $16$ to $20$: $200 \\times 20 = 4,000\\text{ days}$." },
+          { "num": "Step 2: Method 2 (Compatible)", "text": "Notice $225 \\approx 250$ and $16$ is a multiple of $4$: $250 \\times 16 = 4,000\\text{ days}$." }
+        ],
+        "ans": "Estimated time: $4,000\\text{ Earth days}$"
+      }
+    ]
+  }
+}

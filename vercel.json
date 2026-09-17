@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/place_value",
+      "destination": "/index.html?lesson=place_value&student=true"
+    },
+    {
+      "source": "/similarity",
+      "destination": "/index.html?lesson=similarity&student=true"
+    },
+    {
+      "source": "/quadratic",
+      "destination": "/index.html?lesson=quadratic&student=true"
+    },
+    {
+      "source": "/proportion",
+      "destination": "/index.html?lesson=proportion&student=true"
+    },
+    {
+      "source": "/((?!.*\\.).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
